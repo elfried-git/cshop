@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Qui sommes-nous ? - Boutique Solidaire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div id="logo">
+            <img src="images/assoc.png" alt="Logo de l'association">
+        </div>
+        <nav class="main-nav" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
+                <li><a href="index.html#produits-en-avant">Produits</a></li>
+                <li><a href="index.html#categories-en-avant">Catégories</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="connexion.html">Profil</a></li>
+                <li>
+                    <a href="panier.html" class="icone-panier" aria-label="Voir le panier">
+                        <img src="images/panier.png" alt="Panier" />
+                        <span id="compteur-panier">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="about-us-container">
+            <section class="about-us-hero">
+                <h1>Qui sommes-nous ?</h1>
+                <p>La Boutique Solidaire est bien plus qu’un simple commerce. C’est un projet collectif porté par des
+                    bénévoles, des partenaires engagés et des citoyens solidaires.</p>
+            </section>
+
+            <div class="about-us-content">
+                <section class="about-us-section">
+                    <div class="section-icon">🤝</div>
+                    <div class="section-content">
+                        <h2>Notre vision</h2>
+                        <p>Nous croyons qu’un achat peut avoir du sens. En revalorisant des produits, en soutenant des familles
+                            en difficulté et en favorisant l’insertion professionnelle, nous transformons chaque commande en un
+                            geste solidaire.</p>
+                    </div>
+                </section>
+
+                <section class="about-us-section">
+                    <div class="section-icon">🎯</div>
+                    <div class="section-content">
+                        <h2>Nos actions</h2>
+                        <p>Chaque euro dépensé sur notre plateforme contribue à des projets concrets : aide alimentaire,
+                            recyclage, formation, accompagnement social. Nous travaillons avec des associations locales pour
+                            maximiser notre impact.</p>
+                    </div>
+                </section>
+
+                <section class="about-us-section">
+                    <div class="section-icon">❤️</div>
+                    <div class="section-content">
+                        <h2>Notre équipe</h2>
+                        <p>Derrière la Boutique Solidaire, il y a des visages, des histoires, des engagements. Des bénévoles
+                            passionnés, des professionnels du réemploi, des partenaires logistiques et des clients fidèles qui
+                            partagent nos valeurs.</p>
+                    </div>
+                </section>
+            </div>
+
+            <a href="index.html" class="btn">Retour à l'accueil</a>
+        </div>
+    </main>
+
+    <footer class="main-footer" aria-label="Pied de page principal">
+        <nav aria-label="Menu de pied de page">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#categories-en-avant">Catégories</a></li>
+                <li><a href="index.html#contact">Support</a></li>
+                <li><a href="panier.html">Mon Panier</a></li>
+            </ul>
+        </nav>
+        <div class="footer-content">
+            <div class="reseaux">
+                <a href="404.html"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="404.html"><img src="images/twitter.jpg" alt="Twitter"></a>
+                <a href="404.html"><img src="images/instagram.jpg" alt="Instagram"></a>
+            </div>
+            <div class="infos-legales">
+                <p>&copy; 2025 Association Solidaire. Tous droits réservés.</p>
+                <p>Mentions légales | Politique de confidentialité | Conditions d'utilisation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function updateCartCounter() {
+            const compteur = document.getElementById("compteur-panier");
+            if (compteur) {
+                const panier = JSON.parse(localStorage.getItem("panier")) || [];
+                const totalArticles = panier.reduce((acc, item) => acc + item.quantite, 0);
+                compteur.textContent = totalArticles;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateCartCounter();
+        });
+    </script>
+</body>
+
+</html>

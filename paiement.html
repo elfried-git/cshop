@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Paiement - Boutique Solidaire</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div id="logo">
+        <img src="images/assoc.png" alt="Logo de l'association">
+    </div>
+    <nav class="main-nav" aria-label="Menu principal">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
+            <li><a href="index.html#produits-en-avant">Produits</a></li>
+            <li><a href="index.html#categories-en-avant">Catégories</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="connexion.html">Profil</a></li>
+            <li>
+                <a href="panier.html" class="icone-panier" aria-label="Voir le panier">
+                    <img src="images/panier.png" alt="Panier" />
+                    <span id="compteur-panier">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="paiement">
+      <h1>Choisissez votre méthode de paiement</h1>
+
+      <div class="options-paiement">
+        <div class="option" onclick="afficherFormulaire('carte', this)">
+          <img src="images_page_paiement/carte.jpg" alt="Carte bancaire" class="icone-paiement">
+          <p>Carte bancaire</p>
+        </div>
+
+        <div class="option" onclick="afficherFormulaire('paypal', this)">
+          <img src="images_page_paiement/paypal.jpg" alt="PayPal" class="icone-paiement">
+          <p>PayPal</p>
+        </div>
+
+        <div class="option" onclick="afficherFormulaire('plusieurs', this)">
+          <img src="images_page_paiement/Expresscarte.jpg" alt="Paiement en plusieurs fois" class="icone-paiement">
+          <p>Paiement en plusieurs fois</p>
+        </div>
+      </div>
+
+      <!-- Formulaire carte bancaire -->
+      <form id="form-carte" class="formulaire-paiement">
+        <h3>Paiement par carte bancaire</h3>
+        <div class="form-group">
+            <label for="nom-carte">Nom sur la carte</label>
+            <input type="text" id="nom-carte" name="nom-carte" required autocomplete="cc-name" pattern="[A-Za-zÀ-ÿ\s]+"
+              title="Veuillez entrer uniquement des lettres">
+        </div>
+        <div class="form-group">
+            <label for="numero-carte">Numéro de carte</label>
+            <input type="text" id="numero-carte" name="numero-carte" required inputmode="numeric" pattern="[0-9]{16}"
+              maxlength="16" placeholder="1234 5678 9012 3456" autocomplete="cc-number">
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="expiration">Date d'expiration</label>
+                <input type="month" id="expiration" name="expiration" required autocomplete="cc-exp">
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required inputmode="numeric" pattern="\d{3}" maxlength="3"
+                  placeholder="123" autocomplete="cc-csc" title="Entrez exactement 3 chiffres">
+            </div>
+        </div>
+        <button type="submit" class="btn">Payer</button>
+      </form>
+
+      <!-- Formulaire PayPal -->
+      <form id="form-paypal" class="formulaire-paiement">
+        <h3>Connexion PayPal</h3>
+        <div class="form-group">
+            <label for="email-paypal">Email</label>
+            <input type="email" id="email-paypal" name="email-paypal" required
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              title="Veuillez entrer une adresse email valide (ex: exemple@domaine.com)" autocomplete="email"
+              placeholder="exemple@domaine.com">
+        </div>
+        <div class="form-group">
+            <label for="mdp-paypal">Mot de passe</label>
+            <input type="password" id="mdp-paypal" name="mdp-paypal" required>
+        </div>
+        <button type="submit" class="btn">Se connecter et payer</button>
+      </form>
+
+      <!-- Formulaire paiement en plusieurs fois -->
+      <form id="form-plusieurs" class="formulaire-paiement">
+        <h3>Paiement en plusieurs fois</h3>
+        <div class="form-group">
+            <label for="nom-plusieurs">Nom sur la carte</label>
+            <input type="text" id="nom-plusieurs" name="nom-plusieurs" required pattern="[A-Za-zÀ-ÿ\s]+" inputmode="text"
+              title="Veuillez entrer uniquement des lettres et des espaces">
+        </div>
+        <div class="form-group">
+            <label for="numero-carte-plusieurs">Numéro de carte Étrangère</label>
+            <input type="text" id="numero-carte-plusieurs" name="numero-carte-plusieurs" required inputmode="numeric" pattern="\d{16}"
+              maxlength="16" placeholder="1234567890123456" autocomplete="cc-number" title="Entrez exactement 16 chiffres">
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="expiration-plusieurs">Date d'expiration</label>
+                <input type="month" id="expiration-plusieurs" name="expiration-plusieurs" required autocomplete="cc-exp">
+            </div>
+            <div class="form-group">
+                <label for="cvv-plusieurs">CVV</label>
+                <input type="text" id="cvv-plusieurs" name="cvv-plusieurs" required inputmode="numeric" pattern="\d{3}" maxlength="3"
+                  placeholder="123" autocomplete="cc-csc" title="Entrez exactement 3 chiffres">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="choix-paiement">Choisissez une option</label>
+            <select id="choix-paiement" name="choix-paiement" required>
+              <option value="">-- Sélectionnez --</option>
+              <option value="3x">Paiement en 3 fois</option>
+              <option value="4x">Paiement en 4 fois</option>
+            </select>
+        </div>
+        <button type="submit" class="btn">Valider le paiement</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="main-footer" aria-label="Pied de page principal">
+    <nav aria-label="Menu de pied de page">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#categories-en-avant">Catégories</a></li>
+            <li><a href="index.html#contact">Support</a></li>
+            <li><a href="panier.html">Mon Panier</a></li>
+        </ul>
+    </nav>
+    <div class="footer-content">
+        <div class="reseaux">
+            <a href="404.html"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="404.html"><img src="images/twitter.jpg" alt="Twitter"></a>
+            <a href="404.html"><img src="images/instagram.jpg" alt="Instagram"></a>
+        </div>
+        <div class="infos-legales">
+            <p>&copy; 2025 Association Solidaire. Tous droits réservés.</p>
+            <p>Mentions légales | Politique de confidentialité | Conditions d'utilisation</p>
+        </div>
+    </div>
+  </footer>
+
+  <script>
+    function afficherFormulaire(id, element) {
+      const formulaires = document.querySelectorAll('.formulaire-paiement');
+      formulaires.forEach(f => f.classList.remove('active'));
+
+      const options = document.querySelectorAll('.option');
+      options.forEach(o => o.classList.remove('active'));
+
+      document.getElementById('form-' + id).classList.add('active');
+      element.classList.add('active');
+    }
+  </script>
+
+    <script>
+        function updateCartCounter() {
+            const compteur = document.getElementById("compteur-panier");
+            if (compteur) {
+                const panier = JSON.parse(localStorage.getItem("panier")) || [];
+                const totalArticles = panier.reduce((acc, item) => acc + item.quantite, 0);
+                compteur.textContent = totalArticles;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateCartCounter();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ – Boutique Solidaire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+       <div id="logo">
+            <img src="images/assoc.png" alt="Logo de l'association">
+        </div>
+        <nav class="main-nav" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
+                <li><a href="index.html#produits-en-avant">Produits</a></li>
+                <li><a href="index.html#categories-en-avant">Catégories</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="connexion.html">Profil</a></li>
+                <li>
+                    <a href="panier.html" class="icone-panier" aria-label="Voir le panier">
+                        <img src="images/panier.png" alt="Panier" />
+                        <span id="compteur-panier">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="faq" class="faq">
+            <h1 class="faq-title">FAQ</h1>
+
+            <div class="faq-item">
+                <h3>Comment fonctionne la boutique solidaire ?</h3>
+                <p>Chaque produit vendu contribue à financer des actions sociales locales. En achetant, vous soutenez
+                    directement des familles et des projets solidaires.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Les produits sont-ils neufs ou d’occasion ?</h3>
+                <p>Nous proposons des produits neufs, reconditionnés et d’occasion en excellent état. Chaque fiche produit
+                    précise la condition.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Quels sont les modes de paiement acceptés ?</h3>
+                <p>Nous acceptons les paiements par carte bancaire, PayPal et certaines cartes étrangères avec option de
+                    paiement en plusieurs fois.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Comment suivre ma commande ?</h3>
+                <p>Une fois votre commande validée, vous recevrez un email de confirmation avec un lien de suivi. Vous
+                    pouvez aussi consulter votre historique dans votre espace client.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Puis-je retourner un produit ?</h3>
+                <p>Oui, vous disposez de 14 jours après réception pour nous retourner un produit, à condition qu’il soit
+                    dans son état d’origine. Consultez notre politique de retour pour plus de détails.</p>
+            </div>
+        </section>
+
+        <a href="index.html" class="btn">Retour à la page d'accueil</a>
+    </main>
+
+    <footer class="main-footer" aria-label="Pied de page principal">
+        <nav aria-label="Menu de pied de page">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#categories-en-avant">Catégories</a></li>
+                <li><a href="index.html#contact">Support</a></li>
+                <li><a href="panier.html">Mon Panier</a></li>
+            </ul>
+        </nav>
+        <div class="footer-content">
+            <div class="reseaux">
+                <a href="404.html"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="404.html"><img src="images/twitter.jpg" alt="Twitter"></a>
+                <a href="404.html"><img src="images/instagram.jpg" alt="Instagram"></a>
+            </div>
+            <div class="infos-legales">
+                <p>&copy; 2025 Association Solidaire. Tous droits réservés.</p>
+                <p>Mentions légales | Politique de confidentialité | Conditions d'utilisation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function updateCartCounter() {
+            const compteur = document.getElementById("compteur-panier");
+            if (compteur) {
+                const panier = JSON.parse(localStorage.getItem("panier")) || [];
+                const totalArticles = panier.reduce((acc, item) => acc + item.quantite, 0);
+                compteur.textContent = totalArticles;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateCartCounter();
+        });
+    </script>
+</body>
+
+</html>

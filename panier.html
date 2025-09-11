@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon panier - Boutique Solidaire</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <header class="main-header">
+    <div id="logo">
+      <img src="images/assoc.png" alt="Logo de l'association">
+    </div>
+    <nav class="main-nav" aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
+        <li><a href="index.html#produits-en-avant">Produits</a></li>
+        <li><a href="index.html#categories-en-avant">Catégories</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="connexion.html">Profil</a></li>
+        <li>
+          <a href="panier.html" class="icone-panier" aria-label="Voir le panier">
+            <img src="images/panier.png" alt="Panier" />
+            <span id="compteur-panier">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="panier-container">
+      <h1>Mon panier</h1>
+
+      <div class="panier-table-container">
+        <table class="panier-table">
+          <thead>
+            <tr>
+              <th>Produit</th>
+              <th>Nom</th>
+              <th>Prix</th>
+              <th>Quantité</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="panier-body">
+            <!-- Contenu généré dynamiquement -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="resume-panier">
+        <p><strong>Total panier :</strong> <span id="total-panier">0 €</span></p>
+
+        <div class="boutons-panier">
+          <a href="index.html" class="btn btn-secondary">Continuer mes achats</a>
+          <button class="btn valider-btn" onclick="ouvrirPaiement()">Valider ma commande</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <!--  --===========================
+     GESTION DU PANIER EN JAVASCRIPT======================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tbody = document.getElementById("panier-body");
+      const totalPanier = document.getElementById("total-panier");
+
+      function afficherPanier() {
+        const panier = JSON.parse(localStorage.getItem("panier")) || [];
+        tbody.innerHTML = "";
+        let total = 0;
+
+        if (panier.length === 0) {
+          const tr = document.createElement("tr");
+          const td = document.createElement("td");
+          td.colSpan = 6;
+          td.textContent = "Votre panier est vide.";
+          td.style.textAlign = "center";
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+        } else {
+          panier.forEach((item, index) => {
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-index", index);
+
+            const totalItem = item.prix * item.quantite;
+            total += totalItem;
+
+            tr.innerHTML = `
+              <td><img src="${item.image}" alt="${item.nom}"></td>
+              <td>${item.nom}</td>
+              <td>${item.prix} €</td>
+              <td><input type="number" class="quantite-input" value="${item.quantite}" min="1" data-index="${index}"></td>
+              <td>${totalItem.toFixed(2)} €</td>
+              <td><button class="remove-btn" data-index="${index}">Supprimer</button></td>
+            `;
+
+            tbody.appendChild(tr);
+          });
+        }
+
+        totalPanier.textContent = total.toFixed(2) + " €";
+        activerSuppression();
+        activerQuantite();
+      }
+
+      function activerSuppression() {
+        const boutons = document.querySelectorAll(".remove-btn");
+        boutons.forEach(bouton => {
+          bouton.addEventListener("click", function () {
+            const index = parseInt(this.getAttribute("data-index"));
+            let panier = JSON.parse(localStorage.getItem("panier")) || [];
+            panier.splice(index, 1);
+            localStorage.setItem("panier", JSON.stringify(panier));
+            afficherPanier();
+            updateCartCounter();
+          });
+        });
+      }
+
+      function activerQuantite() {
+        const inputs = document.querySelectorAll(".quantite-input");
+        inputs.forEach(input => {
+          input.addEventListener("change", function () {
+            const index = parseInt(this.getAttribute("data-index"));
+            let panier = JSON.parse(localStorage.getItem("panier")) || [];
+            panier[index].quantite = parseInt(this.value);
+            localStorage.setItem("panier", JSON.stringify(panier));
+            afficherPanier();
+            updateCartCounter();
+          });
+        });
+      }
+
+      afficherPanier();
+    });
+  </script>
+  <!--  --===========================
+     OUVRIR LA PAGE DE PAIEMENT DANS UN NOUVEL ONGLET======================== -->
+  <script>
+    function ouvrirPaiement() {
+      window.open("paiement.html", "_blank");
+    }
+  </script>
+  <script>
+    function updateCartCounter() {
+      const compteur = document.getElementById("compteur-panier");
+      if (compteur) {
+        const panier = JSON.parse(localStorage.getItem("panier")) || [];
+        const totalArticles = panier.reduce((acc, item) => acc + item.quantite, 0);
+        compteur.textContent = totalArticles;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateCartCounter();
+    });
+  </script>
+</body>
+
+</html>

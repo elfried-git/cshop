@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail produit - OVS BREAK Sweatshirt pour filles</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div id="logo">
+            <img src="../images/assoc.png" alt="Logo de l'association">
+        </div>
+        <nav class="main-nav" aria-label="Menu principal">
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../quisommesnous.html">Qui sommes-nous ?</a></li>
+                <li><a href="../index.html#produits-en-avant">Produits</a></li>
+                <li><a href="../index.html#categories-en-avant">Catégories</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../connexion.html">Profil</a></li>
+                <li>
+                    <a href="../panier.html" class="icone-panier" aria-label="Voir le panier">
+                        <img src="../images/panier.png" alt="Panier" />
+                        <span id="compteur-panier">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-detail-container">
+            <div class="product-detail">
+                <div class="product-image">
+                    <img src="/images/produit1.png" alt="OVS BREAK Sweatshirt filles">
+                </div>
+                <div class="product-info">
+                    <h1>OVS BREAK Sweatshirt pour filles</h1>
+                    <div class="price">20 €</div>
+                    <div class="description">
+                        <p>Sweat French Terry en pur coton (non brossé à l'intérieur) avec capuche. Manches avec détail
+                            contrasté. Inscription « Break Rules » imprimée sur la poitrine. Poche kangourou. Poignets et
+                            base côtelés.</p>
+                    </div>
+                    <div class="caracteristiques">
+                        <p><strong>Caractéristiques :</strong></p>
+                        <ul>
+                            <li>Tailles disponibles : S, M</li>
+                            <li>Composition : 100% coton</li>
+                            <li>Couleur : Rouge</li>
+                            <li>Entretien : Lavable en machine à 30°C</li>
+                        </ul>
+                    </div>
+                    <div class="actions">
+                        <label for="quantite">Quantité :</label>
+                        <input type="number" id="quantite" name="quantite" min="1" value="1">
+                        <button class="btn ajouter-panier">Ajouter au panier</button>
+                    </div>
+                    <p id="confirmation-message" class="confirmation-message" style="display: none;">Produit ajouté au panier !</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" aria-label="Pied de page principal">
+        <nav aria-label="Menu de pied de page">
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../index.html#categories-en-avant">Catégories</a></li>
+                <li><a href="../index.html#contact">Support</a></li>
+                <li><a href="../panier.html">Mon Panier</a></li>
+            </ul>
+        </nav>
+        <div class="footer-content">
+            <div class="reseaux">
+                <a href="../404.html"><img src="../images/facebook.png" alt="Facebook"></a>
+                <a href="../404.html"><img src="../images/twitter.jpg" alt="Twitter"></a>
+                <a href="../404.html"><img src="../images/instagram.jpg" alt="Instagram"></a>
+            </div>
+            <div class="infos-legales">
+                <p>&copy; 2025 Association Solidaire. Tous droits réservés.</p>
+                <p>Mentions légales | Politique de confidentialité | Conditions d'utilisation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function updateCartCounter() {
+            const compteur = document.getElementById("compteur-panier");
+            if (compteur) {
+                const panier = JSON.parse(localStorage.getItem("panier")) || [];
+                const totalArticles = panier.reduce((acc, item) => acc + item.quantite, 0);
+                compteur.textContent = totalArticles;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateCartCounter();
+
+            const boutonPanier = document.querySelector(".ajouter-panier");
+            const message = document.getElementById("confirmation-message");
+
+            boutonPanier.addEventListener("click", () => {
+                const produit = {
+                    nom: "OVS BREAK Sweatshirt pour filles",
+                    prix: 20,
+                    quantite: parseInt(document.getElementById("quantite").value),
+                    image: "/images/produit1.png"
+                };
+
+                let panier = JSON.parse(localStorage.getItem("panier")) || [];
+
+                const indexExistant = panier.findIndex(p => p.nom === produit.nom);
+                if (indexExistant !== -1) {
+                    panier[indexExistant].quantite += produit.quantite;
+                } else {
+                    panier.push(produit);
+                }
+
+                localStorage.setItem("panier", JSON.stringify(panier));
+
+                updateCartCounter();
+
+                message.style.display = "block";
+                message.style.opacity = "1";
+
+                setTimeout(() => {
+                    message.style.opacity = "0";
+                    setTimeout(() => {
+                        message.style.display = "none";
+                    }, 300);
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+
+</html>

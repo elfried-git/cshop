@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Boutique Solidaire</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div id="logo">
+            <img src="images/assoc.png" alt="Logo de l'association">
+        </div>
+        <nav class="main-nav" aria-label="Menu principal">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
+                <li><a href="#produits-en-avant">Produits</a></li>
+                <li><a href="#categories-en-avant">Catégories</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="connexion.html">Profil</a></li>
+                <li>
+                    <a href="panier.html" class="icone-panier" aria-label="Voir le panier">
+                        <img src="images/panier.png" alt="Panier" />
+                        <span id="compteur-panier">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- Main -->
+    <main>
+        <section id="hero">
+            <div class="hero-text">
+                <!-- Heure au-dessus -->
+                <p>heure locale</p>
+                <p id="horloge"></p>
+                 <!-- <img src="images/nel.jpg" alt="photo" /> -->
+                <h1><span id="typing-title" class="typing">Bienvenue sur CShop votre boutique solidaire.</span></h1>
+                <p><span id="typing-subtitle" class="typing">Chaque achat contribue à une cause solidaire.</span></p>
+            </div>
+        </section>
+
+        <script>
+            // Fonction pour afficher l'heure de Paris
+            function afficherHeureParis() {
+                const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Paris' };
+                const heureParis = new Intl.DateTimeFormat('fr-FR', options).format(new Date());
+                document.getElementById("horloge").textContent = heureParis;
+            }
+
+            // Met à jour l'heure chaque seconde
+            setInterval(afficherHeureParis, 1000);
+            afficherHeureParis(); // Affichage immédiat
+        </script>
+
+        <!-- Produits mis en avant -->
+        <section id="produits-en-avant">
+            <h2>Produits phares</h2>
+            <div class="produits">
+                <article class="produit">
+                    <img src="images/produit1.png" alt="OVS BREAK Sweatshirt pour filles">
+                    <h3>
+                        <a href="produits_phares/detailproduit_1.html">OVS BREAK Sweatshirt pour filles</a>
+                    </h3>
+                    <p>Prix : 20€</p>
+                    <div class="tailles-disponibles">
+                        <p><strong>Tailles disponibles : S-M</strong></p>
+                    </div>
+                </article>
+
+                <article class="produit">
+                    <img src="images/produit2.png" alt="Doudoune Ski">
+                    <h3>
+                        <a href="produits_phares/detailproduit_2.html">
+                            Doudoune Ski
+                        </a>
+                    </h3>
+                    <p>Prix : 35€</p>
+                    <div class="tailles-disponibles">
+                        <p><strong>Tailles disponibles : S-M</strong></p>
+                    </div>
+                </article>
+                <article class="produit">
+                    <img src="images/produit3.png" alt="Chaussure rentrée">
+                    <h3>
+                        <a href="produits_phares/detailproduit_3.html">
+                            Nike AIr Force 1'07LVB
+                        </a>
+                    </h3>
+                    <p>Prix : 20€</p>
+                    <div class="tailles-disponibles">
+                        <p><strong>Tailles disponibles : 37-41</strong></p>
+                    </div>
+                </article>
+                <article class="produit">
+                    <div class="badge-reduction">Réduction</div>
+                    <img src="images/produit4.png" alt="Sac Lonchamp">
+                    <h3>
+                        <a href="produits_phares/detailproduit_4.html">Sac Lonchamp</a>
+                    </h3>
+                    <p>Prix : <span class="prix-barre">25€</span> <strong>20€</strong></p>
+                </article>
+                <article class="produit">
+                    <div class="badge-reduction">Réduction</div>
+                    <img src="images/produit5.png" alt="Fossil Montre">
+                    <h3>
+                        <a href="produits_phares/detailproduit_5.html">Fossil Montre</a>
+                    </h3>
+                    <p>Prix : <span class="prix-barre">19€</span> <strong>15€</strong></p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Catégories mises en avant -->
+        <section id="categories-en-avant">
+            <h2>Nos catégories</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn left" aria-label="Défiler vers la gauche">&#10094;</button>
+
+                <div class="carousel-track">
+                    <div class="categorie">
+                        <a href="categories/sacs.html">
+                            <img src="images/sacs.jpg" alt="Sacs">
+                        </a>
+                        <h3>Sacs filles</h3>
+                    </div>
+
+                    <div class="categorie">
+                        <a href="categories/informatiques.html">
+                            <img src="images/materielsinfo.jpg" alt="Matériels informatique">
+                        </a>
+                        <h3>PC portable</h3>
+                    </div>
+
+                    <div class="categorie">
+                        <a href="montres.html">
+                            <img src="images/montre.jpg" alt="Montres">
+                        </a>
+                        <h3>Montres</h3>
+                    </div>
+
+                    <div class="categorie">
+                        <a href="vetementfille.html">
+                            <img src="images/vetfille.jpg" alt="Vêtements filles">
+                        </a>
+                        <h3>Vêtements fille</h3>
+                    </div>
+                    <div class="categorie">
+                        <a href="cuisines.html">
+                            <img src="images/cuisines.jpg" alt="Cuisines">
+                        </a>
+                        <h3>Cuisines</h3>
+                    </div>
+                    <div class="categorie">
+                        <a href="vetementgarcons.html">
+                            <img src="images/vetgarcon.jpg" alt="Vêtements garçons">
+                        </a>
+                        <h3>Vêtements gaçon</h3>
+                    </div>
+                    <div class="categorie">
+                        <a href="livres.html">
+                            <img src="images/livres.jpg" alt="Livres">
+                        </a>
+                        <h3>Livres</h3>
+                    </div>
+                    <div class="categorie">
+                        <a href="chaussures.html">
+                            <img src="images/chaussures.jpg" alt="Chaussures">
+                        </a>
+                        <h3>Chaussures</h3>
+                    </div>
+                    <div class="categorie">
+                        <a href="parfums.html">
+                            <img src="images/parfums.jpg" alt="Parfums">
+                        </a>
+                        <h3>Parfums</h3>
+                    </div>
+                    <div class="categorie">
+                        <a href="cosmetiques.html">
+                            <img src="images/cosmetiques.jpg" alt="Cosmétiques">
+                        </a>
+                        <h3>Cosmetiques</h3>
+                    </div>
+                </div>
+                <button class="carousel-btn right" aria-label="Défiler vers la droite">&#10095;</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chatbot -->
+    <button id="chatbot-toggle" aria-label="Ouvrir le chat">💬</button>
+
+    <div id="chatbot-container">
+        <div id="chatbot-header">
+            Assistant virtuel
+            <span id="chatbot-close" title="Fermer le chat">✖</span>
+        </div>
+        <div id="chatbot-messages"></div>
+        <div id="chatbot-input">
+            <input type="text" id="user-input" placeholder="Posez votre question...">
+            <button onclick="envoyerMessage()">Envoyer</button>
+        </div>
+    </div>
+
+    <!-- Script pour le chatbot -->
+    <script>
+        // Ouvrir le chatbot via le bouton flottant
+        document.getElementById("chatbot-toggle").addEventListener("click", () => {
+            const chatbot = document.getElementById("chatbot-container");
+            const messages = document.getElementById("chatbot-messages");
+
+            // Vider les anciens messages à chaque ouverture
+            messages.innerHTML = "";
+
+            // Afficher le chatbot
+            chatbot.style.display = "block";
+        });
+
+
+        // Fermer le chatbot via l'icône ✖
+        document.getElementById("chatbot-close").addEventListener("click", () => {
+            document.getElementById("chatbot-container").style.display = "none";
+        });
+
+        // Réponses automatiques du chatbot
+        function envoyerMessage() {
+            const input = document.getElementById("user-input");
+            const message = input.value.trim();
+            if (!message) return;
+
+            const chatbox = document.getElementById("chatbot-messages");
+            chatbox.innerHTML += `<div><strong>Vous :</strong> ${message}</div>`;
+
+            let reponse = "Je suis désolé, je n'ai pas compris votre question.";
+
+            if (message.toLowerCase().includes("bonjour")) {
+                reponse = "Bonjour, je suis votre assistant. Qu'est-ce que je peux faire pour vous ?";
+            } else if (message.toLowerCase().includes("livraison")) {
+                reponse = "Nos livraisons prennent entre 3 à 5 jours ouvrés.";
+            } else if (message.toLowerCase().includes("paiement")) {
+                reponse = "Nous acceptons les cartes bancaires, PayPal et le paiement en plusieurs fois.";
+            } else if (message.toLowerCase().includes("retour")) {
+                reponse = "Vous pouvez retourner un produit sous 14 jours après réception.";
+            } else if (message.toLowerCase().includes("produit")) {
+                reponse = "Tous nos produits sont vérifiés et en excellent état.";
+            } else if (message.toLowerCase().includes("contact")) {
+                reponse = "Vous pouvez nous contacter via le formulaire en bas de page.";
+            }
+            if (message.toLowerCase().includes("merci")) {
+                reponse = "A très bientôt!";
+            } else if (message.toLowerCase().includes("réduction")) {
+                reponse = "Quelques de nos produits phares sont en réduction.";
+            }
+            chatbox.innerHTML += `<div><strong>Bot :</strong> ${reponse}</div>`;
+            input.value = "";
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        document.getElementById("user-input").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                envoyerMessage();
+            }
+        });
+    </script>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <h2>Contactez-nous</h2>
+        <form class="contact-form" action="https://formspree.io/f/xvgblzgl" method="post" id="form-contact">
+            <div class="form-group">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prenoms">Prénoms :</label>
+                <input type="text" id="prenoms" name="prenoms" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description :</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn envoyer-btn">Envoyer</button>
+        </form>
+        <div id="confirmation-message" style="display: none;">
+            Message envoyé avec succès !
+        </div>
+
+    </section>
+
+    <!-- ✅ Script pour vider les champs après envoi -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("form-contact");
+            const confirmation = document.getElementById("confirmation-message");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault(); // Empêche l'envoi automatique
+
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            form.reset(); // Vide tous les champs
+                            confirmation.style.display = "block"; // Affiche le message
+
+                            // Masque le message après 4 secondes
+                            setTimeout(() => {
+                                confirmation.style.display = "none";
+                            }, 3000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Erreur lors de l'envoi du formulaire :", error);
+                    });
+            });
+        });
+    </script>
+
+
+
+    <!-- Popin Cookies -->
+    <!-- <div id="cookie-popin" class="cookie-popin">
+        <div class="cookie-content">
+            <h2>🍪 Gestion des cookies</h2>
+            <p>
+                Ce site utilise des cookies pour améliorer votre expérience.
+                En poursuivant, vous acceptez leur utilisation.
+            </p>
+            <button id="accept-cookies" data-test-id="accepter-cookies">Accepter</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const popin = document.getElementById("cookie-popin");
+            const acceptBtn = document.getElementById("accept-cookies");
+
+            // Vérification stricte : n’affiche que si pas déjà accepté
+            const accepted = localStorage.getItem("cookiesAccepted");
+            if (!accepted || accepted !== "true") {
+                popin.style.display = "flex"; // affiche la popin
+            }
+
+            // Au clic sur le bouton Accepter
+            acceptBtn.addEventListener("click", function () {
+                localStorage.setItem("cookiesAccepted", "true"); // mémorise la validation
+                popin.style.display = "none"; // ferme la popin
+            });
+        });
+    </script> -->
+
+    <!-- Footer -->
+    <footer class="main-footer" aria-label="Pied de page principal">
+        <nav aria-label="Menu de pied de page">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#categories-en-avant">Catégories</a></li>
+                <li><a href="#contact">Support</a></li>
+                <li><a href="panier.html">Mon Panier</a></li>
+            </ul>
+        </nav>
+        <div class="footer-content">
+            <div class="reseaux">
+                <a href="404.html"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="404.html"><img src="images/twitter.jpg" alt="Twitter"></a>
+                <a href="404.html"><img src="images/instagram.jpg" alt="Instagram"></a>
+            </div>
+            <div class="infos-legales">
+                <p>&copy; 2025 Association Solidaire. Tous droits réservés.</p>
+                <p>Mentions légales | Politique de confidentialité | Conditions d'utilisation</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script pour le carrousel des catégories -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.querySelector(".carousel-track");
+            const btnLeft = document.querySelector(".carousel-btn.left");
+            const btnRight = document.querySelector(".carousel-btn.right");
+
+            btnLeft.addEventListener("click", () => {
+                track.scrollBy({ left: -300, behavior: "smooth" });
+            });
+
+            btnRight.addEventListener("click", () => {
+                track.scrollBy({ left: 300, behavior: "smooth" });
+            });
+        });
+    </script>
+
+    <script>
+        function updateCartCounter() {
+            const compteur = document.getElementById("compteur-panier");
+            if (compteur) {
+                const panier = JSON.parse(localStorage.getItem("panier")) || [];
+                const totalArticles = panier.reduce((acc, item) => acc + item.quantite, 0);
+                compteur.textContent = totalArticles;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            updateCartCounter();
+        });
+    </script>
+    <!-- Script pour le bouton remonter en haut -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const topButton = document.getElementById("top-bar");
+
+            // Cacher le bouton au départ
+            topButton.style.display = "none";
+
+            // Montrer ou cacher selon le scroll
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                    topButton.style.display = "block";
+                } else {
+                    topButton.style.display = "none";
+                }
+            });
+
+            // Scroll vers le haut au clic
+            topButton.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
+    <!-- Bouton remonter en haut -->
+    <button id="top-bar" aria-label="Remonter en haut">↑</button>
+
+</body>
+
+</html>
