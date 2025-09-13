@@ -4,8 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon panier - Boutique Solidaire</title>
+  <title>Mon panier</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .valider-btn:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  </style>
 </head>
 
 <body>
@@ -49,7 +56,6 @@
             </tr>
           </thead>
           <tbody id="panier-body">
-            <!-- Contenu généré dynamiquement -->
           </tbody>
         </table>
       </div>
@@ -59,7 +65,7 @@
 
         <div class="boutons-panier">
           <a href="index.html" class="btn btn-secondary">Continuer mes achats</a>
-          <button class="btn valider-btn" onclick="ouvrirPaiement()">Valider ma commande</button>
+          <button class="btn valider-btn" id="valider-btn" disabled>Valider ma commande</button>
         </div>
       </div>
     </section>
@@ -67,12 +73,12 @@
 
 
 
-  <!--  --===========================
-     GESTION DU PANIER EN JAVASCRIPT======================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const tbody = document.getElementById("panier-body");
       const totalPanier = document.getElementById("total-panier");
+      // MODIFICATION : On récupère le bouton de validation
+      const boutonValider = document.getElementById("valider-btn");
 
       function afficherPanier() {
         const panier = JSON.parse(localStorage.getItem("panier")) || [];
@@ -87,7 +93,12 @@
           td.style.textAlign = "center";
           tr.appendChild(td);
           tbody.appendChild(tr);
+          // MODIFICATION : On s'assure que le bouton est bien désactivé
+          boutonValider.disabled = true;
         } else {
+          // MODIFICATION : Si le panier n'est pas vide, on active le bouton
+          boutonValider.disabled = false;
+
           panier.forEach((item, index) => {
             const tr = document.createElement("tr");
             tr.setAttribute("data-index", index);
@@ -141,16 +152,20 @@
         });
       }
 
+      // MODIFICATION : On ajoute l'événement 'click' au bouton ici
+      boutonValider.addEventListener("click", ouvrirPaiement);
+
       afficherPanier();
     });
   </script>
-  <!--  --===========================
-     OUVRIR LA PAGE DE PAIEMENT DANS UN NOUVEL ONGLET======================== -->
+
   <script>
     function ouvrirPaiement() {
+      // Cette fonction ne s'exécutera que si le bouton n'est pas désactivé
       window.open("paiement.html", "_blank");
     }
   </script>
+
   <script>
     function updateCartCounter() {
       const compteur = document.getElementById("compteur-panier");

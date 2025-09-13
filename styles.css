@@ -186,6 +186,27 @@ ul {
 
 }
 
+/* Faire clignoter  le text*/
+@keyframes clignoteCouleurs {
+  0% { color: red; }
+  10% { color: orange; }
+  20% { color: yellow; }
+  30% { color: lime; }
+  40% { color: green; }
+  50% { color: cyan; }
+  60% { color: blue; }
+  70% { color: indigo; }
+  80% { color: violet; }
+  90% { color: pink; }
+  100% { color: red; }
+}
+
+#hero h1 {
+  animation: clignoteCouleurs 5s infinite linear;
+}
+
+
+
 
 /* ==========================================================================
    6. SECTIONS (Products & Categories)
