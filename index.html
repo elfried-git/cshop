@@ -17,7 +17,7 @@
             <img src="images/assoc.png" alt="Logo de l'association">
         </div>
 
-        <nav class="main-nav" aria-label="Menu principal">
+        <nav class="main-nav" data-test="menu-navigation" aria-label="Menu principal">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
@@ -44,8 +44,9 @@
                 <p>heure française</p>
                 <p id="horloge"></p>
                 <!-- <img src="images/nel.jpg" alt="photo" /> -->
-                <h1><span id="typing-title" class="typing">Bienvenue sur votre boutique shop na biso.</span></h1>
+                <h1><span id="typing-title" data-test="bienvenue" class="typing">Bienvenue sur votre boutique shop na biso.</span></h1>
                 <p><span id="typing-subtitle" class="typing">Dans notresmdlfdfm, le choix vous revient.</span></p>
+                <img src="images/nel.jpg" alt="photo" />
             </div>
         </section>
 
@@ -291,7 +292,7 @@
             </div>
 
             <div class="form-group">
-                <label for="prenoms">Prénoms :</label>
+                <label for="prenoms">Prénom :</label>
                 <input type="text" id="prenoms" name="prenoms" required>
             </div>
 
@@ -301,7 +302,7 @@
             </div>
 
             <div class="form-group">
-                <label for="description">Description :</label>
+                <label for="description">Votre message :</label>
                 <textarea id="description" name="description" rows="5" required></textarea>
             </div>
 
@@ -394,14 +395,19 @@
         </nav>
         <div class="footer-content">
             <div class="reseaux">
-                <a href="404.html"><img src="images/facebook.png" alt="Facebook"></a>
-                <a href="404.html"><img src="images/twitter.jpg" alt="Twitter"></a>
-                <a href="404.html"><img src="images/instagram.jpg" alt="Instagram"></a>
+                <a href="https://www.facebook.com/?locale=fr_FR" target="_blank" rel="noopener noreferrer">
+                    <img src="images/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/instagram.jpg" alt="Instagram">
+                </a>
             </div>
             <div class="infos-legales">
-                <p>&copy; 2025 Association Solidaire. Tous droits réservés.</p>
+                <p>&copy; 2025 Shop na biso. Tous droits réservés.</p>
                 <p>Mentions légales | Politique de confidentialité | Conditions d'utilisation</p>
             </div>
+        </div>
+
         </div>
     </footer>
 
