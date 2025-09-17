@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail produit - Fossil Montre</title>
+    <title>Détail produit - maillot domicile fc barcelone</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 
@@ -36,23 +36,21 @@
         <section class="product-detail-container">
             <div class="product-detail">
                 <div class="product-image">
-                    <img src="/produits_phares/images/produit5.png" alt="Fossil Montre">
+                    <img src="../produits_phares/images/produit7.jpg" alt="iPhone 14 Pro Max">
                 </div>
                 <div class="product-info">
-                    <h1>Fossil Montre</h1>
-                    <div class="price">15 €</div>
+                    <h1>IPhone 14 Pro Max</h1>
+                    <div class="price">750 €</div>
                     <div class="description">
-                        <p>Sweat French Terry en pur coton (non brossé à l'intérieur) avec capuche. Manches avec détail
-                            contrasté. Inscription « Break Rules » imprimée sur la poitrine. Poche kangourou. Poignets et
-                            base côtelés.</p>
+                        <p>Un visage inédit pour iPhone. iPhone 14 Pro Max est doté d’une caméra de 48 Mpx avec la puce
+                            par excellence pour tout propulser. Commandez le vôtre chez Fido dès aujourd’hui.</p>
                     </div>
                     <div class="caracteristiques">
                         <p><strong>Caractéristiques :</strong></p>
                         <ul>
-                            <li>Tailles disponibles : S, M</li>
-                            <li>Composition : 100% coton</li>
-                            <li>Couleur : Rouge</li>
-                            <li>Entretien : Lavable en machine à 30°C</li>
+                            <li>Modèle : Iphone 14 Pro Max</li>
+                            <li>Couleur : Argentée</li>
+                            <li>Capacité : 128Go</li>
                         </ul>
                     </div>
                     <div class="actions">
@@ -60,7 +58,8 @@
                         <input type="number" id="quantite" name="quantite" min="1" value="1">
                         <button class="btn ajouter-panier">Ajouter au panier</button>
                     </div>
-                    <p id="confirmation-message" class="confirmation-message" style="display: none;">Produit ajouté au panier !</p>
+                    <p id="confirmation-message" class="confirmation-message" style="display: none;">Produit ajouté au
+                        panier !</p>
                 </div>
             </div>
         </section>
@@ -106,10 +105,10 @@
 
             boutonPanier.addEventListener("click", () => {
                 const produit = {
-                    nom: "Fossil Montre",
-                    prix: 15,
+                    nom: "Iphone 14 pro max",
+                    prix: 750,
                     quantite: parseInt(document.getElementById("quantite").value),
-                    image: "/produits_phares/images/produit5.png"
+                    image: "../produits_phares/images/produit7.jpg"
                 };
 
                 let panier = JSON.parse(localStorage.getItem("panier")) || [];
