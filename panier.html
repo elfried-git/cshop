@@ -19,7 +19,9 @@
 
   <header class="main-header">
     <div id="logo">
-      <img src="images/assoc.png" alt="Logo de l'association">
+      <a href="index.html">
+        <img src="images/assoc.png" alt="Logo de l'association">
+      </a>
     </div>
     <nav class="main-nav" aria-label="Menu principal">
       <ul>
@@ -162,7 +164,7 @@
   <script>
     function ouvrirPaiement() {
       // Cette fonction ne s'exécutera que si le bouton n'est pas désactivé
-      window.open("paiement.html", "_blank");
+      window.location.href = "paiement.html";
     }
   </script>
 

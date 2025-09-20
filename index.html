@@ -14,10 +14,19 @@
     <!-- Header -->
     <header class="main-header">
         <div id="logo">
-            <img src="images/assoc.png" alt="Logo de l'association">
+            <a href="index.html">
+                <img src="images/assoc.png" alt="Logo de l'association">
+            </a>
         </div>
 
-        <nav class="main-nav" data-test="menu-navigation" aria-label="Menu principal">
+        <!-- Menu burger pour mobile -->
+        <button class="menu-burger" id="menu-burger" aria-label="Ouvrir le menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" data-test="menu-navigation" aria-label="Menu principal" id="main-nav">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
@@ -230,7 +239,6 @@
         </div>
     </div>
 
-    <!-- Script pour le chatbot -->
     <script>
         // Ouvrir le chatbot via le bouton flottant
         document.getElementById("chatbot-toggle").addEventListener("click", () => {
@@ -244,46 +252,108 @@
             chatbot.style.display = "block";
         });
 
-
         // Fermer le chatbot via l'icône ✖
         document.getElementById("chatbot-close").addEventListener("click", () => {
             document.getElementById("chatbot-container").style.display = "none";
         });
 
-        // Réponses automatiques du chatbot
+        // Données pour le chatbot (questions et réponses)
+        const chatbotData = {
+            "salutation": [
+                "bonjour", "salut", "hello", "hey"
+            ],
+            "livraison": [
+                "livraison", "livrer", "colis", "expedition"
+            ],
+            "paiement": [
+                "paiement", "payer", "mode de paiement", "cartes"
+            ],
+            "retour": [
+                "retour", "remboursement", "échanger"
+            ],
+            "produit": [
+                "produit", "qualité", "neuf", "défaut"
+            ],
+            "contact": [
+                "contact", "contacter", "téléphone", "email"
+            ],
+            "merci": [
+                "merci", "merci beaucoup", "super", "génial"
+            ],
+            "reduction": [
+                "réduction", "promo", "soldes", "code promo"
+            ],
+            "suivi": [
+                "suivi de commande", "ou est mon colis", "statut de ma commande"
+            ],
+            "compte": [
+                "mon compte", "se connecter", "mot de passe oublié"
+            ],
+            "commande": [
+                "commande", "acheter", "panier", "passer à la caisse"
+            ],
+            "retrait": [
+                "retrait", "retirer", "retrait de commande", "numéro de retrait"
+            ],
+            "Votre boutique": [
+                "votre boutique", "shop", "boutique", "produits"
+            ]
+        };
+
+        const chatbotResponses = {
+            "salutation": "Bonjour, je suis votre assistant virtuel. Comment puis-je vous aider aujourd'hui ? 😊",
+            "livraison": "Nos livraisons prennent généralement entre 3 à 5 jours ouvrés. Souhaitez-vous suivre votre commande ?",
+            "paiement": "Nous acceptons plusieurs modes de paiement sécurisés : cartes bancaires, PayPal et le paiement en plusieurs fois avec Oney.",
+            "retour": "Vous avez un délai de 14 jours après réception de votre commande pour demander un retour ou un échange. Veuillez consulter notre politique de retour pour plus de détails.",
+            "produit": "Tous nos produits sont neufs et soigneusement vérifiés avant l'envoi pour garantir leur excellente qualité.",
+            "contact": "Vous pouvez nous contacter par email à shopnabiso@yahoo.com ou via le formulaire de contact disponible en bas de notre page d'accueil.",
+            "merci": "De rien ! N'hésitez pas si vous avez d'autres questions. À très bientôt !",
+            "reduction": "Nous proposons régulièrement des réductions et des codes promotionnels. Abonnez-vous à notre newsletter pour ne rien manquer ! 🎁",
+            "suivi": "Pour suivre votre commande, veuillez vous connecter à votre compte et aller dans la section 'Mes commandes'. Le numéro de suivi y sera affiché dès l'expédition.",
+            "compte": "Si vous avez des difficultés pour vous connecter, vous pouvez réinitialiser votre mot de passe en utilisant l'option 'Mot de passe oublié' sur la page de connexion.",
+            "default": "Je suis désolé, je n'ai pas compris votre question. Pourriez-vous reformuler ? Vous pouvez demander 'livraison', 'paiement', 'retour', etc.",
+            "commande": "Pour commander un produit, veuillez vous connecter à votre compte et ajouter le produit à votre panier. Ensuite, veuillez cliquer sur 'Passer à la caisse' pour finaliser votre commande.",
+            "retrait": "Pour retirer votre commande, veuillez vous connecter à votre compte et aller dans la section 'Mes commandes'. Le numéro de retrait y sera affiché dès l'expédition.",
+            "Votre boutique": [
+                "votre boutique", "shop", "boutique", "produits"
+            ]
+        };
+
+        // Fonction pour trouver la réponse correspondante
+        function getResponse(message) {
+            const lowerCaseMessage = message.toLowerCase();
+            for (const key in chatbotData) {
+                if (chatbotData[key].some(keyword => lowerCaseMessage.includes(keyword))) {
+                    return chatbotResponses[key];
+                }
+            }
+            return chatbotResponses.default;
+        }
+
+        // Fonction pour envoyer le message
         function envoyerMessage() {
             const input = document.getElementById("user-input");
             const message = input.value.trim();
             if (!message) return;
 
             const chatbox = document.getElementById("chatbot-messages");
-            chatbox.innerHTML += `<div><strong>Vous :</strong> ${message}</div>`;
 
-            let reponse = "Je suis désolé, je n'ai pas compris votre question.";
+            // Afficher le message de l'utilisateur
+            chatbox.innerHTML += `<div class="user-message"><strong>Vous :</strong> ${message}</div>`;
 
-            if (message.toLowerCase().includes("bonjour")) {
-                reponse = "Bonjour, je suis votre assistant. Qu'est-ce que je peux faire pour vous ?";
-            } else if (message.toLowerCase().includes("livraison")) {
-                reponse = "Nos livraisons prennent entre 3 à 5 jours ouvrés.";
-            } else if (message.toLowerCase().includes("paiement")) {
-                reponse = "Nous acceptons les cartes bancaires, PayPal et le paiement en plusieurs fois.";
-            } else if (message.toLowerCase().includes("retour")) {
-                reponse = "Vous pouvez retourner un produit sous 14 jours après réception.";
-            } else if (message.toLowerCase().includes("produit")) {
-                reponse = "Tous nos produits sont vérifiés et en excellent état.";
-            } else if (message.toLowerCase().includes("contact")) {
-                reponse = "Vous pouvez nous contacter via le formulaire en bas de page.";
-            }
-            if (message.toLowerCase().includes("merci")) {
-                reponse = "A très bientôt!";
-            } else if (message.toLowerCase().includes("réduction")) {
-                reponse = "Quelques de nos produits phares sont en réduction.";
-            }
-            chatbox.innerHTML += `<div><strong>Bot :</strong> ${reponse}</div>`;
-            input.value = "";
-            chatbox.scrollTop = chatbox.scrollHeight;
+            // Obtenir la réponse du bot
+            const reponse = getResponse(message);
+
+            // Afficher la réponse du bot avec un léger délai pour un effet plus naturel
+            setTimeout(() => {
+                chatbox.innerHTML += `<div class="bot-message"><strong>Assistant :</strong> ${reponse}</div>`;
+                chatbox.scrollTop = chatbox.scrollHeight; // Scroll vers le bas
+            }, 500);
+
+            input.value = ""; // Vider l'input
         }
 
+        // Gérer la touche "Entrée"
         document.getElementById("user-input").addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
                 envoyerMessage();
@@ -313,6 +383,10 @@
             <div class="form-group">
                 <label for="description">Votre message :</label>
                 <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group file-upload-group">
+                <label for="piece-jointe">Ajouter des pièces jointes :</label>
+                <input type="file" id="piece-jointe" name="piece-jointe[]" multiple>
             </div>
 
             <button type="submit" class="btn envoyer-btn">Envoyer</button>
@@ -448,6 +522,36 @@
     </script>
     <!-- Bouton remonter en haut -->
     <button id="top-bar" aria-label="Remonter en haut">↑</button>
+
+    <!-- Script pour le menu burger mobile -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBurger = document.getElementById("menu-burger");
+            const mainNav = document.getElementById("main-nav");
+
+            menuBurger.addEventListener("click", () => {
+                mainNav.classList.toggle("nav-open");
+                menuBurger.classList.toggle("menu-open");
+            });
+
+            // Fermer le menu quand on clique sur un lien
+            const navLinks = mainNav.querySelectorAll("a");
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mainNav.classList.remove("nav-open");
+                    menuBurger.classList.remove("menu-open");
+                });
+            });
+
+            // Fermer le menu quand on clique en dehors
+            document.addEventListener("click", (e) => {
+                if (!mainNav.contains(e.target) && !menuBurger.contains(e.target)) {
+                    mainNav.classList.remove("nav-open");
+                    menuBurger.classList.remove("menu-open");
+                }
+            });
+        });
+    </script>
 
 </body>
 

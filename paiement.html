@@ -11,7 +11,9 @@
 
   <header class="main-header">
     <div id="logo">
-      <img src="images/assoc.png" alt="Logo de l'association">
+      <a href="index.html">
+        <img src="images/assoc.png" alt="Logo de l'association">
+      </a>
     </div>
     <nav class="main-nav" aria-label="Menu principal">
       <ul>
@@ -33,63 +35,133 @@
 
   <main>
     <section class="paiement">
-      <h1>Choisissez votre méthode de paiement</h1>
+      <h1 style="text-align: center;">Paiement</h1>
 
-      <div class="options-paiement">
-        <div class="option" onclick="afficherFormulaire('carte', this)">
-          <img src="images_page_paiement/carte.jpg" alt="Carte bancaire" class="icone-paiement">
-          <p>Carte bancaire</p>
+      <div class="paiement-container">
+        <!-- Sidebar gauche pour les options de paiement -->
+        <div class="paiement-sidebar">
+          <div class="option active" onclick="afficherFormulaire('carte', this)">
+            <img src="images_page_paiement/carte.jpg" alt="Carte bancaire" class="icone-paiement">
+            <p>Carte bancaire</p>
+          </div>
+
+          <div class="option" onclick="afficherFormulaire('paypal', this)">
+            <img src="images_page_paiement/paypal.jpg" alt="PayPal" class="icone-paiement">
+            <p>PayPal</p>
+          </div>
+
+          <div class="option" onclick="afficherFormulaire('airtel', this)">
+            <img src="images_page_paiement/airtel_money.jpg" alt="Airtel Money" class="icone-paiement">
+            <p>Airtel Money</p>
+          </div>
+
+          <div class="option" onclick="afficherFormulaire('mtn', this)">
+            <img src="images_page_paiement/mtn_momo.png" alt="MTN Money" class="icone-paiement">
+            <p>MTN Money</p>
+          </div>
         </div>
 
-        <div class="option" onclick="afficherFormulaire('paypal', this)">
-          <img src="images_page_paiement/paypal.jpg" alt="PayPal" class="icone-paiement">
-          <p>PayPal</p>
+        <!-- Zone principale pour les formulaires -->
+        <div class="paiement-main">
+          <!-- Formulaire carte bancaire -->
+          <form id="form-carte" class="formulaire-paiement active">
+            <h3>Paiement par carte bancaire</h3>
+            <div class="form-group">
+              <label for="nom-carte">Nom sur la carte</label>
+              <input type="text" id="nom-carte" name="nom-carte" required autocomplete="cc-name" pattern="[A-Za-zÀ-ÿ\s]+"
+                title="Veuillez entrer uniquement des lettres">
+            </div>
+            <div class="form-group">
+              <label for="numero-carte">Numéro de carte</label>
+              <input type="text" id="numero-carte" name="numero-carte" required inputmode="numeric" pattern="[0-9]{16}"
+                maxlength="16" placeholder="1234 5678 9012 3456" autocomplete="cc-number">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiration">Date d'expiration</label>
+                <input type="month" id="expiration" name="expiration" required autocomplete="cc-exp">
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required inputmode="numeric" pattern="\d{3}" maxlength="3"
+                  placeholder="123" autocomplete="cc-csc" title="Entrez exactement 3 chiffres">
+              </div>
+            </div>
+            <button type="submit" class="btn">Payer</button>
+          </form>
+
+          <!-- Formulaire PayPal -->
+          <form id="form-paypal" class="formulaire-paiement">
+            <h3>Connexion PayPal</h3>
+            <div class="form-group">
+              <label for="email-paypal">Email</label>
+              <input type="email" id="email-paypal" name="email-paypal" required
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                title="Veuillez entrer une adresse email valide (ex: exemple@domaine.com)" autocomplete="email"
+                placeholder="exemple@domaine.com">
+            </div>
+            <div class="form-group">
+              <label for="mdp-paypal">Mot de passe</label>
+              <input type="password" id="mdp-paypal" name="mdp-paypal" required>
+            </div>
+            <button type="submit" class="btn">Se connecter et payer</button>
+          </form>
+
+          <!-- Formulaire Airtel Money -->
+          <form id="form-airtel" class="formulaire-paiement">
+            <h3>Paiement par Airtel Money</h3>
+            <div class="form-group">
+              <label for="numero-airtel">Numéro Airtel Money</label>
+              <input type="tel" id="numero-airtel" name="numero-airtel" required
+                pattern="[0-9]{10}" maxlength="10"
+                title="Entrez votre numéro Airtel Money (10 chiffres)" 
+                placeholder="0123456789">
+            </div>
+            <div class="form-group">
+              <label for="pin-airtel">Code PIN</label>
+              <input type="password" id="pin-airtel" name="pin-airtel" required
+                pattern="[0-9]{4,6}" maxlength="6"
+                title="Entrez votre code PIN Airtel Money (4-6 chiffres)"
+                placeholder="••••">
+            </div>
+            <div class="form-group">
+              <label for="montant-airtel">Montant (FCFA)</label>
+              <input type="number" id="montant-airtel" name="montant-airtel" required
+                min="100" step="100"
+                title="Montant minimum: 100 FCFA"
+                placeholder="5000">
+            </div>
+            <button type="submit" class="btn">Payer avec Airtel Money</button>
+          </form>
+
+          <!-- Formulaire MTN Money -->
+          <form id="form-mtn" class="formulaire-paiement">
+            <h3>Paiement par MTN Money</h3>
+            <div class="form-group">
+              <label for="numero-mtn">Numéro MTN Money</label>
+              <input type="tel" id="numero-mtn" name="numero-mtn" required
+                pattern="[0-9]{10}" maxlength="10"
+                title="Entrez votre numéro MTN Money (10 chiffres)" 
+                placeholder="0123456789">
+            </div>
+            <div class="form-group">
+              <label for="pin-mtn">Code PIN</label>
+              <input type="password" id="pin-mtn" name="pin-mtn" required
+                pattern="[0-9]{4,6}" maxlength="6"
+                title="Entrez votre code PIN MTN Money (4-6 chiffres)"
+                placeholder="••••">
+            </div>
+            <div class="form-group">
+              <label for="montant-mtn">Montant (FCFA)</label>
+              <input type="number" id="montant-mtn" name="montant-mtn" required
+                min="100" step="100"
+                title="Montant minimum: 100 FCFA"
+                placeholder="5000">
+            </div>
+            <button type="submit" class="btn">Payer avec MTN Money</button>
+          </form>
         </div>
-
-        <!-- Formulaire carte bancaire -->
-        <form id="form-carte" class="formulaire-paiement">
-          <h3>Paiement par carte bancaire</h3>
-          <div class="form-group">
-            <label for="nom-carte">Nom sur la carte</label>
-            <input type="text" id="nom-carte" name="nom-carte" required autocomplete="cc-name" pattern="[A-Za-zÀ-ÿ\s]+"
-              title="Veuillez entrer uniquement des lettres">
-          </div>
-          <div class="form-group">
-            <label for="numero-carte">Numéro de carte</label>
-            <input type="text" id="numero-carte" name="numero-carte" required inputmode="numeric" pattern="[0-9]{16}"
-              maxlength="16" placeholder="1234 5678 9012 3456" autocomplete="cc-number">
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="expiration">Date d'expiration</label>
-              <input type="month" id="expiration" name="expiration" required autocomplete="cc-exp">
-            </div>
-            <div class="form-group">
-              <label for="cvv">CVV</label>
-              <input type="text" id="cvv" name="cvv" required inputmode="numeric" pattern="\d{3}" maxlength="3"
-                placeholder="123" autocomplete="cc-csc" title="Entrez exactement 3 chiffres">
-            </div>
-          </div>
-          <button type="submit" class="btn">Payer</button>
-        </form>
-
-        <!-- Formulaire PayPal -->
-        <form id="form-paypal" class="formulaire-paiement">
-          <h3>Connexion PayPal</h3>
-          <div class="form-group">
-            <label for="email-paypal">Email</label>
-            <input type="email" id="email-paypal" name="email-paypal" required
-              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-              title="Veuillez entrer une adresse email valide (ex: exemple@domaine.com)" autocomplete="email"
-              placeholder="exemple@domaine.com">
-          </div>
-          <div class="form-group">
-            <label for="mdp-paypal">Mot de passe</label>
-            <input type="password" id="mdp-paypal" name="mdp-paypal" required>
-          </div>
-          <button type="submit" class="btn">Se connecter et payer</button>
-        </form>
-
+      </div>
     </section>
   </main>
 
