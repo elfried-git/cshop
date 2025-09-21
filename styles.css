@@ -197,21 +197,53 @@ ul {
 
 /* Faire clignoter  le text*/
 @keyframes clignoteCouleurs {
-  0% { color: red; }
-  10% { color: orange; }
-  20% { color: yellow; }
-  30% { color: lime; }
-  40% { color: green; }
-  50% { color: cyan; }
-  60% { color: blue; }
-  70% { color: indigo; }
-  80% { color: violet; }
-  90% { color: pink; }
-  100% { color: red; }
+    0% {
+        color: red;
+    }
+
+    10% {
+        color: orange;
+    }
+
+    20% {
+        color: yellow;
+    }
+
+    30% {
+        color: lime;
+    }
+
+    40% {
+        color: green;
+    }
+
+    50% {
+        color: cyan;
+    }
+
+    60% {
+        color: blue;
+    }
+
+    70% {
+        color: indigo;
+    }
+
+    80% {
+        color: violet;
+    }
+
+    90% {
+        color: pink;
+    }
+
+    100% {
+        color: red;
+    }
 }
 
 #hero h1 {
-  animation: clignoteCouleurs 5s infinite linear;
+    animation: clignoteCouleurs 5s infinite linear;
 }
 
 
@@ -293,155 +325,6 @@ section h2 {
     font-size: 0.8rem;
     font-weight: bold;
     border-radius: var(--border-radius);
-}
-
-/* ==========================================================================
-   7. CAROUSEL
-   ========================================================================== */
-.carousel-container {
-    position: relative;
-}
-
-.carousel-track {
-    display: flex;
-    gap: var(--spacing-large);
-    overflow-x: auto;
-    padding-bottom: var(--spacing-medium);
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-.carousel-track::-webkit-scrollbar {
-    display: none;
-    /* Safari and Chrome */
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    border: none;
-    font-size: 2rem;
-    padding: var(--spacing-small) var(--spacing-medium);
-    cursor: pointer;
-    z-index: 1;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel-btn.left {
-    left: var(--spacing-medium);
-}
-
-.carousel-btn.right {
-    right: var(--spacing-medium);
-}
-
-.carousel-btn:hover {
-    background-color: var(--primary-color-dark);
-}
-
-/* ==========================================================================
-   CATEGORIES ELEMENTS REDUITS
-   ========================================================================== */
-.categorie {
-    background-color: var(--white-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-medium);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    position: relative;
-    padding: 10px;
-    /* réduit l'espace interne */
-    font-size: 0.9rem;
-    /* réduit légèrement la taille du texte */
-}
-
-.categorie img {
-    width: 100%;
-    height: 100px;
-    /* réduit l'image */
-    object-fit: cover;
-    border-radius: var(--border-radius);
-    transition: transform 0.3s ease;
-}
-
-.categorie h3 {
-    font-size: 1rem;
-    /* réduit le titre */
-    margin: 0.5rem 0;
-}
-
-.categorie p {
-    font-size: 0.85rem;
-    /* réduit le texte descriptif */
-    padding: 0 0.5rem 0.5rem;
-}
-
-
-/* ==========================================================================
-   CAROUSEL FONCTIONNEL
-   ========================================================================== */
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    /* masque le débordement pour que le scroll soit clean */
-}
-
-.carousel-track {
-    display: flex;
-    gap: var(--spacing-large);
-    overflow-x: scroll;
-    /* scroll horizontal */
-    scroll-behavior: smooth;
-    /* animation fluide */
-    padding-bottom: var(--spacing-medium);
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-.carousel-track::-webkit-scrollbar {
-    display: none;
-    /* Safari et Chrome */
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    border: none;
-    font-size: 2rem;
-    padding: var(--spacing-small) var(--spacing-medium);
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-btn.left {
-    left: var(--spacing-medium);
-}
-
-.carousel-btn.right {
-    right: var(--spacing-medium);
-}
-
-.carousel-btn:hover {
-    background-color: var(--primary-color-dark);
 }
 
 /* ==========================================================================
@@ -702,11 +585,11 @@ button.btn {
     .main-header {
         padding: var(--spacing-medium);
     }
-    
+
     .produits {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    
+
     section {
         padding: 3rem var(--spacing-medium);
     }
@@ -814,7 +697,8 @@ button.btn {
 
     .form-group input,
     .form-group textarea {
-        font-size: 16px; /* Empêche le zoom sur iOS */
+        font-size: 16px;
+        /* Empêche le zoom sur iOS */
     }
 
     .main-footer nav ul {
@@ -1102,22 +986,22 @@ button.btn {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .paiement-sidebar {
         width: 100%;
         grid-template-columns: 1fr 1fr;
         gap: 0.8rem;
     }
-    
+
     .paiement-sidebar .option {
         padding: 1.2rem;
         min-height: 110px;
     }
-    
+
     .paiement-main {
         padding: 1.5rem;
     }
-    
+
     .form-row {
         flex-direction: column;
         gap: 0;
@@ -1148,31 +1032,31 @@ button.btn {
     .paiement {
         padding: 1rem;
     }
-    
+
     .paiement h1 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
     }
-    
+
     .paiement-sidebar {
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
     }
-    
+
     .paiement-sidebar .option {
         padding: 0.8rem;
         min-height: 90px;
     }
-    
+
     .paiement-sidebar .icone-paiement {
         width: 50px;
         height: 35px;
     }
-    
+
     .paiement-main {
         padding: 1rem;
     }
-    
+
     .formulaire-paiement h3 {
         font-size: 1.2rem;
     }
@@ -1559,4 +1443,137 @@ button.btn {
         font-size: 0.85rem;
         margin: 15px auto 20px auto;
     }
+}
+
+/* Styles pour la nouvelle section du carrousel de catégories */
+
+#categories-carousel {
+    padding: 2em 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+#categories-carousel h2 {
+    text-align: center;
+    margin-bottom: 1.5em;
+    font-size: 2em;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    /* Masquer la barre de défilement pour différents navigateurs */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE et Edge */
+}
+
+/* Masquer la barre de défilement pour Chrome, Safari et Opera */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.categorie {
+    flex: 0 0 auto;
+    width: 250px;
+    /* Ajustez selon vos besoins */
+    margin: 0 10px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.categorie:hover {
+    transform: translateY(-5px);
+}
+
+.categorie img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.carousel-btn {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s;
+}
+
+.carousel-btn img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.carousel-btn.left {
+    left: 0;
+}
+
+.carousel-btn.right {
+    right: 0;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.categorie {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 300px;
+    /* Ajoute une hauteur fixe pour toutes les cartes */
+    margin: 0 10px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.categorie a {
+    /* Utilise Flexbox pour aligner l'image et le titre */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Pousse l'image en haut et le titre en bas */
+    height: 100%;
+    /* Prend toute la hauteur du parent */
+    text-decoration: none;
+    color: inherit;
+}
+
+.categorie img {
+    /* L'image prend la taille maximale mais sans être déformée */
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-bottom: 10px;
 }

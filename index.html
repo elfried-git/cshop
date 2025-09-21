@@ -31,7 +31,6 @@
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
                 <li><a href="#produits-en-avant">Produits</a></li>
-                <li><a href="#categories-en-avant">Catégories</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="connexion.html">Profil</a></li>
                 <li>
@@ -57,6 +56,81 @@
                 <p><span id="typing-subtitle" class="typing">En cours...</span></p>
             </div>
         </section>
+
+        <section id="categories-carousel">
+            <h2>Nos catégories</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn left" aria-label="Défiler vers la gauche">
+                    <img src="images/right-arrow.jpg" alt="Flèche gauche" />
+                </button>
+                <div class="carousel-track">
+                    <div class="categorie">
+                        <a href="categories/sacs.html">
+                            <img src="images/sacs.jpg" alt="Sacs">
+                            <h3>Sacs filles</h3>
+                        </a>
+                    </div>
+                    <div class="categorie">
+                        <a href="#">
+                            <img src="images/cosmetiques.jpg" alt="Cosmetiques">
+                            <h3>Cosmetiques</h3>
+                        </a>
+                    </div>
+                    <div class="categorie">
+                        <a href="#">
+                            <img src="images/chaussures.jpg" alt="Chaussures">
+                            <h3>Chaussures Hommes</h3>
+                        </a>
+                    </div>
+                    <div class="categorie">
+                        <a href="#">
+                            <img src="images/Livres.jpg" alt="Livres">
+                            <h3>Livres</h3>
+                        </a>
+                    </div>
+                    <div class="categorie">
+                        <a href="#">
+                            <img src="images/parfums.jpg" alt="Parfums">
+                            <h3>Parfums marocain pour hommes</h3>
+                        </a>
+                    </div>
+                    <div class="categorie">
+                        <a href="#">
+                            <img src="images/savon-noir.jpg" alt="Savon noir">
+                            <h3>Savon noir</h3>
+                        </a>
+                    </div>
+                    <div class="categorie">
+                        <a href="#">
+                            <img src="images/chemise-femme.jpg" alt="Chemise femme">
+                            <h3>Chemises femmes</h3>
+                        </a>
+                    </div>
+                </div>
+                <button class="carousel-btn right" aria-label="Défiler vers la droite">
+                    <img src="images/left-arrow.jpg" alt="Flèche droite" />
+                </button>
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const track = document.querySelector(".carousel-track");
+                const btnLeft = document.querySelector(".carousel-btn.left");
+                const btnRight = document.querySelector(".carousel-btn.right");
+
+                // Find the width of a single category item, including its margin
+                const itemWidth = document.querySelector(".categorie").offsetWidth + 20; // 20px is for the left and right margin
+
+                btnLeft.addEventListener("click", () => {
+                    track.scrollBy({ left: -itemWidth, behavior: "smooth" });
+                });
+
+                btnRight.addEventListener("click", () => {
+                    track.scrollBy({ left: itemWidth, behavior: "smooth" });
+                });
+            });
+        </script>
 
         <script>
             // Fonction pour afficher l'heure de Paris
