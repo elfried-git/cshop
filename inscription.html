@@ -36,39 +36,79 @@
     <main>
         <div class="auth-wrapper">
             <div id="register-form-container" class="registration-container">
-                <form class="account-form" action="/register" method="POST">
+                <form class="account-form" action="register.php" method="POST">
                     <h2>Créer un compte</h2>
 
                     <div class="form-group">
                         <label for="reg-email">Adresse e-mail</label>
-                        <input type="email" id="reg-email" name="email" placeholder="votre@email.com" required>
+                        <input type="email" id="reg-email" name="email" required>
                     </div>
 
                     <div class="form-group">
                         <label for="reg-username">Nom d'utilisateur</label>
-                        <input type="text" id="reg-username" name="username" placeholder="Nom d'utilisateur unique"
-                            required>
+                        <input type="text" id="reg-username" name="username" required>
                     </div>
 
                     <div class="form-group">
                         <label for="reg-password">Mot de passe</label>
-                        <input type="password" id="reg-password" name="password" placeholder="Minimum 8 caractères"
-                            required minlength="8">
+                        <input type="password" id="reg-password" name="password" required minlength="8">
                     </div>
 
                     <div class="form-group">
                         <label for="reg-confirm-password">Confirmer le mot de passe</label>
-                        <input type="password" id="reg-confirm-password" name="confirm_password"
-                            placeholder="Retapez le mot de passe" required minlength="8">
+                        <input type="password" id="reg-confirm-password" name="confirm_password" required minlength="8">
+                        <small id="password-match-error" style="color: red; display: none; margin-top: 5px;">Les mots de
+                            passe ne correspondent!</small>
                     </div>
+
+                    <button type="submit" class="btn-primary" id="submit-button" disabled>S'inscrire</button>
 
                     <div class="form-check">
                         <input type="checkbox" id="terms" name="terms" required>
-                        <label for="terms">J'accepte les <a href="terms-conditions.html">Conditions d'utilisation</a></label>
+                        <label for="terms">J'accepte les <a href="terms-conditions.html">Conditions
+                                d'utilisation</a></label>
                     </div>
 
-                    <button type="submit" class="btn-primary">S'inscrire</button>
                 </form>
+
+                <script>
+                    // Get the DOM elements
+                    const passwordInput = document.getElementById('reg-password');
+                    const confirmPasswordInput = document.getElementById('reg-confirm-password');
+                    const submitButton = document.getElementById('submit-button');
+                    const passwordError = document.getElementById('password-match-error');
+                    // NOUVEAU : Récupération de la case à cocher
+                    const termsCheckbox = document.getElementById('terms');
+
+                    // Fonction pour vérifier si les mots de passe correspondent ET si les conditions sont acceptées
+                    function checkFormValidity() {
+                        const password = passwordInput.value;
+                        const confirmPassword = confirmPasswordInput.value;
+                        const termsAccepted = termsCheckbox.checked;
+
+                        const passwordsMatch = password === confirmPassword && password.length >= 8;
+                        const isFormValid = passwordsMatch && termsAccepted;
+
+                        // Gérer l'état du bouton
+                        submitButton.disabled = !isFormValid;
+
+                        // Gérer l'affichage de l'erreur
+                        if (password.length > 0 && confirmPassword.length > 0 && !passwordsMatch) {
+                            passwordError.style.display = 'block';
+                        } else {
+                            passwordError.style.display = 'none';
+                        }
+                    }
+
+                    // Attacher la fonction de vérification à tous les champs pertinents
+                    passwordInput.addEventListener('input', checkFormValidity);
+                    confirmPasswordInput.addEventListener('input', checkFormValidity);
+                    // NOUVEAU : Écouteur d'événement pour la case à cocher
+                    termsCheckbox.addEventListener('change', checkFormValidity);
+
+                    // Vérification initiale au chargement de la page
+                    document.addEventListener('DOMContentLoaded', checkFormValidity);
+                </script>
 
                 <p class="form-toggle-link">
                     Vous avez déjà un compte ? <a href="connexion.html">Connectez-vous ici</a>.
