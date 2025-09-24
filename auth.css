@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Styles unifiés pour les formulaires d'authentification
+   (Connexion, Inscription, Modification de mot de passe)
+   ========================================================================== */
+
+.auth-wrapper {
+    max-width: 450px;
+    /* Largeur augmentée */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #29c068;
+    /* Fond vert comme demandé */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.auth-wrapper h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+    color: white;
+}
+
+.auth-wrapper .form-group label {
+    color: white;
+}
+
+.form-toggle-link {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.95em;
+}
+
+.form-toggle-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-toggle-link a:hover {
+    text-decoration: underline;
+}
+
+.form-options {
+    text-align: right;
+    margin-bottom: var(--spacing-medium);
+}
+
+.form-options a {
+    color: white;
+}
+
+/* --- Styles pour les champs avec boutons "œil" --- */
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 0;
+    line-height: 1;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    padding-right: 40px;
+}
+
+
+/* Style de l'en-tête (bande verte en haut) */
+.header-container {
+    background-color: #2eac68;
+    /* Utilisez la même couleur que l'en-tête de la page d'inscription */
+    /* ... (autres styles comme hauteur, padding, etc.) ... */
+}
+
+/* --- Styles pour les champs de formulaire (Inputs) --- */
+.auth-wrapper input[type="email"],
+.auth-wrapper input[type="password"],
+.auth-wrapper input[type="text"] {
+    /* Style unifié des champs dans le formulaire vert */
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    /* Espace sous le label */
+    margin-bottom: 15px;
+    /* Espace avant le prochain form-group ou label */
+    border: none;
+    /* Supprime la bordure par défaut */
+    border-radius: 4px;
+    /* Bordures légèrement arrondies */
+    box-sizing: border-box;
+    /* Assure que padding/border sont inclus dans la largeur */
+    font-size: 1em;
+}
+
+/* --- Style pour le bouton "Se connecter" --- */
+.auth-wrapper button[type="submit"] {
+    width: 100%;
+    /* Le bouton doit prendre toute la largeur */
+    padding: 12px;
+    margin-top: 20px;
+    background-color: white;
+    /* Fond blanc pour le bouton comme sur la page d'inscription */
+    color: #29c068;
+    /* Texte vert */
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.auth-wrapper button[type="submit"]:hover {
+    background-color: #f0f0f0;
+    /* Léger changement au survol */
+    color: #1f944f;
+}
+
+/* --- Correction pour les liens en bas (Pas encore de compte) --- */
+/* Assurez-vous que ces règles sont appliquées si elles ne le sont pas déjà */
+.form-toggle-link {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.95em;
+    color: white;
+    /* Pour le texte "Pas encore de compte ?" */
+}
+
+.form-toggle-link a {
+    color: white;
+    /* Pour le lien "Inscrivez-vous ici" */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Styles unifiés pour les formulaires d'authentification (Mise à jour)
+   ========================================================================== */
+
+/* ... (Les règles .auth-wrapper, h2, label, etc. sont correctes) ... */
+
+/* --- Styles pour les champs de formulaire (Inputs) --- */
+/* Rend les champs blancs, uniformément pour toutes les pages d'auth */
+.auth-wrapper input:not([type="checkbox"]) {
+    /* On ne veut pas styliser la checkbox comme un champ de texte */
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: none;
+    /* Supprime la bordure par défaut */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* --- Style pour les boutons (S'inscrire et Se connecter) --- */
+/* Cible les boutons des deux formulaires (.btn-primary de Inscription et le nouveau bouton de Connexion) */
+.auth-wrapper .btn-primary,
+.auth-wrapper button[type="submit"] {
+    width: 100%;
+    /* Le bouton doit prendre toute la largeur */
+    padding: 12px;
+    margin-top: 20px;
+    background-color: white;
+    /* Fond blanc comme sur l'image d'inscription */
+    color: #29c068;
+    /* Texte vert */
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.auth-wrapper .btn-primary:hover,
+.auth-wrapper button[type="submit"]:hover {
+    background-color: #f0f0f0;
+    /* Léger changement au survol */
+    color: #1f944f;
+}
+
+/* ... (Le reste de votre auth.css est correct, y compris .form-toggle-link) ... */

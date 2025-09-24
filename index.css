@@ -1,0 +1,251 @@
+/* ==========================================================================
+   CSS pour index.html
+
+   Ce fichier contient les styles spécifiques à la page d'accueil.
+   ========================================================================== */
+
+/* ==========================================================================
+   5. HERO SECTION
+   ========================================================================== */
+#hero {
+    text-align: center;
+    padding: 4rem var(--spacing-large);
+    background-color: var(--light-gray-color);
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    margin-bottom: var(--spacing-medium);
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.hero-text img {
+    max-width: 240px;
+    /* taille maximale de l’image */
+    height: auto;
+    border-radius: 10px;
+    /* coins arrondis optionnels */
+    object-fit: cover;
+
+}
+
+/* Faire clignoter  le text*/
+@keyframes clignoteCouleurs {
+    0% {
+        color: red;
+    }
+
+    10% {
+        color: orange;
+    }
+
+    20% {
+        color: yellow;
+    }
+
+    30% {
+        color: lime;
+    }
+
+    40% {
+        color: green;
+    }
+
+    50% {
+        color: cyan;
+    }
+
+    60% {
+        color: blue;
+    }
+
+    70% {
+        color: indigo;
+    }
+
+    80% {
+        color: violet;
+    }
+
+    90% {
+        color: pink;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
+#hero h1 {
+    animation: clignoteCouleurs 5s infinite linear;
+}
+
+/* ==========================================================================
+   6. SECTIONS (Products & Categories)
+   ========================================================================== */
+section {
+    padding: 4rem var(--spacing-large);
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-large);
+}
+
+.produits,
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-large);
+}
+
+.produit,
+.categorie {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.produit:hover,
+.categorie:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.produit img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.categorie img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.produit h3,
+.categorie h3 {
+    font-size: 1.2rem;
+    margin: var(--spacing-medium) 0;
+}
+
+.produit p {
+    color: var(--dark-gray-color);
+    padding: 0 var(--spacing-medium) var(--spacing-medium);
+}
+
+.prix-barre {
+    text-decoration: line-through;
+    color: var(--dark-gray-color);
+    margin-right: var(--spacing-small);
+}
+
+.badge-reduction {
+    position: absolute;
+    top: var(--spacing-medium);
+    left: var(--spacing-medium);
+    background-color: var(--danger-color);
+    color: var(--white-color);
+    padding: var(--spacing-small);
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+}
+
+/* Styles pour la nouvelle section du carrousel de catégories */
+
+#categories-carousel {
+    padding: 40px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+#categories-carousel h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+}
+
+.categorie {
+    flex: 0 0 200px;
+    border: none;            /* supprime la bordure */
+    border-radius: 0;        /* supprime les arrondis */
+    background: transparent; /* supprime le fond blanc */
+    text-align: center;      /* centrer le texte si tu veux */
+    transition: transform 0.3s ease;
+}
+
+.categorie:hover {
+    transform: scale(1.05);  /* petit zoom au hover */
+    box-shadow: none;        /* pas d’ombre */
+}
+
+.categorie img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;  /* conserve les vraies proportions */
+    border: none;         /* pas de ligne en dessous */
+    border-radius: 0;     /* pas d’arrondi forcé */
+    background: transparent;
+}
+
+.categorie h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    padding: 12px;
+    margin: 0;
+}
+
+.categorie a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.carousel-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: #f1f1f1;
+}

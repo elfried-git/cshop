@@ -1,0 +1,65 @@
+/* ==========================================================================
+   CSS pour les pages de détail des produits
+   ========================================================================== */
+
+.product-detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-large);
+}
+
+.product-detail {
+    display: flex;
+    gap: var(--spacing-large);
+}
+
+.product-image {
+    flex: 1;
+}
+
+.product-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-medium);
+}
+
+.price {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-medium);
+}
+
+.description {
+    margin-bottom: var(--spacing-large);
+}
+
+.caracteristiques ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.actions {
+    margin-top: var(--spacing-large);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+}
+
+.actions label {
+    font-weight: 600;
+}
+
+.actions input {
+    width: 80px;
+    padding: var(--spacing-small);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+}

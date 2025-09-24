@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Boutique</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="index.css">
 
 </head>
 
@@ -41,7 +42,6 @@
                 </li>
             </ul>
         </nav>
-
     </header>
 
     <!-- Main -->
@@ -60,9 +60,8 @@
         <section id="categories-carousel">
             <h2>Nos catégories</h2>
             <div class="carousel-container">
-                <button class="carousel-btn left" aria-label="Défiler vers la gauche">
-                    <img src="images/right-arrow.jpg" alt="Flèche gauche" />
-                </button>
+                <button class="carousel-btn left" aria-label="Défiler vers la gauche">&#10094;</button>
+
                 <div class="carousel-track">
                     <div class="categorie">
                         <a href="categories/sacs.html">
@@ -73,7 +72,7 @@
                     <div class="categorie">
                         <a href="#">
                             <img src="images/cosmetiques.jpg" alt="Cosmetiques">
-                            <h3>Cosmetiques</h3>
+                            <h3>Cosmétiques</h3>
                         </a>
                     </div>
                     <div class="categorie">
@@ -91,7 +90,7 @@
                     <div class="categorie">
                         <a href="#">
                             <img src="images/parfums.jpg" alt="Parfums">
-                            <h3>Parfums marocain pour hommes</h3>
+                            <h3>Parfums marocains</h3>
                         </a>
                     </div>
                     <div class="categorie">
@@ -106,12 +105,17 @@
                             <h3>Chemises femmes</h3>
                         </a>
                     </div>
+                    <div class="categorie">
+                        <a href="#">
+                            <img src="images/boucle-oreilles.jpg" alt="Boucles oreilles">
+                            <h3>Boucles d'oreilles</h3>
+                        </a>
+                    </div>
                 </div>
-                <button class="carousel-btn right" aria-label="Défiler vers la droite">
-                    <img src="images/left-arrow.jpg" alt="Flèche droite" />
-                </button>
+                <button class="carousel-btn right" aria-label="Défiler vers la droite">&#10095;</button>
             </div>
         </section>
+
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -415,7 +419,6 @@
             }
             return chatbotResponses.default;
         }
-
         // Fonction pour envoyer le message
         function envoyerMessage() {
             const input = document.getElementById("user-input");

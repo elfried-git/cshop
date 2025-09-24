@@ -1,0 +1,55 @@
+/* ==========================================================================
+   CSS pour quisommesnous.html
+
+   Ce fichier contient les styles spécifiques à la page "Qui sommes-nous".
+   ========================================================================== */
+
+/* ==========================================================================
+   15. ABOUT US PAGE
+   ========================================================================== */
+
+.about-us-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-large);
+}
+
+.about-us-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/assoc.png');
+    background-size: cover;
+    background-position: center;
+    color: var(--white-color);
+    text-align: center;
+    padding: 4rem var(--spacing-large);
+    border-radius: var(--border-radius);
+}
+
+.about-us-hero h1 {
+    font-size: 3rem;
+    color: var(--white-color);
+}
+
+.about-us-content {
+    padding: var(--spacing-large) 0;
+}
+
+.about-us-section {
+    margin-bottom: var(--spacing-large);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-large);
+}
+
+.about-us-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.about-us-section .section-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.about-us-section .section-content h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-small);
+}

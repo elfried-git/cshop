@@ -1,0 +1,115 @@
+/* ==========================================================================
+   CSS pour faq.html
+
+   Ce fichier contient les styles spécifiques à la page FAQ.
+   ========================================================================== */
+
+/* ===== Contenu FAQ ===== */
+
+/* Titre FAQ */
+.faq-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #27ae60;
+    font-weight: 700;
+}
+
+/* Items FAQ */
+.faq-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    padding: 20px 25px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.faq-item h3 {
+    margin-top: 0;
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+.faq-item p {
+    margin: 10px 0 0 0;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* Bouton retour */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin: 30px auto 50px auto;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #1c8548;
+}
+
+/* FAQ Responsive */
+@media (max-width: 768px) {
+    .faq-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .faq-item {
+        padding: 15px 20px;
+        margin-bottom: 15px;
+    }
+
+    .faq-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .faq-item p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin: 20px auto 30px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .faq-item {
+        padding: 12px 15px;
+        margin-bottom: 12px;
+    }
+
+    .faq-item h3 {
+        font-size: 1rem;
+    }
+
+    .faq-item p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        margin: 15px auto 20px auto;
+    }
+}

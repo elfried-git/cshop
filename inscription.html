@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>Inscription</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="auth.css">
 </head>
@@ -35,28 +35,43 @@
 
     <main>
         <div class="auth-wrapper">
-            <div id="login-form-container" class="login-container">
-                <form class="login-form" method="post">
-                    <h2>Me connecter</h2>
+            <div id="register-form-container" class="registration-container">
+                <form class="account-form" action="/register" method="POST">
+                    <h2>Créer un compte</h2>
 
                     <div class="form-group">
-                        <label for="email">Email :</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="reg-email">Adresse e-mail</label>
+                        <input type="email" id="reg-email" name="email" placeholder="votre@email.com" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Mot de passe <span class="required">*</span></label>
-                        <input type="password" id="password" name="password" required>
+                        <label for="reg-username">Nom d'utilisateur</label>
+                        <input type="text" id="reg-username" name="username" placeholder="Nom d'utilisateur unique"
+                            required>
                     </div>
 
-                    <div class="form-options">
-                        <a href="modifiermotpasse.html">Mot de passe oublié ?</a>
+                    <div class="form-group">
+                        <label for="reg-password">Mot de passe</label>
+                        <input type="password" id="reg-password" name="password" placeholder="Minimum 8 caractères"
+                            required minlength="8">
                     </div>
 
-                    <button type="submit" class="btn-primary">Se connecter</button>
+                    <div class="form-group">
+                        <label for="reg-confirm-password">Confirmer le mot de passe</label>
+                        <input type="password" id="reg-confirm-password" name="confirm_password"
+                            placeholder="Retapez le mot de passe" required minlength="8">
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">J'accepte les <a href="terms-conditions.html">Conditions d'utilisation</a></label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">S'inscrire</button>
                 </form>
+
                 <p class="form-toggle-link">
-                    Pas encore de compte ? <a href="inscription.html">Inscrivez-vous ici</a>.
+                    Vous avez déjà un compte ? <a href="connexion.html">Connectez-vous ici</a>.
                 </p>
             </div>
         </div>

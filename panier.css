@@ -1,0 +1,70 @@
+/* ==========================================================================
+   CSS pour panier.html
+
+   Ce fichier contient les styles spécifiques à la page du panier.
+   ========================================================================== */
+
+/* ==========================================================================
+   13. CART PAGE
+   ========================================================================== */
+.panier-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-large);
+}
+
+.panier-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-large);
+}
+
+.panier-table th,
+.panier-table td {
+    padding: var(--spacing-medium);
+    border-bottom: var(--border-light);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.panier-table th {
+    font-weight: 600;
+}
+
+.panier-table img {
+    max-width: 80px;
+    border-radius: var(--border-radius);
+}
+
+.quantite-input {
+    width: 70px;
+    padding: var(--spacing-small);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+}
+
+.remove-btn {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+    border: none;
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+.resume-panier {
+    text-align: right;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-large);
+}
+
+.boutons-panier {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-medium);
+}

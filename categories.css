@@ -1,0 +1,50 @@
+/* ==========================================================================
+   CSS pour les pages de catégories
+   ========================================================================== */
+
+.produits,
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-large);
+}
+
+.produit,
+.categorie {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.produit:hover,
+.categorie:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.produit img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.categorie img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.produit h3,
+.categorie h3 {
+    font-size: 1.2rem;
+    margin: var(--spacing-medium) 0;
+}
+
+.produit p {
+    color: var(--dark-gray-color);
+    padding: 0 var(--spacing-medium) var(--spacing-medium);
+}

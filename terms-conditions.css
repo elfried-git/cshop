@@ -1,0 +1,42 @@
+/* ==========================================================================
+   CSS pour terms-conditions.html
+
+   Ce fichier contient les styles spécifiques aux pages de documents légaux.
+   ========================================================================== */
+
+/* --- Styles spécifiques pour les documents légaux (CGU/CGV) --- */
+
+.legal-document-wrapper {
+    max-width: 800px; /* Un peu plus large que le formulaire pour le texte */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff; /* Fond blanc pour la lisibilité du texte long */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #333; /* Texte noir classique sur le fond blanc */
+    line-height: 1.6; /* Améliore la lecture */
+}
+
+.legal-document-wrapper h1, 
+.legal-document-wrapper h2, 
+.legal-document-wrapper h3 {
+    color: #29c068; /* Couleur verte pour les titres pour la cohérence */
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.legal-document-wrapper ul {
+    margin-left: 20px;
+}
+
+.legal-document-wrapper a {
+    color: #007bff; /* Liens en bleu standard */
+}
+
+/* Style pour les alertes ou clauses importantes */
+.warning-text, .final-warning {
+    padding: 10px;
+    border-left: 5px solid #ffc107;
+    background-color: #fff9e6;
+    margin-top: 20px;
+}

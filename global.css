@@ -1,0 +1,678 @@
+/* ==========================================================================
+   STYLES GLOBAUX
+
+   Ce fichier contient tous les styles qui sont partagés sur l'ensemble du site.
+   Il est chargé sur chaque page, en plus d'un fichier CSS spécifique à la page.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. GOOGLE FONTS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap');
+
+/* ==========================================================================
+   2. CSS VARIABLES
+   ========================================================================== */
+:root {
+    /* Colors */
+    --primary-color: #27AE60;
+    --primary-color-dark: #219150;
+    --secondary-color: #2C3E50;
+    --text-color: #333;
+    --background-color: #FFFFFF;
+    --light-gray-color: #f4f4f4;
+    --medium-gray-color: #ccc;
+    --dark-gray-color: #7f8c8d;
+    --white-color: #fff;
+    --black-color: #000;
+    --danger-color: #f01404;
+    --success-color: #08d25c;
+
+    /* Typography */
+    --body-font: 'Roboto', sans-serif;
+    --heading-font: 'Poppins', sans-serif;
+
+    /* Spacing */
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+
+    /* Borders */
+    --border-radius: 8px;
+    --border-light: 1px solid var(--medium-gray-color);
+    --border-dark: 1px solid var(--secondary-color);
+
+    /* Shadows */
+    --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   3. RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-medium);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color-dark);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   4. HEADER
+   ========================================================================== */
+.main-header {
+    background-color: var(--primary-color);
+    padding: var(--spacing-medium) var(--spacing-large);
+    box-shadow: var(--shadow-small);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#logo a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+#logo a:hover {
+    transform: scale(1.05);
+}
+
+#logo img {
+    width: 150px;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-large);
+}
+
+.main-nav a {
+    color: var(--white-color);
+    font-weight: 600;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--white-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.icone-panier {
+    position: relative;
+}
+
+.icone-panier img {
+    width: 30px;
+}
+
+#compteur-panier {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--danger-color);
+    color: var(--white-color);
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* ==========================================================================
+   8. FORMS
+   ========================================================================== */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: var(--spacing-small);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: var(--spacing-medium);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--body-font);
+}
+
+.btn,
+a.btn,
+button.btn {
+    display: inline-block;
+    padding: var(--spacing-medium) var(--spacing-large);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.btn-secondary {
+    background-color: var(--dark-gray-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.envoyer-btn {
+    align-self: center;
+}
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: var(--spacing-large);
+    text-align: center;
+}
+
+.main-footer nav ul {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
+}
+
+.main-footer nav a {
+    color: var(--white-color);
+}
+
+.footer-content {
+    margin-top: var(--spacing-large);
+}
+
+.reseaux {
+    margin-bottom: var(--spacing-medium);
+}
+
+.reseaux a {
+    margin: 0 var(--spacing-small);
+    display: inline-block;
+}
+
+.reseaux img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.reseaux img:hover {
+    transform: scale(1.1);
+}
+
+.infos-legales {
+    margin-top: var(--spacing-medium);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   10. UTILITIES & COMPONENTS
+   ========================================================================== */
+#top-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-medium);
+    z-index: 1000;
+    display: none;
+    /* Hidden by default */
+}
+
+#top-bar:hover {
+    background-color: var(--primary-color);
+}
+
+/* Chatbot */
+#chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-medium);
+    z-index: 1000;
+}
+
+#chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    width: 320px;
+    background-color: var(--white-color);
+    border: var(--border-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    z-index: 999;
+    overflow: hidden;
+    display: none;
+    /* Hidden by default */
+}
+
+#chatbot-header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: var(--spacing-medium);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-close {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#chatbot-messages {
+    height: 250px;
+    overflow-y: auto;
+    padding: var(--spacing-medium);
+    font-size: 0.9rem;
+}
+
+#chatbot-input {
+    display: flex;
+    border-top: var(--border-light);
+}
+
+#chatbot-input input {
+    flex: 1;
+    border: none;
+    padding: var(--spacing-medium);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#chatbot-input button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    padding: 0 var(--spacing-medium);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Menu burger */
+.menu-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-burger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.menu-burger.menu-open span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-burger.menu-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-burger.menu-open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Media queries pour responsive */
+@media (max-width: 1024px) {
+    .main-header {
+        padding: var(--spacing-medium);
+    }
+
+    .produits {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    section {
+        padding: 3rem var(--spacing-medium);
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-burger {
+        display: flex;
+    }
+
+    .main-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-medium);
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--primary-color);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-nav.nav-open {
+        left: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: var(--spacing-large);
+        text-align: center;
+        padding: 0;
+    }
+
+    .main-nav a {
+        font-size: 1.2rem;
+        padding: var(--spacing-medium);
+        display: block;
+    }
+
+    .main-nav a::after {
+        display: none;
+    }
+
+    .main-nav a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: var(--border-radius);
+    }
+
+    #hero {
+        padding: 2rem var(--spacing-medium);
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 2rem var(--spacing-medium);
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-medium);
+    }
+
+    .produits {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-medium);
+    }
+
+    .produit {
+        padding: var(--spacing-medium);
+    }
+
+    .produit h3 {
+        font-size: 1rem;
+        margin: var(--spacing-small) 0;
+    }
+
+    .produit p {
+        font-size: 0.9rem;
+    }
+
+    .produit img {
+        height: 150px;
+    }
+
+    .contact-form {
+        padding: var(--spacing-medium);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
+        /* Empêche le zoom sur iOS */
+    }
+
+    .main-footer nav ul {
+        flex-direction: column;
+        gap: var(--spacing-medium);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-medium);
+    }
+
+    .infos-legales {
+        font-size: 0.8rem;
+    }
+
+    /* Chatbot responsive */
+    #chatbot-container {
+        width: calc(100vw - 40px);
+        left: 20px;
+        right: 20px;
+    }
+
+    #chatbot-messages {
+        height: 200px;
+    }
+
+    /* Carousel responsive */
+    .carousel-track .categorie {
+        width: 150px;
+        min-width: 150px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: var(--spacing-small) var(--spacing-medium);
+    }
+
+    #logo img {
+        width: 80px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 1.5rem var(--spacing-small);
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    .produits {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-small);
+    }
+
+    .produit {
+        padding: var(--spacing-small);
+    }
+
+    .produit img {
+        height: 120px;
+    }
+
+    .produit h3 {
+        font-size: 0.9rem;
+    }
+
+    .produit p {
+        font-size: 0.8rem;
+    }
+
+    .contact-form {
+        padding: var(--spacing-small);
+    }
+
+    .btn {
+        padding: var(--spacing-small) var(--spacing-medium);
+        font-size: 0.9rem;
+    }
+
+    .main-footer {
+        padding: var(--spacing-medium) var(--spacing-small);
+    }
+
+    .main-footer nav ul {
+        gap: var(--spacing-small);
+    }
+
+    .infos-legales {
+        font-size: 0.7rem;
+    }
+
+    /* Chatbot très petit écran */
+    #chatbot-container {
+        width: calc(100vw - 20px);
+        left: 10px;
+        right: 10px;
+    }
+
+    #chatbot-messages {
+        height: 150px;
+        font-size: 0.8rem;
+    }
+
+    /* Carousel très petit écran */
+    .carousel-track .categorie {
+        width: 120px;
+        min-width: 120px;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
