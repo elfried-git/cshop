@@ -676,3 +676,25 @@ button.btn {
         font-size: 1.2rem;
     }
 }
+
+
+/* Styles pour le nouveau sélecteur de devise dans la section Hero */
+.currency-widget {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: flex-start; /* Aligne à gauche (ou au centre si vous préférez) */
+    max-width: 300px; /* Limite la largeur pour l'esthétique */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#country-selector {
+    padding: 8px 12px;
+    font-size: 1.1em;
+    border: 2px solid #000000; /* Couleur pour le faire ressortir */
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    width: 100%;
+}

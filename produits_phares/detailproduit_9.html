@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail produit - OVS BREAK Sweatshirt pour filles</title>
+    <title>Détail produit - Benchou Ferrari</title>
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="../detailproduit.css">
 </head>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="product-info">
                     <h1>Benchou Ferrari</h1>
-                    <div class="price">10 €</div>
+                    <div class="price" data-original-price="10">10 €</div>
                     <div class="description">
                         <p>Ce mec qui s'en fiche un peu de tout.
                         </p>
@@ -92,6 +92,88 @@
     </footer>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Éléments DOM du sélecteur permanent
+            const selector = document.getElementById("country-selector");
+
+            // Taux de conversion (Base : 1 EUR)
+            const TAUX_FCFA = 655.957; 
+            const TAUX_USD = 1.07; 
+
+            /**
+             * Met à jour tous les prix sur la page en fonction de la devise sélectionnée.
+             * @param {string} currency - La devise ('EUR', 'XAF' ou 'USD').
+             */
+            function updatePrices(currency) {
+                const priceElements = document.querySelectorAll('[data-original-price]');
+
+                priceElements.forEach(element => {
+                    const originalPrice = parseFloat(element.getAttribute('data-original-price'));
+                    let newPrice;
+                    let currencySymbol;
+                    let locale = 'fr-FR';
+
+                    if (currency === 'XAF') {
+                        // Conversion en FCFA
+                        newPrice = Math.round(originalPrice * TAUX_FCFA / 1000) * 1000;
+                        currencySymbol = ' FCFA';
+                        newPrice = newPrice.toLocaleString(locale);
+                    } else if (currency === 'USD') {
+                        // Conversion en USD (arrondi à 2 décimales)
+                        newPrice = (originalPrice * TAUX_USD).toFixed(2); 
+                        currencySymbol = ' $';
+                        locale = 'en-US'; 
+                    } 
+                    else {
+                        // Euro (EUR)
+                        newPrice = originalPrice.toFixed(2);
+                        currencySymbol = '€';
+                        newPrice = newPrice.replace('.00', ''); 
+                    }
+
+                    // Logique d'affichage du prix
+                    element.textContent = `${newPrice}${currencySymbol}`;
+                });
+            }
+            
+            /**
+             * Gère le changement de sélection, met à jour les prix et stocke le choix dans sessionStorage.
+             * @param {string} currency - La devise sélectionnée.
+             */
+            function handleSelection(currency) {
+                updatePrices(currency);
+                // Utilise sessionStorage pour retenir le choix sur cette session
+                sessionStorage.setItem('selectedCountry', currency);
+            }
+
+
+            // === Logique au chargement (Priorité à la session, sinon EUR par défaut) ===
+            const savedCountry = sessionStorage.getItem('selectedCountry'); 
+            const defaultCurrency = 'EUR';
+            let initialCurrency = defaultCurrency;
+
+            if (savedCountry) {
+                initialCurrency = savedCountry;
+            }
+
+            // Appliquer la devise trouvée/par défaut
+            if (selector) {
+                selector.value = initialCurrency;
+            }
+            updatePrices(initialCurrency);
+
+
+            // === Événement de changement du sélecteur ===
+            if (selector) {
+                selector.addEventListener('change', (event) => {
+                    const selectedCurrency = event.target.value;
+                    handleSelection(selectedCurrency);
+                });
+            }
+        });
+    </script>
+    
+    <script>
         function updateCartCounter() {
             const compteur = document.getElementById("compteur-panier");
             if (compteur) {
@@ -110,7 +192,7 @@
             boutonPanier.addEventListener("click", () => {
                 const produit = {
                     nom: "Benchou Ferrari",
-                    prix: 10,
+                    prix: 10, // PRIX DE BASE EN EUR
                     quantite: parseInt(document.getElementById("quantite").value),
                     image: "images/nel.jpg"
                 };
