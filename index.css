@@ -33,133 +33,344 @@
 
 }
 
-/* Faire clignoter  le text*/
-@keyframes clignoteCouleurs {
-    0% {
-        color: red;
+/* Animations professionnelles */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-
-    10% {
-        color: orange;
-    }
-
-    20% {
-        color: yellow;
-    }
-
-    30% {
-        color: lime;
-    }
-
-    40% {
-        color: green;
-    }
-
-    50% {
-        color: cyan;
-    }
-
-    60% {
-        color: blue;
-    }
-
-    70% {
-        color: indigo;
-    }
-
-    80% {
-        color: violet;
-    }
-
-    90% {
-        color: pink;
-    }
-
-    100% {
-        color: red;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes floatingBackground {
+    0%, 100% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateX(2%) translateY(-1%) rotate(1deg);
+    }
+    66% {
+        transform: translateX(-1%) translateY(2%) rotate(-1deg);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.03;
+    }
+    50% {
+        transform: scale(1.1) rotate(2deg);
+        opacity: 0.06;
+    }
+}
+
+/* ==========================================================================
+   BACKGROUNDS PROFESSIONNELS POUR E-COMMERCE
+   ========================================================================== */
+
+/* Background global sophistiqué */
+body {
+    background: 
+        linear-gradient(180deg, #ffffff 0%, #fafcfb 50%, #ffffff 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.8" fill="%2327AE60" opacity="0.008"/></pattern></defs><rect width="200" height="200" fill="url(%23dots)"/></svg>'),
+        radial-gradient(circle at 10% 20%, rgba(39, 174, 96, 0.01) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(44, 62, 80, 0.008) 0%, transparent 50%);
+    background-attachment: fixed, fixed, fixed, fixed;
+    min-height: 100vh;
+}
+
+/* Background de luxe pour le hero */
+#hero {
+    background: 
+        linear-gradient(135deg, rgba(39, 174, 96, 0.03) 0%, rgba(44, 62, 80, 0.02) 50%, rgba(255, 255, 255, 0.98) 100%),
+        radial-gradient(circle at 20% 80%, rgba(39, 174, 96, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(44, 62, 80, 0.05) 0%, transparent 50%),
+        linear-gradient(45deg, #ffffff 25%, #f8f9fa 25%, #f8f9fa 50%, #ffffff 50%, #ffffff 75%, #f8f9fa 75%);
+    background-size: 100% 100%, 800px 600px, 600px 800px, 40px 40px !important;
+    background-position: 0 0, 0 0, 100% 100%, 0 0;
+}
+
+#hero::before {
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(39, 174, 96, 0.04) 0%, transparent 30%),
+        radial-gradient(circle at 70% 30%, rgba(44, 62, 80, 0.03) 0%, transparent 40%);
+    animation: floatingBackground 20s ease-in-out infinite;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.5" fill="%2327AE60" opacity="0.02"/><circle cx="80" cy="40" r="0.3" fill="%232C3E50" opacity="0.015"/><circle cx="40" cy="80" r="0.4" fill="%2327AE60" opacity="0.025"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Background premium pour le carrousel */
+#categories-carousel {
+    background: 
+        linear-gradient(145deg, #ffffff 0%, #f8fffe 30%, #f0f9f4 70%, #ffffff 100%),
+        radial-gradient(ellipse at top left, rgba(39, 174, 96, 0.02) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(44, 62, 80, 0.015) 0%, transparent 50%) !important;
+    background-attachment: local, fixed, fixed;
+}
+
+#categories-carousel::before {
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(39, 174, 96, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, rgba(44, 62, 80, 0.02) 0%, transparent 60%),
+        conic-gradient(from 45deg at 50% 50%, transparent 0deg, rgba(39, 174, 96, 0.01) 90deg, transparent 180deg, rgba(44, 62, 80, 0.008) 270deg, transparent 360deg) !important;
+    animation: breathe 15s ease-in-out infinite;
+}
+
+#categories-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(39, 174, 96, 0.008) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
 #hero h1 {
-    animation: clignoteCouleurs 5s infinite linear;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease-in-out infinite, fadeInUp 0.8s ease-out;
+}
+
+.hero-text {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-text p {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.currency-widget {
+    animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 /* ==========================================================================
    6. SECTIONS (Products & Categories)
    ========================================================================== */
+/* Background global de la page */
+body {
+    background: 
+        linear-gradient(180deg, #ffffff 0%, #fafcfb 50%, #ffffff 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.8" fill="%2327AE60" opacity="0.008"/></pattern></defs><rect width="200" height="200" fill="url(%23dots)"/></svg>'),
+        radial-gradient(circle at 10% 20%, rgba(39, 174, 96, 0.01) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(44, 62, 80, 0.008) 0%, transparent 50%);
+    background-attachment: fixed, fixed, fixed, fixed;
+    min-height: 100vh;
+}
+
 section {
     padding: 4rem var(--spacing-large);
+    position: relative;
+}
+
+/* Backgrounds alternés pour les sections */
+section:nth-child(even) {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.98) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="hexagons" width="30" height="30" patternUnits="userSpaceOnUse"><polygon points="15,2 25,8 25,18 15,24 5,18 5,8" fill="none" stroke="%2327AE60" stroke-width="0.3" opacity="0.015"/></pattern></defs><rect width="60" height="60" fill="url(%23hexagons)"/></svg>');
+}
+
+section:nth-child(odd):not(#hero):not(#categories-carousel) {
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 252, 251, 0.95) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><pattern id="lines" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0,20 L40,20" stroke="%232C3E50" stroke-width="0.2" opacity="0.01"/><path d="M20,0 L20,40" stroke="%2327AE60" stroke-width="0.2" opacity="0.008"/></pattern></defs><rect width="40" height="40" fill="url(%23lines)"/></svg>');
+}
+
+/* Background spécifique pour les sections de produits */
+section:nth-child(even) {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.98) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="hexagons" width="30" height="30" patternUnits="userSpaceOnUse"><polygon points="15,2 25,8 25,18 15,24 5,18 5,8" fill="none" stroke="%2327AE60" stroke-width="0.3" opacity="0.015"/></pattern></defs><rect width="60" height="60" fill="url(%23hexagons)"/></svg>');
+}
+
+section:nth-child(odd) {
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 252, 251, 0.95) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><pattern id="lines" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0,20 L40,20" stroke="%232C3E50" stroke-width="0.2" opacity="0.01"/><path d="M20,0 L20,40" stroke="%2327AE60" stroke-width="0.2" opacity="0.008"/></pattern></defs><rect width="40" height="40" fill="url(%23lines)"/></svg>');
 }
 
 section h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
     margin-bottom: var(--spacing-large);
+    font-weight: 700;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
+    border-radius: 2px;
 }
 
 .produits,
 .categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-large);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .produit,
 .categorie {
-    background-color: var(--white-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-medium);
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><defs><pattern id="card-pattern" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="0.4" fill="%2327AE60" opacity="0.008"/></pattern></defs><rect width="20" height="20" fill="url(%23card-pattern)"/></svg>');
+    border-radius: 12px;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     overflow: hidden;
     position: relative;
+    border: 1px solid rgba(39, 174, 96, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .produit:hover,
 .categorie:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 1) 0%, rgba(240, 249, 244, 0.98) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><defs><pattern id="card-pattern-hover" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="0.6" fill="%2327AE60" opacity="0.015"/></pattern></defs><rect width="20" height="20" fill="url(%23card-pattern-hover)"/></svg>');
+}
+
+.produit:hover,
+.categorie:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(39, 174, 96, 0.15);
+    border-color: var(--primary-color);
+}
+
+.produit::before,
+.categorie::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-color-dark));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.produit:hover::before,
+.categorie:hover::before {
+    transform: scaleX(1);
 }
 
 .produit img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: contain;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.produit:hover img {
+    transform: scale(1.05);
 }
 
 .categorie img {
     width: 100%;
-    height: 150px;
+    height: 160px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.categorie:hover img {
+    transform: scale(1.1);
 }
 
 .produit h3,
 .categorie h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: var(--spacing-medium) 0;
+    font-weight: 600;
+    color: var(--secondary-color);
 }
 
 .produit p {
     color: var(--dark-gray-color);
     padding: 0 var(--spacing-medium) var(--spacing-medium);
+    line-height: 1.6;
 }
 
 .prix-barre {
     text-decoration: line-through;
     color: var(--dark-gray-color);
     margin-right: var(--spacing-small);
+    font-size: 0.9rem;
 }
 
 .badge-reduction {
     position: absolute;
     top: var(--spacing-medium);
     left: var(--spacing-medium);
-    background-color: var(--danger-color);
+    background: linear-gradient(135deg, var(--danger-color), #e74c3c);
     color: var(--white-color);
-    padding: var(--spacing-small);
-    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
     font-weight: bold;
-    border-radius: var(--border-radius);
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(240, 20, 4, 0.3);
+    animation: pulse 2s infinite;
 }
 
 /* Styles pour la nouvelle section du carrousel de catégories */
@@ -248,4 +459,332 @@ section h2 {
 
 .carousel-btn:hover {
     background: #f1f1f1;
+}
+
+/* ==========================================================================
+   BACKGROUNDS RESPONSIFS ET EFFETS PREMIUM SUPPLÉMENTAIRES
+   ========================================================================== */
+
+/* Effet parallaxe subtil pour desktop */
+@media (min-width: 1024px) {
+    .parallax-element {
+        background-attachment: fixed;
+    }
+}
+
+/* Background premium pour les sections spéciales */
+.section-premium {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 244, 0.98) 100%),
+        radial-gradient(ellipse at center, rgba(39, 174, 96, 0.02) 0%, transparent 70%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><defs><pattern id="premium-bg" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%2327AE60" opacity="0.01"/><circle cx="10" cy="10" r="0.5" fill="%232C3E50" opacity="0.008"/><circle cx="30" cy="30" r="0.8" fill="%2327AE60" opacity="0.012"/></pattern></defs><rect width="80" height="80" fill="url(%23premium-bg)"/></svg>');
+}
+
+/* Background pour les cartes en vedette */
+.produit.featured,
+.categorie.featured {
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 1) 0%, rgba(240, 249, 244, 0.98) 50%, rgba(255, 255, 255, 0.95) 100%),
+        radial-gradient(circle at 30% 70%, rgba(39, 174, 96, 0.03) 0%, transparent 50%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><defs><pattern id="featured-pattern" width="15" height="15" patternUnits="userSpaceOnUse"><polygon points="7.5,1 14,7.5 7.5,14 1,7.5" fill="none" stroke="%2327AE60" stroke-width="0.3" opacity="0.02"/></pattern></defs><rect width="30" height="30" fill="url(%23featured-pattern)"/></svg>');
+    box-shadow: 
+        0 8px 32px rgba(39, 174, 96, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Amélioration des backgrounds pour mobile */
+@media (max-width: 768px) {
+    body {
+        background: 
+            linear-gradient(180deg, #ffffff 0%, #fafcfb 100%),
+            radial-gradient(circle at 50% 20%, rgba(39, 174, 96, 0.015) 0%, transparent 70%);
+        background-attachment: local;
+    }
+    
+    #hero {
+        background-size: 100% 100%, 400px 300px, 300px 400px, 20px 20px !important;
+    }
+    
+    section:nth-child(even),
+    section:nth-child(odd):not(#hero):not(#categories-carousel) {
+        background-attachment: local;
+    }
+    
+    #categories-carousel {
+        background-attachment: local !important;
+    }
+    
+    .produit,
+    .categorie {
+        backdrop-filter: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background: 
+            linear-gradient(180deg, #ffffff 0%, #fafcfb 100%);
+        background-attachment: local;
+    }
+    
+    #hero::before,
+    #hero::after,
+    #categories-carousel::before,
+    #categories-carousel::after {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   FORMULAIRE DE CONTACT PROFESSIONNEL
+   ========================================================================== */
+
+/* Section contact avec background harmonieux */
+#contact {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 249, 244, 0.95) 50%, rgba(255, 255, 255, 0.98) 100%),
+        radial-gradient(ellipse at center, rgba(39, 174, 96, 0.03) 0%, transparent 70%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="contact-bg" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="0.8" fill="%2327AE60" opacity="0.015"/><circle cx="5" cy="5" r="0.4" fill="%232C3E50" opacity="0.01"/><circle cx="25" cy="25" r="0.6" fill="%2327AE60" opacity="0.012"/></pattern></defs><rect width="60" height="60" fill="url(%23contact-bg)"/></svg>');
+    border-top: 3px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(39, 174, 96, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+#contact h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Conteneur du formulaire */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: 
+        linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.08),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(39, 174, 96, 0.1);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+}
+
+/* Groupes de champs */
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Labels stylisés */
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Inputs et textarea */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 2px solid rgba(44, 62, 80, 0.1);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: var(--body-font);
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+        inset 0 1px 3px rgba(0, 0, 0, 0.05),
+        0 1px 0 rgba(255, 255, 255, 0.8);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 
+        0 0 0 3px rgba(39, 174, 96, 0.1),
+        inset 0 1px 3px rgba(0, 0, 0, 0.05),
+        0 4px 12px rgba(39, 174, 96, 0.15);
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
+}
+
+/* Textarea spécifique */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+/* Input file stylisé */
+.file-upload-group {
+    position: relative;
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px dashed rgba(39, 174, 96, 0.3);
+    border-radius: 10px;
+    background: 
+        linear-gradient(135deg, rgba(240, 249, 244, 0.5) 0%, rgba(255, 255, 255, 0.8) 100%);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.form-group input[type="file"]:hover {
+    border-color: var(--primary-color);
+    background: rgba(240, 249, 244, 0.8);
+    transform: translateY(-1px);
+}
+
+.form-group input[type="file"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+/* Bouton d'envoi premium */
+.envoyer-btn {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 15px rgba(39, 174, 96, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.envoyer-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.envoyer-btn:hover {
+    background: linear-gradient(135deg, var(--primary-color-dark) 0%, var(--primary-color) 100%);
+    transform: translateY(-3px);
+    box-shadow: 
+        0 8px 25px rgba(39, 174, 96, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.envoyer-btn:hover::before {
+    left: 100%;
+}
+
+.envoyer-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 15px rgba(39, 174, 96, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Message de confirmation */
+#confirmation-message {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(8, 210, 92, 0.1) 0%, rgba(39, 174, 96, 0.05) 100%);
+    color: var(--success-color);
+    border: 2px solid rgba(8, 210, 92, 0.2);
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(8, 210, 92, 0.1);
+}
+
+/* États de validation */
+.form-group input:valid,
+.form-group textarea:valid {
+    border-color: rgba(8, 210, 92, 0.3);
+}
+
+.form-group input:invalid:not(:focus):not(:placeholder-shown),
+.form-group textarea:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: rgba(240, 20, 4, 0.3);
+    background: rgba(240, 20, 4, 0.02);
+}
+
+/* Responsive pour le formulaire */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        padding: 0.9rem 1rem;
+    }
+    
+    .envoyer-btn {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
 }
