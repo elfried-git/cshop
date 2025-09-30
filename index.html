@@ -4,127 +4,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Boutique</title>
+    <title>Shop Na Biso - Votre Boutique E-commerce Moderne</title>
     <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="index.css">
-
+    <link rel="stylesheet" href="index-modern.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Navigation moderne -->
+    <header class="modern-header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <div class="brand-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <span class="brand-text">Shop Na Biso</span>
+                </a>
+            </div>
 
-    <!-- Header -->
-    <header class="main-header">
-        <div id="logo">
-            <a href="index.html">
-                <img src="images/assoc.png" alt="Logo de l'association">
-            </a>
-        </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                    <li><a href="quisommesnous.html" class="nav-link">À propos</a></li>
+                    <li><a href="#produits-featured" class="nav-link">Produits</a></li>
+                    <li><a href="#categories-section" class="nav-link">Catégories</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
 
-        <!-- Menu burger pour mobile -->
-        <button class="menu-burger" id="menu-burger" aria-label="Ouvrir le menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <div class="nav-actions">
+                <div class="currency-selector">
+                    <select id="country-selector" class="currency-select">
+                        <option value="EUR">EUR (€)</option>
+                        <option value="XAF">FCFA</option>
+                        <option value="USD">USD ($)</option>
+                    </select>
+                </div>
+                <a href="connexion.html" class="action-btn login-btn">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="panier.html" class="action-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="compteur-panier">0</span>
+                </a>
+            </div>
 
-        <nav class="main-nav" data-test="menu-navigation" aria-label="Menu principal" id="main-nav">
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
-                <li><a href="#produits-en-avant">Produits</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="connexion.html">Profil</a></li>
-                <li>
-                    <a href="panier.html" class="icone-panier" aria-label="Voir le panier">
-                        <img src="images/panier.png" alt="Panier" />
-                        <span id="compteur-panier">0</span>
-                    </a>
-                </li>
-            </ul>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
-    <!-- Main -->
+    <!-- Hero Section Moderne -->
     <main>
-        <section id="hero">
-            <div class="hero-text">
-                <p>heure française</p>
-                <p id="horloge"></p>
-                <h1>
-                    <span id="typing-title" data-test="bienvenue" class="typing">Bienvenue sur votre boutique shop na
-                        biso.</span>
+        <section class="hero-modern">
+            <div class="hero-background">
+                <div class="hero-shape shape-1"></div>
+                <div class="hero-shape shape-2"></div>
+                <div class="hero-shape shape-3"></div>
+            </div>
+            
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>Heure française: <span id="horloge"></span></span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-highlight">Découvrez</span>
+                    <span class="title-main">Notre Collection</span>
+                    <span class="title-subtitle">Exceptionnelle</span>
                 </h1>
-
-                <div id="currency-widget" class="currency-widget">
-                    <label for="country-selector" class="sr-only"><strong>Veuillez sélectionner votre
-                            pays.</strong></label>
-                    <select id="country-selector">
-                        <option value="EUR">France (€)</option>
-                        <option value="XAF">République du Congo (FCFA)</option>
-                        <option value="USD">Rép. Dém. du Congo ($)</option>
-                    </select>
+                
+                <p class="hero-description">
+                    Plongez dans un univers où style et innovation se rencontrent. 
+                    Chaque produit raconte une histoire, chaque achat devient une expérience unique.
+                </p>
+                
+                <div class="hero-actions">
+                    <button class="cta-primary" onclick="document.getElementById('produits-featured').scrollIntoView({behavior: 'smooth'})">
+                        <span>Explorer maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="cta-secondary" onclick="document.getElementById('categories-section').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-play"></i>
+                        <span>Voir les catégories</span>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <section id="categories-carousel">
-            <h2>Nos catégories</h2>
-            <p style="color: brown;"><strong>Bientôt disponible...</strong></p>
-            <div class="carousel-container">
-                <button class="carousel-btn left" aria-label="Défiler vers la gauche">&#10094;</button>
-
-                <div class="carousel-track">
-                    <div class="categorie">
-                        <!-- <a href="categories/sacs.html"> -->
-                        <a href="#">
-                            <img src="images/sacs.jpg" alt="Sacs">
-                            <h3>Sacs filles</h3>
-                        </a>
+        <!-- Section Catégories Moderne -->
+        <section class="categories-modern" id="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nos Catégories</h2>
+                    <p class="section-subtitle">Explorez notre large gamme de produits soigneusement sélectionnés</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/sacs.jpg" alt="Sacs femmes">
+                            <div class="category-overlay">
+                                <i class="fas fa-handbag"></i>
+                            </div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Sacs & Maroquinerie</h3>
+                            <p>Collection élégante</p>
+                            <span class="">25+ produits</span>
+                        </div>
                     </div>
-                    <div class="categorie">
-                        <a href="#">
-                            <img src="images/cosmetiques.jpg" alt="Cosmetiques">
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/cosmetiques.jpg" alt="Cosmétiques">
+                            <div class="category-overlay">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                        </div>
+                        <div class="category-content">
                             <h3>Cosmétiques</h3>
-                        </a>
+                            <p>Beauté & bien-être</p>
+                            <span class="">40+ produits</span>
+                        </div>
                     </div>
-                    <div class="categorie">
-                        <a href="#">
+                    
+                    <div class="category-card">
+                        <div class="category-image">
                             <img src="images/chaussures.jpg" alt="Chaussures">
-                            <h3>Chaussures Hommes</h3>
-                        </a>
+                            <div class="category-overlay">
+                                <i class="fas fa-shoe-prints"></i>
+                            </div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Chaussures</h3>
+                            <p>Style & confort</p>
+                            <span class="">35+ produits</span>
+                        </div>
                     </div>
-                    <div class="categorie">
-                        <a href="#">
-                            <img src="images/Livres.jpg" alt="Livres">
-                            <h3>Livres</h3>
-                        </a>
-                    </div>
-                    <div class="categorie">
-                        <a href="#">
+                    
+                    <div class="category-card">
+                        <div class="category-image">
                             <img src="images/parfums.jpg" alt="Parfums">
-                            <h3>Parfums marocains (hommes)</h3>
-                        </a>
+                            <div class="category-overlay">
+                                <i class="fas fa-spray-can"></i>
+                            </div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Parfums</h3>
+                            <p>Fragrances premium</p>
+                            <span class="">20+ produits</span>
+                        </div>
                     </div>
-                    <div class="categorie">
-                        <a href="#">
-                            <img src="images/savon-noir.jpg" alt="Savon noir">
-                            <h3>Savon noir</h3>
-                        </a>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/Livres.jpg" alt="Livres">
+                            <div class="category-overlay">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Livres & Culture</h3>
+                            <p>Savoir & divertissement</p>
+                            <span class="">50+ produits</span>
+                        </div>
                     </div>
-                    <div class="categorie">
-                        <a href="#">
-                            <img src="images/chemise-femme.jpg" alt="Chemise femme">
-                            <h3>Chemises femmes</h3>
-                        </a>
-                    </div>
-                    <div class="categorie">
-                        <a href="#">
-                            <img src="images/boucle-oreilles.jpg" alt="Boucles oreilles">
-                            <h3>Accessoires femmes</h3>
-                        </a>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/boucle-oreilles.jpg" alt="Bijoux">
+                            <div class="category-overlay">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Bijoux & Accessoires</h3>
+                            <p>Élégance raffinée</p>
+                            <span class="">30+ produits</span>
+                        </div>
                     </div>
                 </div>
-                <button class="carousel-btn right" aria-label="Défiler vers la droite">&#10095;</button>
             </div>
         </section>
 
@@ -161,162 +229,596 @@
             afficherHeureParis(); // Affichage immédiat
         </script>
 
-        <!-- Produits mis en avant -->
-        <section id="produits-en-avant">
-            <h2>Produits vedettes</h2>
-            <div class="produits">
-                <article class="produit">
-                    <a href="produits_phares/sweatshirt-ovs-break-filles.html">
-                        <img src="produits_phares/images/sweatshirt-ovs-break-filles.png" alt="OVS BREAK Sweatshirt pour filles">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/sweatshirt-ovs-break-filles.html">OVS BREAK Sweatshirt pour filles</a>
-                    </h3>
-                    <p data-original-price="20">Prix : 20€</p>
-                    <div class="tailles-disponibles">
-                        <p>Tailles: S-M</p>
+        <!-- Section Produits Vedettes Moderne -->
+        <section class="featured-products" id="produits-featured">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Produits Vedettes</h2>
+                    <p class="section-subtitle">Découvrez notre sélection de produits les plus populaires</p>
+                </div>
+                
+                <div class="products-grid">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <a href="produits_phares/sweatshirt-ovs-break-filles.html">
+                                <img src="produits_phares/images/sweatshirt-ovs-break-filles.png" alt="Sweatshirt OVS">
+                            </a>
+                            <div class="product-actions">
+                                <button class="action-btn favorite">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn quick-view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Vêtements Femme</div>
+                            <h3 class="product-title">
+                                <a href="produits_phares/sweatshirt-ovs-break-filles.html">OVS BREAK Sweatshirt</a>
+                            </h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(24)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current" data-original-price="20">20€</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="sizes">Tailles: S-M</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                data-nom="OVS BREAK Sweatshirt"
+                                data-prix="20"
+                                data-image="produits_phares/images/sweatshirt-ovs-break-filles.png"
+                                data-lien="produits_phares/sweatshirt-ovs-break-filles.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <a href="produits_phares/doudoune-ski.html">
+                                <img src="produits_phares/images/doudoune-ski.png" alt="Doudoune Ski">
+                            </a>
+                            <div class="product-actions">
+                                <button class="action-btn favorite">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn quick-view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Sport & Outdoor</div>
+                            <h3 class="product-title">
+                                <a href="produits_phares/doudoune-ski.html">Doudoune Ski Premium</a>
+                            </h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-count">(41)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current" data-original-price="35">35€</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="sizes">Tailles: S-M</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                data-nom="Doudoune Ski Premium"
+                                data-prix="35"
+                                data-image="produits_phares/images/doudoune-ski.png"
+                                data-lien="produits_phares/doudoune-ski.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <a href="produits_phares/nike-air-force-1-07lvb.html">
+                                <img src="produits_phares/images/nike-air-force-1-07lvb.png" alt="Nike Air Force">
+                            </a>
+                            <div class="product-actions">
+                                <button class="action-btn favorite">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn quick-view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Chaussures</div>
+                            <h3 class="product-title">
+                                <a href="produits_phares/nike-air-force-1-07lvb.html">Nike Air Force 1'07LVB</a>
+                            </h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(67)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-current" data-original-price="20">20€</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="sizes">Tailles: 37-41</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                data-nom="Nike Air Force 1'07LVB"
+                                data-prix="20"
+                                data-image="produits_phares/images/nike-air-force-1-07lvb.png"
+                                data-lien="produits_phares/nike-air-force-1-07lvb.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="product-card sale">
+                        <div class="product-badge">-20%</div>
+                        <div class="product-image">
+                            <a href="produits_phares/sac-longchamp.html">
+                                <img src="produits_phares/images/sac-longchamp.png" alt="Sac Longchamp">
+                            </a>
+                            <div class="product-actions">
+                                <button class="action-btn favorite">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn quick-view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Maroquinerie</div>
+                            <h3 class="product-title">
+                                <a href="produits_phares/sac-longchamp.html">Sac Longchamp</a>
+                            </h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-count">(33)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-old" data-original-price="25">25€</span>
+                                <span class="price-current" data-original-price="20">20€</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="sizes">&nbsp;</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                data-nom="Sac Longchamp"
+                                data-prix="20"
+                                data-image="produits_phares/images/sac-longchamp.png"
+                                data-lien="produits_phares/sac-longchamp.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="product-card sale">
+                        <div class="product-badge">-21%</div>
+                        <div class="product-image">
+                            <a href="produits_phares/montre-fossil.html">
+                                <img src="produits_phares/images/montre-fossil.png" alt="Montre Fossil">
+                            </a>
+                            <div class="product-actions">
+                                <button class="action-btn favorite">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn quick-view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Montres</div>
+                            <h3 class="product-title">
+                                <a href="produits_phares/montre-fossil.html">Montre Fossil</a>
+                            </h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-count">(18)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-old" data-original-price="19">19€</span>
+                                <span class="price-current" data-original-price="15">15€</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="sizes">&nbsp;</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                data-nom="Montre Fossil"
+                                data-prix="15"
+                                data-image="produits_phares/images/montre-fossil.png"
+                                data-lien="produits_phares/montre-fossil.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="product-card sale">
+                        <div class="product-badge">-21%</div>
+                        <div class="product-image">
+                            <a href="produits_phares/iphone-14-pro-max.html">
+                                <img src="produits_phares/images/iphone-14-pro-max.jpg" alt="iPhone 14 Pro Max">
+                            </a>
+                            <div class="product-actions">
+                                <button class="action-btn favorite">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="action-btn quick-view">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Électronique</div>
+                            <h3 class="product-title">
+                                <a href="produits_phares/iphone-14-pro-max.html">iPhone 14 Pro Max</a>
+                            </h3>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-count">(156)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-old" data-original-price="1650">1650€</span>
+                                <span class="price-current" data-original-price="750">750€</span>
+                            </div>
+                            <div class="product-meta">
+                                <span class="sizes">&nbsp;</span>
+                            </div>
+                            <button class="add-to-cart" 
+                                data-nom="iPhone 14 Pro Max"
+                                data-prix="750"
+                                data-image="produits_phares/images/iphone-14-pro-max.jpg"
+                                data-lien="produits_phares/iphone-14-pro-max.html">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="section-footer">
+                    <button class="btn-outline" id="voir-tous-produits">
+                        <span>Voir tous les produits</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Section Produits Cachés (initialement masqués) -->
+                <div class="more-products" id="more-products" style="display: none;">
+                    <div class="products-grid">
+                        <article class="product-card">
+                            <div class="product-image">
+                                <a href="produits_phares/parfum-azzaro-sport.html">
+                                    <img src="produits_phares/images/parfum-azzaro-sport.jpg" alt="Parfum Azzaro Sport">
+                                </a>
+                                <div class="product-actions">
+                                    <button class="action-btn favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn quick-view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Parfums</div>
+                                <h3 class="product-title">
+                                    <a href="produits_phares/parfum-azzaro-sport.html">Parfum Azzaro Sport</a>
+                                </h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(28)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-current" data-original-price="50">50€</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="sizes">&nbsp;</span>
+                                </div>
+                                <button class="add-to-cart" 
+                                    data-nom="Parfum Azzaro Sport"
+                                    data-prix="50"
+                                    data-image="produits_phares/images/parfum-azzaro-sport.jpg"
+                                    data-lien="produits_phares/parfum-azzaro-sport.html">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Ajouter au panier</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-image">
+                                <a href="produits_phares/benchou-ferrari.html">
+                                    <img src="produits_phares/images/benchou-ferrari.jpg" alt="Benchou Ferrari">
+                                </a>
+                                <div class="product-actions">
+                                    <button class="action-btn favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn quick-view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Accessoires</div>
+                                <h3 class="product-title">
+                                    <a href="produits_phares/benchou-ferrari.html">Benchou Ferrari</a>
+                                </h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(45)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-current" data-original-price="10">10€</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="sizes">&nbsp;</span>
+                                </div>
+                                <button class="add-to-cart" 
+                                    data-nom="Benchou Ferrari"
+                                    data-prix="10"
+                                    data-image="produits_phares/images/benchou-ferrari.jpg"
+                                    data-lien="produits_phares/benchou-ferrari.html">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Ajouter au panier</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-image">
+                                <a href="produits_phares/casque-sony-wh1000xm4.html">
+                                    <img src="produits_phares/images/Casque Bluetooth Sony.jpg" alt="Casque Sony">
+                                </a>
+                                <div class="product-actions">
+                                    <button class="action-btn favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn quick-view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Électronique</div>
+                                <h3 class="product-title">
+                                    <a href="produits_phares/casque-sony-wh1000xm4.html">Casque Bluetooth Sony WH-1000XM4</a>
+                                </h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(89)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-current" data-original-price="45">45€</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="sizes">Couleurs: Noir, Argent</span>
+                                </div>
+                                <button class="add-to-cart" 
+                                    data-nom="Casque Bluetooth Sony WH-1000XM4"
+                                    data-prix="45"
+                                    data-image="produits_phares/images/Casque Bluetooth Sony.jpg"
+                                    data-lien="produits_phares/casque-sony-wh1000xm4.html">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Ajouter au panier</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="product-card sale">
+                            <div class="product-badge">-25%</div>
+                            <div class="product-image">
+                                <a href="produits_phares/robe-ete-zara.html">
+                                    <img src="produits_phares/images/robe zara" alt="Robe Zara">
+                                </a>
+                                <div class="product-actions">
+                                    <button class="action-btn favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn quick-view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Mode Femme</div>
+                                <h3 class="product-title">
+                                    <a href="produits_phares/robe-ete-zara.html">Robe d'été Zara</a>
+                                </h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(52)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-old" data-original-price="40">40€</span>
+                                    <span class="price-current" data-original-price="30">30€</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="sizes">Tailles: XS-L</span>
+                                </div>
+                                <button class="add-to-cart" 
+                                    data-nom="Robe d'été Zara"
+                                    data-prix="30"
+                                    data-image="produits_phares/images/robe-ete-zara.jpg"
+                                    data-lien="produits_phares/robe-ete-zara.html">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Ajouter au panier</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="product-image">
+                                <a href="produits_phares/sneakers-adidas-ultraboost.html">
+                                    <img src="produits_phares/images/adidas" alt="Sneakers Adidas">
+                                </a>
+                                <div class="product-actions">
+                                    <button class="action-btn favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn quick-view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Chaussures Sport</div>
+                                <h3 class="product-title">
+                                    <a href="produits_phares/sneakers-adidas-ultraboost.html">Sneakers Adidas Ultraboost</a>
+                                </h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(73)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-current" data-original-price="65">65€</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="sizes">Tailles: 38-45</span>
+                                </div>
+                                <button class="add-to-cart" 
+                                    data-nom="Sneakers Adidas Ultraboost"
+                                    data-prix="65"
+                                    data-image="produits_phares/images/adidas"
+                                    data-lien="produits_phares/sneakers-adidas-ultraboost.html">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Ajouter au panier</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <article class="product-card sale">
+                            <div class="product-badge">-21%</div>
+                            <div class="product-image">
+                                <a href="produits_phares/maillot-fc-barcelone.html">
+                                    <img src="produits_phares/images/maillot-fc-barcelone.jpg" alt="Maillot Barcelone">
+                                </a>
+                                <div class="product-actions">
+                                    <button class="action-btn favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="action-btn quick-view">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-category">Sport</div>
+                                <h3 class="product-title">
+                                    <a href="produits_phares/maillot-fc-barcelone.html">Maillot FC Barcelone</a>
+                                </h3>
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="rating-count">(94)</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="price-old" data-original-price="19">19€</span>
+                                    <span class="price-current" data-original-price="15">15€</span>
+                                </div>
+                                <div class="product-meta">
+                                    <span class="sizes">Tailles: S-M</span>
+                                </div>
+                                <button class="add-to-cart" 
+                                    data-nom="Maillot FC Barcelone"
+                                    data-prix="15"
+                                    data-image="produits_phares/images/maillot-fc-barcelone.jpg"
+                                    data-lien="produits_phares/maillot-fc-barcelone.html">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>Ajouter au panier</span>
+                                </button>
+                            </div>
+                        </article>
                     </div>
-                </article>
-
-                <article class="produit">
-                    <a href="produits_phares/doudoune-ski.html">
-                        <img src="produits_phares/images/doudoune-ski.png" alt="Doudoune Ski">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/doudoune-ski.html">
-                            Doudoune Ski
-                        </a>
-                    </h3>
-                    <p data-original-price="35">Prix : 35€</p>
-                    <div class="tailles-disponibles">
-                        <p>Tailles: S-M</p>
+                    
+                    <div class="section-footer">
+                        <button class="btn-outline" id="masquer-produits">
+                            <span>Masquer les produits</span>
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
                     </div>
-                </article>
-
-                <article class="produit">
-                    <a href="produits_phares/nike-air-force-1-07lvb.html">
-                        <img src="produits_phares/images/nike-air-force-1-07lvb.png" alt="Chaussure rentrée">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/nike-air-force-1-07lvb.html">
-                            Nike AIr Force 1'07LVB
-                        </a>
-                    </h3>
-                    <p data-original-price="20">Prix : 20€</p>
-                    <div class="tailles-disponibles">
-                        <p>Tailles :37-41</p>
-                    </div>
-                </article>
-
-                <article class="produit">
-                    <div class="badge-reduction">Réduction</div>
-                    <a href="produits_phares/sac-longchamp.html">
-                        <img src="produits_phares/images/sac-longchamp.png" alt="Sac Lonchamp">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/sac-longchamp.html">Sac Lonchamp</a>
-                    </h3>
-                    <p>Prix : <span class="prix-barre" data-original-price="25">25€</span> <strong
-                            data-original-price="20">20€</strong></p>
-                </article>
-
-                <article class="produit">
-                    <div class="badge-reduction">Réduction</div>
-                    <a href="produits_phares/montre-fossil.html">
-                        <img src="produits_phares/images/montre-fossil.png" alt="Fossil Montre">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/montre-fossil.html">Fossil Montre</a>
-                    </h3>
-                    <p>Prix : <span class="prix-barre" data-original-price="19">19€</span> <strong
-                            data-original-price="15">15€</strong></p>
-                </article>
-
-                <article class="produit">
-                    <div class="badge-reduction">Réduction</div>
-                    <a href="produits_phares/maillot-fc-barcelone.html">
-                        <img src="produits_phares/images/maillot-fc-barcelone.jpg" alt="Maillot barcelone">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/maillot-fc-barcelone.html">Maillot FC Barcelone</a>
-                    </h3>
-                    <p>Prix : <span class="prix-barre" data-original-price="19">19€</span> <strong
-                            data-original-price="15">15€</strong></p>
-                    <p>Tailles S-M</p>
-                </article>
-
-                <article class="produit">
-                    <div class="badge-reduction">Réduction</div>
-                    <a href="produits_phares/iphone-14-pro-max.html">
-                        <img src="produits_phares/images/iphone-14-pro-max.jpg" alt="Iphone 14 Plus">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/iphone-14-pro-max.html">Iphone 14 pro max</a>
-                    </h3>
-                    <p>Prix : <span class="prix-barre" data-original-price="1650">1650€</span> <strong
-                            data-original-price="750">750€</strong></p>
-                </article>
-
-                <article class="produit">
-                    <a href="produits_phares/parfum-azzaro-sport.html">
-                        <img src="produits_phares/images/parfum-azzaro-sport.jpg" alt="parfum">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/parfum-azzaro-sport.html">Parfum Azzaro Sport</a>
-                    </h3>
-                    <p data-original-price="50">Prix : 50€</p>
-                </article>
-
-                <article class="produit">
-                    <a href="produits_phares/benchou-ferrari.html">
-                        <img src="produits_phares/images/benchou-ferrari.jpg" alt="benchou ferrari">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/benchou-ferrari.html">Benchou Ferrari</a>
-                    </h3>
-                    <p data-original-price="10">Prix : 10€</p>
-                </article>
-
-                <article class="produit">
-                    <a href="produits_phares/casque-sony-wh1000xm4.html">
-                        <img src="produits_phares/images/Casque Bluetooth Sony.jpg" alt="Casque Bluetooth Sony">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/casque-sony-wh1000xm4.html">Casque Bluetooth Sony WH-1000XM4</a>
-                    </h3>
-                    <p data-original-price="45">Prix : 45€</p>
-                    <div class="tailles-disponibles">
-                        <p>Couleurs: Noir, Argent</p>
-                    </div>
-                </article>
-
-                <article class="produit">
-                    <div class="badge-reduction">Réduction</div>
-                    <a href="produits_phares/robe-ete-zara.html">
-                        <img src="produits_phares/images/robe zara" alt="Robe d'été Zara">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/robe-ete-zara.html">Robe d'été Zara</a>
-                    </h3>
-                    <p>Prix : <span class="prix-barre" data-original-price="40">40€</span> <strong
-                            data-original-price="30">30€</strong></p>
-                    <div class="tailles-disponibles">
-                        <p>Tailles: XS-L</p>
-                    </div>
-                </article>
-
-                <article class="produit">
-                    <a href="produits_phares/sneakers-adidas-ultraboost.html">
-                        <img src="produits_phares/images/adidas" alt="Sneakers Adidas">
-                    </a>
-                    <h3>
-                        <a href="produits_phares/sneakers-adidas-ultraboost.html">Sneakers Adidas Ultraboost</a>
-                    </h3>
-                    <p data-original-price="65">Prix : 65€</p>
-                    <div class="tailles-disponibles">
-                        <p>Tailles: 38-45</p>
-                    </div>
-                </article>
+                </div>
             </div>
         </section>
     </main>
@@ -331,8 +833,10 @@
         </div>
         <div id="chatbot-messages"></div>
         <div id="chatbot-input">
-            <input type="text" id="user-input" placeholder="Posez votre question...">
-            <button onclick="envoyerMessage()">Envoyer</button>
+            <input type="text" id="user-input" placeholder="Tapez votre message...">
+            <button onclick="envoyerMessage()" title="Envoyer le message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
 
@@ -433,18 +937,56 @@
             if (!message) return;
 
             const chatbox = document.getElementById("chatbot-messages");
+            const currentTime = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 
-            // Afficher le message de l'utilisateur
-            chatbox.innerHTML += `<div class="user-message"><strong>Vous :</strong> ${message}</div>`;
+            // Afficher le message de l'utilisateur avec le nouveau style
+            const userMessageHTML = `
+                <div class="message-container user">
+                    <div class="message-avatar">👤</div>
+                    <div class="message-content">
+                        <div class="user-message">${message}</div>
+                        <div class="message-time">${currentTime}</div>
+                    </div>
+                </div>
+            `;
+            chatbox.innerHTML += userMessageHTML;
+
+            // Afficher l'indicateur de frappe
+            const typingIndicator = `
+                <div class="typing-indicator" id="typing-indicator">
+                    <div class="message-avatar">🤖</div>
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            chatbox.innerHTML += typingIndicator;
+            chatbox.scrollTop = chatbox.scrollHeight;
 
             // Obtenir la réponse du bot
             const reponse = getResponse(message);
 
-            // Afficher la réponse du bot avec un léger délai pour un effet plus naturel
+            // Afficher la réponse du bot avec un délai réaliste
             setTimeout(() => {
-                chatbox.innerHTML += `<div class="bot-message"><strong>Assistant :</strong> ${reponse}</div>`;
-                chatbox.scrollTop = chatbox.scrollHeight; // Scroll vers le bas
-            }, 500);
+                // Supprimer l'indicateur de frappe
+                const typing = document.getElementById("typing-indicator");
+                if (typing) typing.remove();
+
+                // Ajouter la réponse du bot
+                const botMessageHTML = `
+                    <div class="message-container bot">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <div class="bot-message">${reponse}</div>
+                            <div class="message-time">${new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}</div>
+                        </div>
+                    </div>
+                `;
+                chatbox.innerHTML += botMessageHTML;
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }, 1200);
 
             input.value = ""; // Vider l'input
         }
@@ -457,104 +999,482 @@
         });
     </script>
 
-    <!-- Section Contact -->
-    <section id="contact">
-        <h2>Contactez-nous</h2>
-        <form class="contact-form" action="https://formspree.io/f/xvgblzgl" method="post" id="form-contact">
-            <div class="form-group">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" required>
-            </div>
+    <!-- Section Contact Moderne -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Envoyez-nous un message</h3>
+                        <p>Remplissez le formulaire ci-dessous et nous vous répondrons rapidement</p>
+                    </div>
+                    
+                    <form class="modern-contact-form" action="https://formspree.io/f/xvgblzgl" method="post" id="form-contact">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="nom" class="input-label">Nom *</label>
+                                <div class="input-container">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input type="text" id="nom" name="nom" class="modern-input" placeholder="Votre nom" required>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="prenoms" class="input-label">Prénom *</label>
+                                <div class="input-container">
+                                    <i class="fas fa-user input-icon"></i>
+                                    <input type="text" id="prenoms" name="prenoms" class="modern-input" placeholder="Votre prénom" required>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="form-group">
-                <label for="prenoms">Prénom :</label>
-                <input type="text" id="prenoms" name="prenoms" required>
-            </div>
+                        <div class="input-group">
+                            <label for="email" class="input-label">Email *</label>
+                            <div class="input-container">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="email" name="email" class="modern-input" placeholder="votre.email@exemple.com" required>
+                            </div>
+                        </div>
 
-            <div class="form-group">
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+                        <div class="input-group">
+                            <label for="description" class="input-label">Message *</label>
+                            <div class="input-container">
+                                <i class="fas fa-comment input-icon textarea-icon"></i>
+                                <textarea id="description" name="description" class="modern-textarea" rows="6" placeholder="Décrivez votre demande en détail..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group file-upload-modern">
+                            <label for="piece-jointe" class="input-label">Pièces jointes (optionnel)</label>
+                            <div class="file-drop-zone" id="file-drop-zone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Glissez vos fichiers ici ou <span class="file-browse">parcourez</span></p>
+                                <input type="file" id="piece-jointe" name="piece-jointe[]" multiple class="file-input" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="file-list" id="file-list"></div>
+                        </div>
 
-            <div class="form-group">
-                <label for="description">Votre message :</label>
-                <textarea id="description" name="description" rows="5" required></textarea>
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Envoyer le message</span>
+                            <i class="fas fa-paper-plane btn-icon"></i>
+                            <div class="btn-loader"></div>
+                        </button>
+                    </form>
+                    
+                    <div class="success-message" id="confirmation-message">
+                        <div class="success-content">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Message envoyé avec succès !</h4>
+                            <p>Nous vous répondrons dans les plus brefs délais.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group file-upload-group">
-                <label for="piece-jointe">Ajouter des pièces jointes :</label>
-                <input type="file" id="piece-jointe" name="piece-jointe[]" multiple>
-            </div>
-
-            <button type="submit" class="btn envoyer-btn">Envoyer</button>
-        </form>
-        <div id="confirmation-message" style="display: none;">
-            Message envoyé avec succès !
         </div>
-
     </section>
 
-    <!-- ✅ Script pour vider les champs après envoi -->
+    <!-- Script moderne pour le formulaire de contact -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const form = document.getElementById("form-contact");
             const confirmation = document.getElementById("confirmation-message");
+            const submitBtn = form.querySelector('.submit-btn');
+            const fileDropZone = document.getElementById('file-drop-zone');
+            const fileInput = document.getElementById('piece-jointe');
+            const fileList = document.getElementById('file-list');
+            let selectedFiles = [];
 
-            form.addEventListener("submit", function (e) {
-                e.preventDefault(); // Empêche l'envoi automatique
+            // Gestion du drag & drop pour les fichiers
+            fileDropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileDropZone.classList.add('dragover');
+            });
 
-                const formData = new FormData(form);
+            fileDropZone.addEventListener('dragleave', () => {
+                fileDropZone.classList.remove('dragover');
+            });
 
-                fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
+            fileDropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileDropZone.classList.remove('dragover');
+                handleFiles(e.dataTransfer.files);
+            });
+
+            fileDropZone.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+
+            function handleFiles(files) {
+                Array.from(files).forEach(file => {
+                    if (selectedFiles.length < 5) { // Limite de 5 fichiers
+                        selectedFiles.push(file);
+                        addFileToList(file);
                     }
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            form.reset(); // Vide tous les champs
-                            confirmation.style.display = "block"; // Affiche le message
+                });
+            }
 
-                            // Masque le message après 4 secondes
-                            setTimeout(() => {
-                                confirmation.style.display = "none";
-                            }, 3000);
+            function addFileToList(file) {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                
+                const fileSize = (file.size / 1024 / 1024).toFixed(2);
+                const fileIcon = getFileIcon(file.type);
+                
+                fileItem.innerHTML = `
+                    <div class="file-info">
+                        <i class="${fileIcon}"></i>
+                        <div>
+                            <div class="file-name">${file.name}</div>
+                            <div class="file-size">${fileSize} MB</div>
+                        </div>
+                    </div>
+                    <button type="button" class="remove-file" onclick="removeFile(this, '${file.name}')">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                fileList.appendChild(fileItem);
+            }
+
+            function getFileIcon(fileType) {
+                if (fileType.includes('image')) return 'fas fa-image';
+                if (fileType.includes('pdf')) return 'fas fa-file-pdf';
+                if (fileType.includes('word')) return 'fas fa-file-word';
+                return 'fas fa-file';
+            }
+
+            // Fonction globale pour supprimer un fichier
+            window.removeFile = function(button, fileName) {
+                selectedFiles = selectedFiles.filter(file => file.name !== fileName);
+                button.parentElement.remove();
+            };
+
+            // Validation en temps réel
+            const inputs = form.querySelectorAll('.modern-input, .modern-textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', validateField);
+                input.addEventListener('input', clearErrors);
+            });
+
+            function validateField(e) {
+                const field = e.target;
+                const value = field.value.trim();
+                
+                // Supprimer les erreurs précédentes
+                clearFieldError(field);
+                
+                if (field.hasAttribute('required') && !value) {
+                    showFieldError(field, 'Ce champ est requis');
+                    return false;
+                }
+                
+                if (field.type === 'email' && value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value)) {
+                        showFieldError(field, 'Veuillez entrer un email valide');
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+
+            function showFieldError(field, message) {
+                field.style.borderColor = '#ef4444';
+                field.style.background = '#fef2f2';
+                
+                let errorMsg = field.parentElement.querySelector('.error-message');
+                if (!errorMsg) {
+                    errorMsg = document.createElement('div');
+                    errorMsg.className = 'error-message';
+                    errorMsg.style.cssText = `
+                        color: #ef4444;
+                        font-size: 0.75rem;
+                        margin-top: 0.25rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.25rem;
+                    `;
+                    errorMsg.innerHTML = `<i class="fas fa-exclamation-circle"></i>${message}`;
+                    field.parentElement.appendChild(errorMsg);
+                }
+            }
+
+            function clearFieldError(field) {
+                field.style.borderColor = '';
+                field.style.background = '';
+                const errorMsg = field.parentElement.querySelector('.error-message');
+                if (errorMsg) {
+                    errorMsg.remove();
+                }
+            }
+
+            function clearErrors() {
+                clearFieldError(this);
+            }
+
+            // Soumission du formulaire
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                // Validation complète
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (!validateField({ target: input })) {
+                        isValid = false;
+                    }
+                });
+
+                if (!isValid) {
+                    return;
+                }
+
+                // Animation de chargement
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                // Préparer les données du formulaire
+                const formData = new FormData(form);
+                
+                // Ajouter les fichiers sélectionnés
+                selectedFiles.forEach(file => {
+                    formData.append('piece-jointe[]', file);
+                });
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
                         }
-                    })
-                    .catch(error => {
-                        console.error("Erreur lors de l'envoi du formulaire :", error);
                     });
+
+                    // Simuler un délai pour l'animation
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+
+                    if (response.ok) {
+                        // Animation de succès
+                        submitBtn.classList.remove('loading');
+                        submitBtn.classList.add('success');
+                        submitBtn.querySelector('.btn-text').textContent = 'Message envoyé !';
+                        submitBtn.querySelector('.btn-icon').className = 'fas fa-check btn-icon';
+                        
+                        // Afficher le message de succès
+                        confirmation.classList.add('show');
+                        
+                        // Réinitialiser le formulaire
+                        setTimeout(() => {
+                            form.reset();
+                            selectedFiles = [];
+                            fileList.innerHTML = '';
+                            
+                            // Masquer le message de succès après 4 secondes
+                            setTimeout(() => {
+                                confirmation.classList.remove('show');
+                                
+                                // Remettre le bouton à l'état initial
+                                setTimeout(() => {
+                                    submitBtn.classList.remove('success');
+                                    submitBtn.querySelector('.btn-text').textContent = 'Envoyer le message';
+                                    submitBtn.querySelector('.btn-icon').className = 'fas fa-paper-plane btn-icon';
+                                    submitBtn.disabled = false;
+                                }, 500);
+                            }, 4000);
+                        }, 1000);
+                        
+                    } else {
+                        throw new Error('Erreur lors de l\'envoi');
+                    }
+                } catch (error) {
+                    console.error("Erreur lors de l'envoi du formulaire :", error);
+                    
+                    // Animation d'erreur
+                    submitBtn.classList.remove('loading');
+                    submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                    submitBtn.querySelector('.btn-text').textContent = 'Erreur d\'envoi';
+                    submitBtn.querySelector('.btn-icon').className = 'fas fa-exclamation-triangle btn-icon';
+                    
+                    // Remettre à l'état normal après 3 secondes
+                    setTimeout(() => {
+                        submitBtn.style.background = '';
+                        submitBtn.querySelector('.btn-text').textContent = 'Envoyer le message';
+                        submitBtn.querySelector('.btn-icon').className = 'fas fa-paper-plane btn-icon';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                }
+            });
+
+            // Animation des champs au focus
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                    this.parentElement.style.transition = 'transform 0.2s ease';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
             });
         });
     </script>
-
-    <!-- Footer -->
-    <footer class="main-footer" aria-label="Pied de page principal">
-        <nav aria-label="Menu de pied de page">
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="#categories-en-avant">Catégories</a></li>
-                <li><a href="#contact">Support</a></li>
-                <li><a href="panier.html">Mon Panier</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </nav>
-        <div class="footer-content">
-            <div class="reseaux">
-                <a href="https://www.facebook.com/?locale=fr_FR" target="_blank" rel="noopener noreferrer">
-                    <img src="images/facebook.png" alt="Facebook">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="images/instagram.jpg" alt="Instagram">
-                </a>
-            </div>
-            <div class="infos-legales">
-                <p>&copy; 2025 Shop na biso. Tous droits réservés.</p>
-                <p>Mentions légales | Politique de confidentialité | Conditions d'utilisation</p>
+                </div>
             </div>
         </div>
+    </section>
 
+    <!-- Section Avantages -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Livraison Rapide</h3>
+                        <p>Livraison en 24-48h partout en France</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Paiement Sécurisé</h3>
+                        <p>Transactions 100% sécurisées</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Retour Gratuit</h3>
+                        <p>Retour sous 14 jours gratuit</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Support 24/7</h3>
+                        <p>Assistance client disponible</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Restez informé des dernières nouveautés</h2>
+                    <p>Abonnez-vous à notre newsletter pour recevoir les offres exclusives et les nouvelles collections en avant-première.</p>
+                </div>
+                <div class="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Votre adresse email" class="email-input">
+                        <button class="subscribe-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>S'abonner</span>
+                        </button>
+                    </div>
+                    <p class="newsletter-disclaimer">En vous abonnant, vous acceptez notre politique de confidentialité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Moderne -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-link">
+                        <div class="brand-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <span class="brand-text">Shop Na Biso</span>
+                    </div>
+                    <p class="footer-description">
+                        Votre boutique e-commerce de confiance pour des produits de qualité à des prix exceptionnels.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="quisommesnous.html">À propos</a></li>
+                            <li><a href="#produits-featured">Produits</a></li>
+                            <li><a href="#categories-section">Catégories</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="#">Livraison</a></li>
+                            <li><a href="#">Retours</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Mon Compte</h4>
+                        <ul>
+                            <li><a href="connexion.html">Se connecter</a></li>
+                            <li><a href="panier.html">Mon Panier</a></li>
+                            <li><a href="#">Mes Commandes</a></li>
+                            <li><a href="#">Mes Favoris</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Informations</h4>
+                        <ul>
+                            <li><a href="terms-conditions.html">Conditions d'utilisation</a></li>
+                            <li><a href="#">Politique de confidentialité</a></li>
+                            <li><a href="#">Mentions légales</a></li>
+                            <li><a href="#">Cookies</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Shop Na Biso. Tous droits réservés.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-paypal"></i>
+                    <i class="fas fa-credit-card"></i>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -594,25 +1514,56 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const topButton = document.getElementById("top-bar");
+            const chatbotToggle = document.getElementById("chatbot-toggle");
+            const chatbotContainer = document.getElementById("chatbot-container");
 
-            // Cacher le bouton au départ
-            topButton.style.display = "none";
-
-            // Montrer ou cacher selon le scroll
+            // Montrer ou cacher selon le scroll avec animation fluide
             window.addEventListener("scroll", () => {
                 if (window.scrollY > 300) {
+                    // Afficher le bouton scroll-to-top
                     topButton.style.display = "block";
+                    setTimeout(() => {
+                        topButton.classList.add("show");
+                    }, 10);
+                    
+                    // Afficher le chatbot en même temps
+                    chatbotToggle.style.display = "block";
+                    setTimeout(() => {
+                        chatbotToggle.classList.add("show");
+                    }, 10);
                 } else {
-                    topButton.style.display = "none";
+                    // Cacher le bouton scroll-to-top
+                    topButton.classList.remove("show");
+                    setTimeout(() => {
+                        if (!topButton.classList.contains("show")) {
+                            topButton.style.display = "none";
+                        }
+                    }, 300);
+                    
+                    // Cacher le chatbot en même temps
+                    chatbotToggle.classList.remove("show");
+                    setTimeout(() => {
+                        if (!chatbotToggle.classList.contains("show")) {
+                            chatbotToggle.style.display = "none";
+                        }
+                    }, 300);
                 }
             });
 
-            // Scroll vers le haut au clic
+            // Plus besoin d'ajustement dynamique - les boutons sont alignés
+
+            // Scroll vers le haut au clic avec effet
             topButton.addEventListener("click", () => {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
                 });
+                
+                // Petit effet de clic
+                topButton.style.transform = "translateY(-4px) scale(0.9)";
+                setTimeout(() => {
+                    topButton.style.transform = "";
+                }, 150);
             });
         });
     </script>
@@ -670,38 +1621,27 @@
                     const originalPrice = parseFloat(element.getAttribute('data-original-price'));
                     let newPrice;
                     let currencySymbol;
-                    let locale = 'fr-FR';
+                    let formattedPrice;
 
                     if (currency === 'XAF') {
                         // Conversion en FCFA
                         newPrice = Math.round(originalPrice * TAUX_FCFA / 1000) * 1000;
                         currencySymbol = ' FCFA';
-                        // Formatage pour l'affichage des milliers (ex: 50 000)
-                        newPrice = newPrice.toLocaleString(locale);
+                        formattedPrice = newPrice.toLocaleString('fr-FR') + currencySymbol;
                     } else if (currency === 'USD') {
                         // Conversion en USD (arrondi à 2 décimales)
                         newPrice = (originalPrice * TAUX_USD).toFixed(2);
-                        currencySymbol = ' $';
-                        locale = 'en-US';
-                    }
-                    else {
+                        currencySymbol = '$';
+                        formattedPrice = currencySymbol + newPrice;
+                    } else {
                         // Euro (EUR)
-                        newPrice = originalPrice.toFixed(2);
+                        newPrice = originalPrice;
                         currencySymbol = '€';
-                        newPrice = newPrice.replace('.00', ''); // Enlève .00 si c'est un prix entier
+                        formattedPrice = newPrice + currencySymbol;
                     }
 
-                    // Logique d'affichage du prix
-                    if (element.classList.contains('prix-barre') || element.tagName === 'STRONG') {
-                        element.textContent = `${newPrice}${currencySymbol}`;
-                    } else if (element.tagName === 'P' && element.hasAttribute('data-original-price')) {
-                        const textContent = element.textContent.split(':');
-                        if (textContent.length > 1) {
-                            element.textContent = `Prix : ${newPrice}${currencySymbol}`;
-                        } else {
-                            element.textContent = `${newPrice}${currencySymbol}`;
-                        }
-                    }
+                    // Mise à jour du contenu de l'élément
+                    element.textContent = formattedPrice;
                 });
             }
 
@@ -743,6 +1683,421 @@
                 });
             }
         });
+    </script>
+
+    <!-- Scripts Modernes -->
+    <script>
+        // Animation d'apparition au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments avec la classe reveal
+        document.querySelectorAll('.category-card, .product-card, .benefit-item').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+
+        // Gestion du menu mobile
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Animation des favoris
+        document.querySelectorAll('.action-btn.favorite').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                this.classList.toggle('active');
+                
+                const icon = this.querySelector('i');
+                if (this.classList.contains('active')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                }
+            });
+        });
+
+        // Gestion des boutons "Ajouter au panier"
+        function ajouterAuPanier(nom, prix, image, lien) {
+            // Récupérer le panier depuis localStorage ou créer un tableau vide
+            let panier = JSON.parse(localStorage.getItem("panier")) || [];
+            
+            // Vérifier si le produit existe déjà dans le panier
+            const indexExistant = panier.findIndex(item => item.nom === nom);
+            
+            if (indexExistant !== -1) {
+                // Le produit existe déjà, augmenter la quantité
+                panier[indexExistant].quantite += 1;
+            } else {
+                // Nouveau produit, l'ajouter au panier
+                const nouveauProduit = {
+                    nom: nom,
+                    prix: parseFloat(prix),
+                    image: image,
+                    lien: lien,
+                    quantite: 1
+                };
+                panier.push(nouveauProduit);
+            }
+            
+            // Sauvegarder le panier mis à jour dans localStorage
+            localStorage.setItem("panier", JSON.stringify(panier));
+            
+            // Mettre à jour le compteur du panier
+            updateCartCounter();
+            
+            // Animation de succès pour le compteur
+            const compteur = document.getElementById("compteur-panier");
+            if (compteur) {
+                compteur.style.animation = 'bounce 0.6s ease-in-out';
+                setTimeout(() => {
+                    compteur.style.animation = '';
+                }, 600);
+            }
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Récupérer les données du produit depuis les attributs data
+                const nom = this.getAttribute('data-nom');
+                const prix = this.getAttribute('data-prix');
+                const image = this.getAttribute('data-image');
+                const lien = this.getAttribute('data-lien');
+                
+                // Vérifier que tous les attributs sont présents
+                if (!nom || !prix || !image || !lien) {
+                    console.error('Attributs manquants pour le produit:', {nom, prix, image, lien});
+                    return;
+                }
+                
+                // Ajouter l'état de chargement
+                this.classList.add('btn-loading');
+                
+                // Ajouter le produit au panier
+                ajouterAuPanier(nom, prix, image, lien);
+                
+                setTimeout(() => {
+                    this.classList.remove('btn-loading');
+                    this.innerHTML = '<i class="fas fa-check"></i><span>Ajouté !</span>';
+                    this.style.background = '#10b981';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-shopping-cart"></i><span>Ajouter au panier</span>';
+                        this.style.background = '';
+                    }, 2000);
+                }, 1000);
+            });
+        });
+
+        // Newsletter
+        document.querySelector('.subscribe-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const emailInput = document.querySelector('.email-input');
+            const email = emailInput.value;
+            
+            if (email && email.includes('@')) {
+                this.classList.add('btn-loading');
+                
+                setTimeout(() => {
+                    this.classList.remove('btn-loading');
+                    this.innerHTML = '<i class="fas fa-check"></i><span>Inscrit !</span>';
+                    this.style.background = '#10b981';
+                    emailInput.value = '';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-paper-plane"></i><span>S\'abonner</span>';
+                        this.style.background = '';
+                    }, 3000);
+                }, 1500);
+            } else {
+                emailInput.style.borderColor = '#ef4444';
+                setTimeout(() => {
+                    emailInput.style.borderColor = '';
+                }, 2000);
+            }
+        });
+
+        // Effet parallax pour le hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroShapes = document.querySelectorAll('.hero-shape');
+            
+            heroShapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Smooth scroll pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('.modern-header');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+            
+            // Add backdrop blur when scrolled
+            if (scrollTop > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Typing effect pour le titre
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Démarrer l'effet typing quand la page est chargée
+        window.addEventListener('load', () => {
+            const titleMain = document.querySelector('.title-main');
+            if (titleMain) {
+                const originalText = titleMain.textContent;
+                typeWriter(titleMain, originalText, 80);
+            }
+        });
+
+        // Animation des statistiques - Fonction supprimée
+
+        // Observer pour les stats - Section supprimée
+
+        // Gestion du bouton "Voir tous les produits"
+        const voirTousBtn = document.getElementById('voir-tous-produits');
+        const masquerBtn = document.getElementById('masquer-produits');
+        const moreProductsSection = document.getElementById('more-products');
+
+        if (voirTousBtn && moreProductsSection) {
+            voirTousBtn.addEventListener('click', function() {
+                // Animation de chargement
+                this.classList.add('loading');
+                this.querySelector('span').textContent = 'Chargement...';
+                this.querySelector('i').className = 'fas fa-spinner';
+                
+                // Simuler un délai de chargement pour l'effet
+                setTimeout(() => {
+                    // Afficher la section avec animation
+                    moreProductsSection.style.display = 'block';
+                    moreProductsSection.classList.add('sliding-in');
+                    
+                    // Scroll vers la section avec un léger délai
+                    setTimeout(() => {
+                        moreProductsSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 300);
+                    
+                    // Masquer le bouton "Voir tous"
+                    setTimeout(() => {
+                        this.style.display = 'none';
+                    }, 400);
+                    
+                    // Réinitialiser l'état du bouton
+                    this.classList.remove('loading');
+                    this.querySelector('span').textContent = 'Voir tous les produits';
+                    this.querySelector('i').className = 'fas fa-arrow-right';
+                    
+                }, 1200);
+            });
+        }
+
+        if (masquerBtn && moreProductsSection) {
+            masquerBtn.addEventListener('click', function() {
+                // Animation de fermeture
+                moreProductsSection.classList.remove('sliding-in');
+                moreProductsSection.classList.add('sliding-out');
+                
+                // Animation de chargement du bouton
+                this.classList.add('loading');
+                this.querySelector('span').textContent = 'Fermeture...';
+                this.querySelector('i').className = 'fas fa-spinner';
+                
+                setTimeout(() => {
+                    // Masquer la section
+                    moreProductsSection.style.display = 'none';
+                    moreProductsSection.classList.remove('sliding-out');
+                    
+                    // Réafficher le bouton "Voir tous"
+                    voirTousBtn.style.display = 'inline-flex';
+                    
+                    // Scroll vers la section des produits vedettes
+                    document.getElementById('produits-featured').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    
+                    // Réinitialiser l'état du bouton
+                    this.classList.remove('loading');
+                    this.querySelector('span').textContent = 'Masquer les produits';
+                    this.querySelector('i').className = 'fas fa-arrow-up';
+                }, 600);
+            });
+        }
+
+        // Appliquer les mêmes fonctionnalités aux nouveaux produits
+        function initializeNewProductCards() {
+            // Gestion des favoris pour les nouveaux produits
+            document.querySelectorAll('#more-products .action-btn.favorite').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                    
+                    const icon = this.querySelector('i');
+                    if (this.classList.contains('active')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                    }
+                });
+            });
+
+            // Gestion des boutons "Ajouter au panier" pour les nouveaux produits
+            document.querySelectorAll('#more-products .add-to-cart').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Récupérer les données du produit depuis les attributs data
+                    const nom = this.getAttribute('data-nom');
+                    const prix = this.getAttribute('data-prix');
+                    const image = this.getAttribute('data-image');
+                    const lien = this.getAttribute('data-lien');
+                    
+                    // Vérifier que tous les attributs sont présents
+                    if (!nom || !prix || !image || !lien) {
+                        console.error('Attributs manquants pour le produit:', {nom, prix, image, lien});
+                        return;
+                    }
+                    
+                    // Ajouter l'état de chargement
+                    this.classList.add('btn-loading');
+                    
+                    // Ajouter le produit au panier
+                    ajouterAuPanier(nom, prix, image, lien);
+                    
+                    setTimeout(() => {
+                        this.classList.remove('btn-loading');
+                        this.innerHTML = '<i class="fas fa-check"></i><span>Ajouté !</span>';
+                        this.style.background = '#10b981';
+                        
+                        setTimeout(() => {
+                            this.innerHTML = '<i class="fas fa-shopping-cart"></i><span>Ajouter au panier</span>';
+                            this.style.background = '';
+                        }, 2000);
+                    }, 1000);
+                });
+            });
+
+            // Observer pour les animations au scroll des nouveaux produits
+            document.querySelectorAll('#more-products .product-card').forEach(el => {
+                el.classList.add('reveal');
+                observer.observe(el);
+            });
+        }
+
+        // Initialiser les fonctionnalités quand la section est affichée
+        const originalObserve = observer.observe;
+        observer.observe = function(target) {
+            if (target.closest('#more-products')) {
+                // Attendre que la section soit visible
+                setTimeout(() => {
+                    originalObserve.call(this, target);
+                }, 500);
+            } else {
+                originalObserve.call(this, target);
+            }
+        };
+
+        // Initialiser les nouveaux produits au chargement de la page
+        initializeNewProductCards();
+
+        // Animation bounce pour le compteur panier
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounce {
+                0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0) scale(1); }
+                40%, 43% { transform: translate3d(0,-6px,0) scale(1.1); }
+                70% { transform: translate3d(0,-3px,0) scale(1.05); }
+                90% { transform: translate3d(0,-1px,0) scale(1.02); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Script pour le menu mobile moderne
+        const mobileToggle = document.getElementById("mobile-menu-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("nav-open");
+                mobileToggle.classList.toggle("menu-open");
+            });
+
+            // Fermer le menu quand on clique sur un lien
+            const navLinks = navMenu.querySelectorAll("a");
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    navMenu.classList.remove("nav-open");
+                    mobileToggle.classList.remove("menu-open");
+                });
+            });
+
+            // Fermer le menu quand on clique en dehors
+            document.addEventListener("click", (e) => {
+                if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    navMenu.classList.remove("nav-open");
+                    mobileToggle.classList.remove("menu-open");
+                }
+            });
+        }
     </script>
 
 </body>

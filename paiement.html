@@ -16,7 +16,15 @@
         <img src="images/assoc.png" alt="Logo de l'association">
       </a>
     </div>
-    <nav class="main-nav" aria-label="Menu principal">
+
+    <!-- Menu burger pour mobile -->
+    <button class="menu-burger" id="menu-burger" aria-label="Ouvrir le menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" data-test="menu-navigation" aria-label="Menu principal" id="main-nav">
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
@@ -213,6 +221,34 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       updateCartCounter();
+
+      // Script pour le menu burger mobile
+      const menuBurger = document.getElementById("menu-burger");
+      const mainNav = document.getElementById("main-nav");
+      
+      if (menuBurger && mainNav) {
+          menuBurger.addEventListener("click", () => {
+              mainNav.classList.toggle("nav-open");
+              menuBurger.classList.toggle("menu-open");
+          });
+
+          // Fermer le menu quand on clique sur un lien
+          const navLinks = mainNav.querySelectorAll("a");
+          navLinks.forEach(link => {
+              link.addEventListener("click", () => {
+                  mainNav.classList.remove("nav-open");
+                  menuBurger.classList.remove("menu-open");
+              });
+          });
+
+          // Fermer le menu quand on clique en dehors
+          document.addEventListener("click", (e) => {
+              if (!mainNav.contains(e.target) && !menuBurger.contains(e.target)) {
+                  mainNav.classList.remove("nav-open");
+                  menuBurger.classList.remove("menu-open");
+              }
+          });
+      }
     });
   </script>
 </body>

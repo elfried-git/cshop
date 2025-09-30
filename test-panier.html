@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test du Panier</title>
+</head>
+<body>
+    <h1>Test du Système de Panier</h1>
+    
+    <div>
+        <h2>Contenu du panier :</h2>
+        <div id="panier-contenu"></div>
+    </div>
+    
+    <div>
+        <h2>Compteur panier : <span id="compteur-test">0</span></h2>
+    </div>
+    
+    <button onclick="viderPanier()">Vider le panier</button>
+    <button onclick="afficherPanier()">Actualiser l'affichage</button>
+    
+    <script>
+        function afficherPanier() {
+            const panier = JSON.parse(localStorage.getItem("panier")) || [];
+            const contenu = document.getElementById("panier-contenu");
+            const compteur = document.getElementById("compteur-test");
+            
+            if (panier.length === 0) {
+                contenu.innerHTML = "<p>Le panier est vide.</p>";
+                compteur.textContent = "0";
+            } else {
+                let html = "<ul>";
+                let totalArticles = 0;
+                
+                panier.forEach((item, index) => {
+                    html += `<li>${item.nom} - ${item.prix}€ x${item.quantite} = ${(item.prix * item.quantite).toFixed(2)}€</li>`;
+                    totalArticles += item.quantite;
+                });
+                
+                html += "</ul>";
+                contenu.innerHTML = html;
+                compteur.textContent = totalArticles;
+            }
+        }
+        
+        function viderPanier() {
+            localStorage.removeItem("panier");
+            afficherPanier();
+        }
+        
+        // Affichage initial
+        afficherPanier();
+        
+        // Rafraîchissement automatique toutes les 2 secondes
+        setInterval(afficherPanier, 2000);
+    </script>
+</body>
+</html>
