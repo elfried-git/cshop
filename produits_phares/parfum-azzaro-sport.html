@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail produit - Doudoune Ski</title>
+    <title>Parfum Azzaro Sport - Boutique Association</title>
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="../detailproduit.css">
 </head>
 
 <body>
-
     <header class="main-header">
         <div id="logo">
             <a href="../index.html">
@@ -39,23 +38,21 @@
         <section class="product-detail-container">
             <div class="product-detail">
                 <div class="product-image">
-                    <img src="../produits_phares/images/produit2.png" alt="Doudoune Ski">
+                    <img src="../produits_phares/images/parfum-azzaro-sport.jpg" alt="Parfum Azzaro Sport">
                 </div>
                 <div class="product-info">
-                    <h1>Doudoune Ski</h1>
-                    <div class="price" data-original-price="35">35 €</div>
+                    <h1>Parfum Azzaro Sport</h1>
+                    <div class="price" data-original-price="50">50 €</div>
                     <div class="description">
-                        <p>Sweat French Terry en pur coton (non brossé à l'intérieur) avec capuche. Manches avec détail
-                            contrasté. Inscription « Break Rules » imprimée sur la poitrine. Poche kangourou. Poignets et
-                            base côtelés.</p>
+                        <p>Parfum masculin énergisant et rafraîchissant d'Azzaro. Notes fraîches et sportives, parfait pour l'homme moderne et dynamique. Flacon élégant de 100ml.</p>
                     </div>
                     <div class="caracteristiques">
                         <p><strong>Caractéristiques :</strong></p>
                         <ul>
-                            <li>Tailles disponibles : S, M</li>
-                            <li>Composition : 100% coton</li>
-                            <li>Couleur : Rouge</li>
-                            <li>Entretien : Lavable en machine à 30°C</li>
+                            <li>Contenance : 100ml</li>
+                            <li>Type : Eau de toilette</li>
+                            <li>Notes : Fraîches et sportives</li>
+                            <li>Genre : Homme</li>
                         </ul>
                     </div>
                     <div class="actions">
@@ -93,20 +90,12 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Éléments DOM du sélecteur permanent
             const selector = document.getElementById("country-selector");
-
-            // Taux de conversion (Base : 1 EUR)
             const TAUX_FCFA = 655.957; 
             const TAUX_USD = 1.07; 
 
-            /**
-             * Met à jour tous les prix sur la page en fonction de la devise sélectionnée.
-             * @param {string} currency - La devise ('EUR', 'XAF' ou 'USD').
-             */
             function updatePrices(currency) {
                 const priceElements = document.querySelectorAll('[data-original-price]');
-
                 priceElements.forEach(element => {
                     const originalPrice = parseFloat(element.getAttribute('data-original-price'));
                     let newPrice;
@@ -114,56 +103,36 @@
                     let locale = 'fr-FR';
 
                     if (currency === 'XAF') {
-                        // Conversion en FCFA
                         newPrice = Math.round(originalPrice * TAUX_FCFA / 1000) * 1000;
                         currencySymbol = ' FCFA';
                         newPrice = newPrice.toLocaleString(locale);
                     } else if (currency === 'USD') {
-                        // Conversion en USD (arrondi à 2 décimales)
                         newPrice = (originalPrice * TAUX_USD).toFixed(2); 
                         currencySymbol = ' $';
                         locale = 'en-US'; 
-                    } 
-                    else {
-                        // Euro (EUR)
+                    } else {
                         newPrice = originalPrice.toFixed(2);
                         currencySymbol = '€';
                         newPrice = newPrice.replace('.00', ''); 
                     }
-
-                    // Logique d'affichage du prix
                     element.textContent = `${newPrice}${currencySymbol}`;
                 });
             }
             
-            /**
-             * Gère le changement de sélection, met à jour les prix et stocke le choix dans sessionStorage.
-             * @param {string} currency - La devise sélectionnée.
-             */
             function handleSelection(currency) {
                 updatePrices(currency);
-                // Utilise sessionStorage pour retenir le choix sur cette session
                 sessionStorage.setItem('selectedCountry', currency);
             }
 
-
-            // === Logique au chargement (Priorité à la session, sinon EUR par défaut) ===
             const savedCountry = sessionStorage.getItem('selectedCountry'); 
             const defaultCurrency = 'EUR';
-            let initialCurrency = defaultCurrency;
+            let initialCurrency = savedCountry || defaultCurrency;
 
-            if (savedCountry) {
-                initialCurrency = savedCountry;
-            }
-
-            // Appliquer la devise trouvée/par défaut
             if (selector) {
                 selector.value = initialCurrency;
             }
             updatePrices(initialCurrency);
 
-
-            // === Événement de changement du sélecteur ===
             if (selector) {
                 selector.addEventListener('change', (event) => {
                     const selectedCurrency = event.target.value;
@@ -185,20 +154,18 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             updateCartCounter();
-
             const boutonPanier = document.querySelector(".ajouter-panier");
             const message = document.getElementById("confirmation-message");
 
             boutonPanier.addEventListener("click", () => {
                 const produit = {
-                    nom: "Doudoune Ski",
-                    prix: 35, // PRIX DE BASE EN EUR
+                    nom: "Parfum Azzaro Sport",
+                    prix: 50,
                     quantite: parseInt(document.getElementById("quantite").value),
-                    image: "produits_phares/images/produit2.png"
+                    image: "produits_phares/images/parfum-azzaro-sport.jpg"
                 };
 
                 let panier = JSON.parse(localStorage.getItem("panier")) || [];
-
                 const indexExistant = panier.findIndex(p => p.nom === produit.nom);
                 if (indexExistant !== -1) {
                     panier[indexExistant].quantite += produit.quantite;
@@ -207,7 +174,6 @@
                 }
 
                 localStorage.setItem("panier", JSON.stringify(panier));
-
                 updateCartCounter();
 
                 message.style.display = "block";
@@ -223,5 +189,4 @@
         });
     </script>
 </body>
-
 </html>

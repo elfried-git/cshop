@@ -11,7 +11,9 @@
 .about-us-container {
     max-width: 900px;
     margin: 0 auto;
-    padding: var(--spacing-large);
+    /* Use larger padding like the legal document wrapper for readability */
+    padding: 30px;
+    line-height: 1.6;
 }
 
 .about-us-hero {
@@ -52,4 +54,126 @@
 .about-us-section .section-content h2 {
     font-size: 2rem;
     margin-bottom: var(--spacing-small);
+}
+
+/* Make typography match terms-conditions readability */
+.about-us-content p,
+.about-us-section .section-content p {
+    font-size: 1.05rem;
+    color: #333;
+}
+
+
+
+/* Responsive: make about page match global mobile spacing and stacking */
+@media (max-width: 480px) {
+    /* Make the about page follow the exact same mobile sizing rules as global.css */
+    .about-us-container {
+        /* same as global `section` padding at small screens */
+        padding: 1.5rem var(--spacing-small);
+    }
+
+    .about-us-hero {
+        /* match global hero / section spacing and avoid oversized hero */
+        padding: 2rem var(--spacing-small);
+        border-radius: 6px;
+    }
+
+    /* Headings follow global mobile sizes */
+    .about-us-hero h1,
+    .about-us-section .section-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-us-section {
+        /* stack sections vertically like other content on small screens */
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-small);
+        padding: 0.25rem 0;
+    }
+
+    .about-us-section .section-icon {
+        /* slightly smaller icons to match other pages */
+        font-size: 1.8rem;
+    }
+
+    .about-us-section .section-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Larger text for better readability on small and mid-size screens */
+@media (max-width: 768px) {
+    /* Menu links (nav) — match global nav sizing on mobile */
+    .main-nav a {
+        font-size: 1rem; /* slightly larger for readability */
+        padding: 0.6rem var(--spacing-small);
+    }
+
+    /* Hero */
+    .about-us-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Section titles and content */
+    .about-us-section .section-content h2 {
+        font-size: 1.7rem;
+        margin-bottom: var(--spacing-medium);
+    }
+
+    .about-us-section .section-content p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+    }
+
+    /* Augmenter la taille des icônes */
+    .about-us-section .section-icon {
+        font-size: 3rem;
+    }
+
+    /* Ajouter plus d'espacement entre les sections */
+    .about-us-section {
+        margin-bottom: 3rem;
+        gap: var(--spacing-large);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ensure menu, hero and section text are readable on very small screens */
+    .main-nav a {
+        font-size: 1rem;
+        padding: 0.6rem var(--spacing-small);
+    }
+
+    .about-us-hero h1 {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-medium);
+    }
+
+    .about-us-section .section-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-medium);
+    }
+
+    .about-us-section .section-content p {
+        font-size: 1.15rem;
+        line-height: 1.9;
+    }
+
+    /* Augmenter la taille des icônes même sur petits écrans */
+    .about-us-section .section-icon {
+        font-size: 2.5rem;
+    }
+
+    /* Plus d'espacement pour une meilleure respiration */
+    .about-us-section {
+        margin-bottom: 2.5rem;
+        padding: var(--spacing-large) 0;
+    }
+
+    /* Augmenter le padding du container */
+    .about-us-container {
+        padding: 2.5rem var(--spacing-medium);
+    }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail produit - Fossil Montre</title>
+    <title>Détail produit - OVS BREAK Sweatshirt pour filles</title>
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="../detailproduit.css">
 </head>
@@ -36,19 +36,18 @@
     </header>
 
     <main>
-        
         <section class="product-detail-container">
             <div class="product-detail">
                 <div class="product-image">
-                    <img src="../produits_phares/images/produit5.png" alt="Fossil Montre">
+                    <img src="../produits_phares/images/sweatshirt-ovs-break-filles.png" alt="OVS BREAK Sweatshirt filles">
                 </div>
                 <div class="product-info">
-                    <h1>Fossil Montre</h1>
-                    <div class="price" data-original-price="15">15 €</div>
+                    <h1>OVS BREAK Sweatshirt pour filles</h1>
+                    <div class="price" data-original-price="20">20 €</div>
                     <div class="description">
                         <p>Sweat French Terry en pur coton (non brossé à l'intérieur) avec capuche. Manches avec détail
-                            contrasté. Inscription « Break Rules » imprimée sur la poitrine. Poche kangourou. Poignets et
-                            base côtelés.</p>
+                            contrasté. Inscription « Break Rules » imprimée sur la poitrine. Poche kangourou. Poignets
+                            et base côtelés.</p>
                     </div>
                     <div class="caracteristiques">
                         <p><strong>Caractéristiques :</strong></p>
@@ -99,14 +98,16 @@
             const selector = document.getElementById("country-selector");
 
             // Taux de conversion (Base : 1 EUR)
-            const TAUX_FCFA = 655.957; 
-            const TAUX_USD = 1.07; 
+            const TAUX_FCFA = 655.957;
+            const TAUX_USD = 1.07;
 
             /**
              * Met à jour tous les prix sur la page en fonction de la devise sélectionnée.
+             * Utilise '[data-original-price]' pour cibler le prix du produit.
              * @param {string} currency - La devise ('EUR', 'XAF' ou 'USD').
              */
             function updatePrices(currency) {
+                // Cibler le prix du produit sur cette page
                 const priceElements = document.querySelectorAll('[data-original-price]');
 
                 priceElements.forEach(element => {
@@ -122,22 +123,22 @@
                         newPrice = newPrice.toLocaleString(locale);
                     } else if (currency === 'USD') {
                         // Conversion en USD (arrondi à 2 décimales)
-                        newPrice = (originalPrice * TAUX_USD).toFixed(2); 
+                        newPrice = (originalPrice * TAUX_USD).toFixed(2);
                         currencySymbol = ' $';
-                        locale = 'en-US'; 
-                    } 
+                        locale = 'en-US';
+                    }
                     else {
                         // Euro (EUR)
                         newPrice = originalPrice.toFixed(2);
                         currencySymbol = '€';
-                        newPrice = newPrice.replace('.00', ''); 
+                        newPrice = newPrice.replace('.00', '');
                     }
 
-                    // Logique d'affichage du prix
+                    // Mise à jour du texte du prix
                     element.textContent = `${newPrice}${currencySymbol}`;
                 });
             }
-            
+
             /**
              * Gère le changement de sélection, met à jour les prix et stocke le choix dans sessionStorage.
              * @param {string} currency - La devise sélectionnée.
@@ -149,8 +150,9 @@
             }
 
 
-            // === Logique au chargement (Priorité à la session, sinon EUR par défaut) ===
-            const savedCountry = sessionStorage.getItem('selectedCountry'); 
+            // === Logique au chargement ===
+            // Récupère la devise sauvegardée ou utilise 'EUR' par défaut
+            const savedCountry = sessionStorage.getItem('selectedCountry');
             const defaultCurrency = 'EUR';
             let initialCurrency = defaultCurrency;
 
@@ -174,7 +176,7 @@
             }
         });
     </script>
-    
+
     <script>
         function updateCartCounter() {
             const compteur = document.getElementById("compteur-panier");
@@ -192,11 +194,12 @@
             const message = document.getElementById("confirmation-message");
 
             boutonPanier.addEventListener("click", () => {
+                // Le prix doit rester en Euros dans le localStorage pour éviter les problèmes de devises dans le panier.
                 const produit = {
-                    nom: "Fossil Montre",
-                    prix: 15, // PRIX DE BASE EN EUR
+                    nom: "OVS BREAK Sweatshirt pour filles",
+                    prix: 20, // Toujours le prix de base en EUR
                     quantite: parseInt(document.getElementById("quantite").value),
-                    image: "produits_phares/images/produit5.png"
+                    image: "produits_phares/images/sweatshirt-ovs-break-filles.png"
                 };
 
                 let panier = JSON.parse(localStorage.getItem("panier")) || [];

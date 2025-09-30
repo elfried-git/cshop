@@ -24,7 +24,15 @@
         <img src="images/assoc.png" alt="Logo de l'association">
       </a>
     </div>
-    <nav class="main-nav" aria-label="Menu principal">
+    
+    <!-- Menu burger pour mobile -->
+    <button class="menu-burger" id="menu-burger" aria-label="Ouvrir le menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <nav class="main-nav" id="main-nav" aria-label="Menu principal">
       <ul>
         <li><a href="index.html">Accueil</a></li>
         <li><a href="quisommesnous.html">Qui sommes-nous ?</a></li>
@@ -85,6 +93,8 @@
 
       function afficherPanier() {
         const panier = JSON.parse(localStorage.getItem("panier")) || [];
+        // Récupérer la devise sauvegardée depuis la page d'accueil
+        const selectedCurrency = sessionStorage.getItem('selectedCountry') || 'EUR';
         tbody.innerHTML = "";
         let total = 0;
 
@@ -106,15 +116,17 @@
             const tr = document.createElement("tr");
             tr.setAttribute("data-index", index);
 
-            const totalItem = item.prix * item.quantite;
-            total += totalItem;
+            // Conversion des prix selon la devise sauvegardée
+            const prixConverti = convertirPrix(item.prix, selectedCurrency);
+            const totalItem = convertirPrix(item.prix * item.quantite, selectedCurrency);
+            total += item.prix * item.quantite; // Garder le total en EUR pour les calculs
 
             tr.innerHTML = `
               <td><img src="${item.image}" alt="${item.nom}"></td>
               <td>${item.nom}</td>
-              <td>${item.prix} €</td>
+              <td>${prixConverti}</td>
               <td><input type="number" class="quantite-input" value="${item.quantite}" min="1" data-index="${index}"></td>
-              <td>${totalItem.toFixed(2)} €</td>
+              <td>${totalItem}</td>
               <td><button class="remove-btn" data-index="${index}">Supprimer</button></td>
             `;
 
@@ -122,7 +134,9 @@
           });
         }
 
-        totalPanier.textContent = total.toFixed(2) + " €";
+        // Afficher le total converti
+        const totalConverti = convertirPrix(total, selectedCurrency);
+        totalPanier.textContent = totalConverti;
         activerSuppression();
         activerQuantite();
       }
@@ -181,6 +195,78 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       updateCartCounter();
+    });
+  </script>
+
+  <!-- Script pour la conversion de devise -->
+  <script>
+    // Taux de conversion (Base : 1 EUR)
+    const TAUX_FCFA = 655.957;
+    const TAUX_USD = 1.07;
+
+    /**
+     * Convertit un prix en EUR vers la devise sélectionnée
+     * @param {number} prixEur - Le prix en euros
+     * @param {string} currency - La devise cible ('EUR', 'XAF' ou 'USD')
+     * @returns {string} - Le prix formaté avec le symbole de la devise
+     */
+    function convertirPrix(prixEur, currency) {
+      let newPrice;
+      let currencySymbol;
+      let locale = 'fr-FR';
+
+      if (currency === 'XAF') {
+        // Conversion en FCFA
+        newPrice = Math.round(prixEur * TAUX_FCFA / 1000) * 1000;
+        currencySymbol = ' FCFA';
+        newPrice = newPrice.toLocaleString(locale);
+      } else if (currency === 'USD') {
+        // Conversion en USD
+        newPrice = (prixEur * TAUX_USD).toFixed(2);
+        currencySymbol = ' $';
+        locale = 'en-US';
+      } else {
+        // Euro (EUR)
+        newPrice = prixEur.toFixed(2);
+        currencySymbol = '€';
+        newPrice = newPrice.replace('.00', ''); // Enlève .00 si c'est un prix entier
+      }
+
+      return `${newPrice}${currencySymbol}`;
+    }
+
+    // Pas besoin de script supplémentaire, la devise est automatiquement récupérée depuis sessionStorage
+  </script>
+
+  <!-- Script pour le menu burger mobile -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBurger = document.getElementById("menu-burger");
+      const mainNav = document.getElementById("main-nav");
+
+      if (menuBurger && mainNav) {
+        menuBurger.addEventListener("click", () => {
+          mainNav.classList.toggle("nav-open");
+          menuBurger.classList.toggle("menu-open");
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        const navLinks = mainNav.querySelectorAll("a");
+        navLinks.forEach(link => {
+          link.addEventListener("click", () => {
+            mainNav.classList.remove("nav-open");
+            menuBurger.classList.remove("menu-open");
+          });
+        });
+
+        // Fermer le menu quand on clique en dehors
+        document.addEventListener("click", (e) => {
+          if (!mainNav.contains(e.target) && !menuBurger.contains(e.target)) {
+            mainNav.classList.remove("nav-open");
+            menuBurger.classList.remove("menu-open");
+          }
+        });
+      }
     });
   </script>
 </body>

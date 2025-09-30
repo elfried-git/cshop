@@ -43,19 +43,7 @@
     border-radius: var(--border-radius);
 }
 
-.remove-btn {
-    background-color: var(--danger-color);
-    color: var(--white-color);
-    border: none;
-    padding: var(--spacing-small) var(--spacing-medium);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.remove-btn:hover {
-    background-color: #c0392b;
-}
 
 .resume-panier {
     text-align: right;
@@ -67,4 +55,129 @@
     display: flex;
     justify-content: flex-end;
     gap: var(--spacing-medium);
+}
+
+/* Réduction de la taille des boutons du panier */
+.boutons-panier .btn {
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: 0.9rem;
+}
+
+.remove-btn {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Styles responsives pour mobile */
+@media (max-width: 768px) {
+    .panier-container {
+        padding: var(--spacing-medium);
+    }
+
+    /* Container avec scroll horizontal pour le tableau */
+    .panier-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: var(--border-light);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-small);
+    }
+
+    .panier-table {
+        min-width: 600px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+
+    .panier-table th,
+    .panier-table td {
+        padding: 0.5rem 0.3rem;
+        vertical-align: middle;
+    }
+
+    .panier-table img {
+        max-width: 50px;
+        height: auto;
+    }
+
+    .quantite-input {
+        width: 50px;
+        padding: 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    .remove-btn {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .boutons-panier {
+        flex-direction: column;
+        gap: var(--spacing-small);
+        align-items: stretch;
+        margin-top: var(--spacing-large);
+    }
+    
+    .boutons-panier .btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        text-align: center;
+        border-radius: var(--border-radius);
+    }
+
+    .resume-panier {
+        text-align: center;
+        margin-bottom: var(--spacing-medium);
+    }
+
+    .resume-panier p {
+        font-size: 1.1rem;
+        margin-bottom: var(--spacing-medium);
+    }
+}
+
+/* Styles pour très petits écrans */
+@media (max-width: 480px) {
+    .panier-container {
+        padding: var(--spacing-small);
+    }
+
+    .panier-table {
+        font-size: 0.75rem;
+    }
+
+    .panier-table th,
+    .panier-table td {
+        padding: 0.4rem 0.2rem;
+    }
+
+    .panier-table img {
+        max-width: 40px;
+    }
+
+    .quantite-input {
+        width: 45px;
+        padding: 0.2rem;
+        font-size: 0.75rem;
+    }
+
+    .remove-btn {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.65rem;
+    }
+
+    .boutons-panier .btn {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
 }

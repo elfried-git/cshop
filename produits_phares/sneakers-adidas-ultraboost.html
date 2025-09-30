@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail produit - maillot domicile fc barcelone</title>
+    <title>Sneakers Adidas Ultraboost - Boutique Association</title>
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="../detailproduit.css">
 </head>
 
 <body>
-
     <header class="main-header">
         <div id="logo">
             <a href="../index.html">
@@ -39,21 +38,22 @@
         <section class="product-detail-container">
             <div class="product-detail">
                 <div class="product-image">
-                    <img src="../produits_phares/images/produit7.jpg" alt="iPhone 14 Pro Max">
+                    <img src="../images/sneakers-adidas.jpg" alt="Sneakers Adidas Ultraboost">
                 </div>
                 <div class="product-info">
-                    <h1>IPhone 14 Pro Max</h1>
-                    <div class="price" data-original-price="750">750 €</div>
+                    <h1>Sneakers Adidas Ultraboost</h1>
+                    <div class="price" data-original-price="55">55 €</div>
                     <div class="description">
-                        <p>Un visage inédit pour iPhone. iPhone 14 Pro Max est doté d’une caméra de 48 Mpx avec la puce
-                            par excellence pour tout propulser. Commandez le vôtre chez Fido dès aujourd’hui.</p>
+                        <p>Sneakers Adidas Ultraboost avec technologie Boost révolutionnaire. Confort exceptionnel et performance maximale pour la course et le quotidien. Design moderne avec tige Primeknit adaptative.</p>
                     </div>
                     <div class="caracteristiques">
                         <p><strong>Caractéristiques :</strong></p>
                         <ul>
-                            <li>Modèle : Iphone 14 Pro Max</li>
-                            <li>Couleur : Argentée</li>
-                            <li>Capacité : 128Go</li>
+                            <li>Technologie Boost pour l'amortissement</li>
+                            <li>Tige Primeknit adaptative</li>
+                            <li>Semelle Continental Rubber</li>
+                            <li>Tailles disponibles : 38 à 47</li>
+                            <li>Couleur : Noir/Blanc</li>
                         </ul>
                     </div>
                     <div class="actions">
@@ -61,8 +61,7 @@
                         <input type="number" id="quantite" name="quantite" min="1" value="1">
                         <button class="btn ajouter-panier">Ajouter au panier</button>
                     </div>
-                    <p id="confirmation-message" class="confirmation-message" style="display: none;">Produit ajouté au
-                        panier !</p>
+                    <p id="confirmation-message" class="confirmation-message" style="display: none;">Produit ajouté au panier !</p>
                 </div>
             </div>
         </section>
@@ -92,20 +91,12 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Éléments DOM du sélecteur permanent
             const selector = document.getElementById("country-selector");
+            const TAUX_FCFA = 655.957;
+            const TAUX_USD = 1.07;
 
-            // Taux de conversion (Base : 1 EUR)
-            const TAUX_FCFA = 655.957; 
-            const TAUX_USD = 1.07; 
-
-            /**
-             * Met à jour tous les prix sur la page en fonction de la devise sélectionnée.
-             * @param {string} currency - La devise ('EUR', 'XAF' ou 'USD').
-             */
             function updatePrices(currency) {
                 const priceElements = document.querySelectorAll('[data-original-price]');
-
                 priceElements.forEach(element => {
                     const originalPrice = parseFloat(element.getAttribute('data-original-price'));
                     let newPrice;
@@ -113,57 +104,36 @@
                     let locale = 'fr-FR';
 
                     if (currency === 'XAF') {
-                        // Conversion en FCFA
                         newPrice = Math.round(originalPrice * TAUX_FCFA / 1000) * 1000;
                         currencySymbol = ' FCFA';
                         newPrice = newPrice.toLocaleString(locale);
                     } else if (currency === 'USD') {
-                        // Conversion en USD (arrondi à 2 décimales)
-                        newPrice = (originalPrice * TAUX_USD).toFixed(2); 
+                        newPrice = (originalPrice * TAUX_USD).toFixed(2);
                         currencySymbol = ' $';
-                        locale = 'en-US'; 
-                    } 
-                    else {
-                        // Euro (EUR)
+                        locale = 'en-US';
+                    } else {
                         newPrice = originalPrice.toFixed(2);
                         currencySymbol = '€';
-                        // Pour les montants élevés en euro, on laisse les centimes pour plus de précision si nécessaire
-                        newPrice = newPrice.replace('.00', ''); 
+                        newPrice = newPrice.replace('.00', '');
                     }
-
-                    // Logique d'affichage du prix
                     element.textContent = `${newPrice}${currencySymbol}`;
                 });
             }
-            
-            /**
-             * Gère le changement de sélection, met à jour les prix et stocke le choix dans sessionStorage.
-             * @param {string} currency - La devise sélectionnée.
-             */
+
             function handleSelection(currency) {
                 updatePrices(currency);
-                // Utilise sessionStorage pour retenir le choix sur cette session
                 sessionStorage.setItem('selectedCountry', currency);
             }
 
-
-            // === Logique au chargement (Priorité à la session, sinon EUR par défaut) ===
-            const savedCountry = sessionStorage.getItem('selectedCountry'); 
+            const savedCountry = sessionStorage.getItem('selectedCountry');
             const defaultCurrency = 'EUR';
-            let initialCurrency = defaultCurrency;
+            let initialCurrency = savedCountry || defaultCurrency;
 
-            if (savedCountry) {
-                initialCurrency = savedCountry;
-            }
-
-            // Appliquer la devise trouvée/par défaut
             if (selector) {
                 selector.value = initialCurrency;
             }
             updatePrices(initialCurrency);
 
-
-            // === Événement de changement du sélecteur ===
             if (selector) {
                 selector.addEventListener('change', (event) => {
                     const selectedCurrency = event.target.value;
@@ -172,7 +142,7 @@
             }
         });
     </script>
-    
+
     <script>
         function updateCartCounter() {
             const compteur = document.getElementById("compteur-panier");
@@ -185,20 +155,18 @@
 
         document.addEventListener("DOMContentLoaded", () => {
             updateCartCounter();
-
             const boutonPanier = document.querySelector(".ajouter-panier");
             const message = document.getElementById("confirmation-message");
 
             boutonPanier.addEventListener("click", () => {
                 const produit = {
-                    nom: "Iphone 14 pro max",
-                    prix: 750, // PRIX DE BASE EN EUR
+                    nom: "Sneakers Adidas Ultraboost",
+                    prix: 55,
                     quantite: parseInt(document.getElementById("quantite").value),
-                    image: "produits_phares/images/produit7.jpg"
+                    image: "images/sneakers-adidas.jpg"
                 };
 
                 let panier = JSON.parse(localStorage.getItem("panier")) || [];
-
                 const indexExistant = panier.findIndex(p => p.nom === produit.nom);
                 if (indexExistant !== -1) {
                     panier[indexExistant].quantite += produit.quantite;
@@ -207,7 +175,6 @@
                 }
 
                 localStorage.setItem("panier", JSON.stringify(panier));
-
                 updateCartCounter();
 
                 message.style.display = "block";
@@ -223,5 +190,4 @@
         });
     </script>
 </body>
-
 </html>
