@@ -32,8 +32,13 @@
 }
 
 .panier-table img {
-    max-width: 80px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+    display: block;
+    background-color: #f8f9fa;
 }
 
 .quantite-input {

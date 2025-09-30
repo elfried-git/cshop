@@ -121,8 +121,26 @@
             const totalItem = convertirPrix(item.prix * item.quantite, selectedCurrency);
             total += item.prix * item.quantite; // Garder le total en EUR pour les calculs
 
+            // Correction du chemin de l'image pour l'affichage dans le panier
+            let imageSrc = item.image;
+            
+            // Vérifier si le chemin est déjà correct ou s'il faut l'ajuster
+            if (imageSrc && !imageSrc.startsWith('http') && !imageSrc.startsWith('./') && !imageSrc.startsWith('../')) {
+              // Si le chemin commence par "images/" mais n'est pas dans le bon contexte
+              if (imageSrc.startsWith('images/') && !imageSrc.startsWith('produits_phares/')) {
+                // Garder le chemin tel quel car il pointe vers le dossier images à la racine
+                imageSrc = imageSrc;
+              } else if (imageSrc.startsWith('produits_phares/')) {
+                // Le chemin est déjà correct pour la racine
+                imageSrc = imageSrc;
+              } else {
+                // Pour tout autre cas, assumons que c'est dans produits_phares/images/
+                imageSrc = 'produits_phares/images/' + imageSrc;
+              }
+            }
+
             tr.innerHTML = `
-              <td><img src="${item.image}" alt="${item.nom}"></td>
+              <td><img src="${imageSrc}" alt="${item.nom}" onerror="this.src='images/assoc.png'; this.alt='Image non disponible'"></td>
               <td>${item.nom}</td>
               <td>${prixConverti}</td>
               <td><input type="number" class="quantite-input" value="${item.quantite}" min="1" data-index="${index}"></td>
