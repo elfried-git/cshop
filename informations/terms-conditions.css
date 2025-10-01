@@ -3,6 +3,37 @@
    Système de design moderne avec variables CSS et gradients
    ========================================================================== */
 
+/* Bouton retour à l'accueil */
+.retour-accueil-container {
+    padding: 2rem 0 1rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.btn-retour-accueil {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-retour-accueil:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.btn-retour-accueil i {
+    font-size: 0.9rem;
+}
+
 /* Variables CSS modernes */
 :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
