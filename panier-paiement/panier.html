@@ -8,6 +8,184 @@
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../index-modern.css">
     <link rel="stylesheet" href="panier.css">
+    <style>
+    /* HEADER MODERNE - Copié depuis index-modern.css */
+    .modern-header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .nav-brand .brand-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: #2d3748;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+    .brand-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .brand-icon:hover {
+        transform: scale(1.1) rotate(5deg);
+    }
+    .nav-menu {
+        display: flex;
+        align-items: center;
+    }
+    .nav-list {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-link {
+        text-decoration: none;
+        color: #718096;
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover,
+    .nav-link.active {
+        color: #2d3748;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .currency-select {
+        background: #f3f4f6;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .currency-select:hover {
+        background: #e5e7eb;
+    }
+    .action-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        background: #f3f4f6;
+        color: #718096;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        border: none;
+        cursor: pointer;
+    }
+    .action-btn:hover {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        transform: translateY(-2px);
+    }
+    .cart-count {
+        position: absolute;
+        top: -0.25rem;
+        right: -0.25rem;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.25rem 0.5rem;
+        border-radius: 9999px;
+        min-width: 1.25rem;
+        height: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 0.25rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+    .mobile-menu-toggle span {
+        width: 1.5rem;
+        height: 2px;
+        background: #2d3748;
+        border-radius: 2px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Ajout d'un fond dégradé sous la barre de menu comme sur index.html */
+    body {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    main {
+        background: #f8fafc;
+        min-height: 100vh;
+        padding-top: 110px;
+    }
+    .modern-header {
+        box-shadow: 0 2px 16px 0 rgba(102, 126, 234, 0.07);
+    }
+    /* Responsive ajustement pour le header */
+    @media (max-width: 900px) {
+        .nav-container {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .nav-list {
+            gap: 1rem;
+        }
+    }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,40 +193,44 @@
 </head>
 
 <body>
-    <!-- Header avec navigation -->
-    <header class="main-header">
-        <div class="container">
-            <div class="header-content">
-                <div id="logo">
-                    <a href="../index.html">
-                        <img src="../images/assoc.png" alt="Logo Shop Na Biso">
-                    </a>
-                </div>
-
-                <!-- Menu burger pour mobile -->
-                <button class="menu-burger" id="menu-burger" aria-label="Ouvrir le menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-                <nav class="main-nav" id="main-nav">
-                    <ul>
-                        <li><a href="../index.html">Accueil</a></li>
-                        <li><a href="../index.html#produits-featured">Produits</a></li>
-                        <li><a href="../index.html#categories-section">Catégories</a></li>
-                        <li><a href="../index.html#contact">Contact</a></li>
-                        <li><a href="../auth/connexion.html">Profil</a></li>
-                        <li>
-                            <a href="panier.html" class="cart-btn active" aria-label="Voir le panier">
-                                <i class="fas fa-shopping-cart"></i>
-                                <span class="cart-count" id="compteur-panier">0</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+    <!-- Header moderne et navigation -->
+    <header class="modern-header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-link">
+                    <div class="brand-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <span class="brand-text">Shop Na Biso</span>
+                </a>
             </div>
-        </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="../informations/quisommesnous.html" class="nav-link">À propos</a></li>
+                    <li><a href="../index.html#produits-featured" class="nav-link">Produits</a></li>
+                    <li><a href="../index.html#categories-section" class="nav-link">Catégories</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <a href="../auth/connexion.html" class="action-btn login-btn">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="panier.html" class="action-btn cart-btn active">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="compteur-panier">0</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
     </header>
 
     <main>
@@ -60,11 +242,8 @@
 
             <!-- Panier vide (caché par défaut) -->
             <div class="panier-vide" id="panier-vide" style="display: none;">
-                <div class="empty-cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
+                
                 <h2>Votre panier est vide</h2>
-                <p>Découvrez nos produits et ajoutez vos articles favoris</p>
                 <a href="../index.html" class="btn btn-primary">
                     <i class="fas fa-arrow-left"></i>
                     Continuer mes achats
@@ -269,15 +448,45 @@
         }
 
         function removeItem(index) {
-            if (confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) {
+            showDeleteModal(index);
+        }
+
+        // Popin de confirmation suppression
+        function showDeleteModal(index) {
+            let modal = document.getElementById('delete-modal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'delete-modal';
+                modal.innerHTML = `
+                    <div class="modal-overlay"></div>
+                    <div class="modal-content">
+                        <h3>Confirmation</h3>
+                        <p>Êtes-vous sûr de vouloir supprimer cet article du panier ?</p>
+                        <div class="modal-actions">
+                            <button id="modal-cancel" class="btn btn-secondary">Annuler</button>
+                            <button id="modal-confirm" class="btn btn-primary">Supprimer</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            } else {
+                modal.style.display = 'flex';
+            }
+            // Show modal
+            modal.style.display = 'flex';
+            // Cancel
+            document.getElementById('modal-cancel').onclick = function() {
+                modal.style.display = 'none';
+            };
+            // Confirm
+            document.getElementById('modal-confirm').onclick = function() {
                 let panier = JSON.parse(localStorage.getItem('panier')) || [];
                 panier.splice(index, 1);
                 localStorage.setItem('panier', JSON.stringify(panier));
                 loadCart();
-                
-                // Animation de suppression
+                modal.style.display = 'none';
                 showNotification('Article supprimé du panier', 'info');
-            }
+            };
         }
 
         function updateSummary(total, itemCount, currency) {
@@ -400,6 +609,79 @@
         // Initialisation
         document.addEventListener('DOMContentLoaded', function() {
             loadCart();
+            // Ajout du style pour la popin de confirmation
+            const style = document.createElement('style');
+            style.innerHTML = `
+            #delete-modal {
+                display: none;
+                position: fixed;
+                z-index: 2000;
+                left: 0; top: 0; right: 0; bottom: 0;
+                width: 100vw; height: 100vh;
+                align-items: center;
+                justify-content: center;
+            }
+            #delete-modal .modal-overlay {
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.4);
+                z-index: 1;
+            }
+            #delete-modal .modal-content {
+                position: relative;
+                z-index: 2;
+                background: #fff;
+                border-radius: 14px;
+                padding: 2rem 2.5rem;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+                min-width: 320px;
+                max-width: 90vw;
+                text-align: center;
+                animation: modalIn 0.2s;
+            }
+            #delete-modal h3 {
+                margin-top: 0;
+                font-size: 1.3rem;
+                color: #e53e3e;
+            }
+            #delete-modal p {
+                margin: 1rem 0 2rem 0;
+                color: #333;
+            }
+            #delete-modal .modal-actions {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+            }
+            #delete-modal .btn {
+                min-width: 100px;
+                padding: 0.5rem 1.2rem;
+                border-radius: 8px;
+                border: none;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            #delete-modal .btn-primary {
+                background: #e53e3e;
+                color: #fff;
+            }
+            #delete-modal .btn-primary:hover {
+                background: #c53030;
+            }
+            #delete-modal .btn-secondary {
+                background: #f1f1f1;
+                color: #333;
+            }
+            #delete-modal .btn-secondary:hover {
+                background: #e2e8f0;
+            }
+            @keyframes modalIn {
+                from { transform: scale(0.95); opacity: 0; }
+                to { transform: scale(1); opacity: 1; }
+            }
+            `;
+            document.head.appendChild(style);
         });
     </script>
 </body>
