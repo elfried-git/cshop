@@ -1,50 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <style>
-        .input-wrapper {
-            position: relative;
-        }
-        .input-wrapper input[type="password"] {
-            padding-right: 2.5rem;
-        }
-        .input-wrapper .toggle-password {
-            position: absolute;
-            right: 0.7rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            padding: 0;
-            margin: 0;
-            cursor: pointer;
-            height: 1.8rem;
-            width: 1.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .input-wrapper .toggle-password i {
-            font-size: 1.1em;
-        }
-    </style>
-    <style>
-        @media (max-width: 600px) {
-            body .auth-container {
-                margin-top: 90px !important;
-            }
-        }
-
-        @media (min-width: 601px) {
-            body .auth-container {
-                margin-top: 60px;
-            }
-        }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion - Shop Na Biso</title>
+    <title>Inscription - Shop Na Biso</title>
     <link rel="stylesheet" href="../global.css">
     <link rel="stylesheet" href="../index-modern.css">
     <link rel="stylesheet" href="auth.css">
@@ -52,8 +11,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @media (max-width: 600px) {
+            body .auth-container { margin-top: 90px !important; }
+        }
+        @media (min-width: 601px) {
+            body .auth-container { margin-top: 60px; }
+        }
+    </style>
 </head>
-
 <body>
     <!-- Navigation moderne -->
     <header class="modern-header">
@@ -66,7 +32,6 @@
                     <span class="brand-text">Shop Na Biso</span>
                 </a>
             </div>
-
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li><a href="../index.html" class="nav-link">Accueil</a></li>
@@ -76,7 +41,6 @@
                     <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
-
             <div class="nav-actions">
                 <div class="currency-selector">
                     <select id="country-selector" class="currency-select">
@@ -85,7 +49,7 @@
                         <option value="USD">USD ($)</option>
                     </select>
                 </div>
-                <a href="connexion.html" class="action-btn login-btn active">
+                <a href="connexion.html" class="action-btn login-btn">
                     <i class="fas fa-user"></i>
                 </a>
                 <a href="../panier-paiement/panier.html" class="action-btn cart-btn">
@@ -93,7 +57,6 @@
                     <span class="cart-count" id="compteur-panier">0</span>
                 </a>
             </div>
-
             <button class="mobile-menu-toggle" id="mobile-menu-toggle">
                 <span></span>
                 <span></span>
@@ -101,16 +64,20 @@
             </button>
         </nav>
     </header>
-
     <main>
-        <section class="auth-container"
-            style="min-height:calc(100vh - 180px); background: linear-gradient(135deg, #f3f0ff 0%, #e0e7ff 100%);">
+        <section class="auth-container" style="min-height:calc(100vh - 180px); background: linear-gradient(135deg, #f3f0ff 0%, #e0e7ff 100%);">
             <div class="auth-card">
                 <div class="auth-header">
-                    <h1 style="color:#764ba2;">Connexion</h1>
-                    <p style="color:#555;">Connectez-vous à votre compte</p>
+                    <h1 style="color:#764ba2;">Créer un compte</h1>
+                    <p style="color:#555;">Remplissez le formulaire pour vous inscrire</p>
                 </div>
-                <form class="auth-form" id="login-form">
+                <form class="auth-form" id="register-form">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <div class="input-wrapper">
@@ -120,32 +87,26 @@
                     <div class="form-group">
                         <label for="password">Mot de passe</label>
                         <div class="input-wrapper">
-                            <input type="password" id="password" name="password" placeholder="Votre mot de passe"
-                                required>
-                            <button type="button" class="toggle-password">
-                                <i class="fas fa-eye"></i>
-                            </button>
+                            <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
                         </div>
                     </div>
-                    <div class="form-options" style="display:flex; justify-content:space-between; align-items:center;">
-                        <label class="checkbox-wrapper" style="display:flex; align-items:center; gap:0.5rem;">
-                            <a href="modifiermotpasse.html" class="forgot-link"
-                                style="color:#764ba2; font-weight:500;">Mot
-                                de passe oublié ?</a>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmer le mot de passe</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmez le mot de passe" required>
+                        </div>
                     </div>
                     <button type="submit" class="auth-btn">
-                        <span>Se connecter</span>
-                        <i class="fas fa-arrow-right"></i>
+                        <span>S'inscrire</span>
+                        <i class="fas fa-user-plus"></i>
                     </button>
                 </form>
                 <div class="auth-footer">
-                    <p>Pas encore de compte ? <a href="inscription.html"
-                            style="color:#764ba2; font-weight:600;">S'inscrire</a></p>
+                    <p>Déjà un compte ? <a href="connexion.html" style="color:#764ba2; font-weight:600;">Se connecter</a></p>
                 </div>
             </div>
         </section>
     </main>
-
     <!-- Footer Moderne (identique à index) -->
     <footer class="modern-footer">
         <div class="container">
@@ -161,12 +122,10 @@
                         Votre boutique e-commerce de confiance pour des produits de qualité à des prix exceptionnels.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/?locale=fr_FR" target="_blank" rel="noopener noreferrer"
-                            class="social-link">
+                        <a href="https://www.facebook.com/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="social-link">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-                            class="social-link">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="#" class="social-link">
@@ -227,54 +186,27 @@
             </div>
         </div>
     </footer>
-
-    <!-- Scripts -->
     <script>
-        // Gestion du toggle password
-        document.querySelector('.toggle-password').addEventListener('click', function () {
-            const passwordInput = document.getElementById('password');
-            const icon = this.querySelector('i');
-
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        });
-
-        // Gestion du formulaire de connexion
-        document.getElementById('login-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Simulation de connexion
-            const btn = this.querySelector('.auth-btn');
-            const originalText = btn.innerHTML;
-
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connexion...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check"></i> Connecté !';
-                btn.style.background = '#10b981';
-
-                setTimeout(() => {
-                    window.location.href = '../index.html';
-                }, 1000);
-            }, 2000);
-        });
-
-        // Menu mobile
-        document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+        // Gestion du menu mobile
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
             const navMenu = document.getElementById('nav-menu');
             navMenu.classList.toggle('nav-open');
             this.classList.toggle('menu-open');
         });
+        // Gestion du formulaire d'inscription (simulation)
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('.auth-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Création...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Compte créé !';
+                btn.style.background = '#10b981';
+                setTimeout(() => {
+                    window.location.href = 'connexion.html';
+                }, 1200);
+            }, 1800);
+        });
     </script>
-
 </body>
-
 </html>
